@@ -1,0 +1,43 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Client.master.cs" Inherits="BeerStore.Client" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta name="viewport" content="width=device-width, intial-scale=1" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/site.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="default.css">
+</head>
+<body>
+        <div class="container">
+           <h1 class="leftalign"> Beer Store</h1> 
+           <asp:HyperLink ID="loginLink" runat="server" class="rightalign btn" NavigateUrl="~/Login.aspx">Login   <span class="glyphicon glyphicon-user"></span></asp:HyperLink>
+           <asp:HyperLink ID="RegisterLink" runat="server" class="rightalign btn" NavigateUrl="~/Register.aspx">Register   <span class="glyphicon glyphicon-log-in"></span></asp:HyperLink>
+            <span class="rightalign col-lg-2 margintop"> Welcome [username]</span>
+        </div>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                <asp:HyperLink class="navbar-brand" runat="server"> Beer Store</asp:HyperLink>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><asp:HyperLink ID="HyperLink5"  runat="server" NavigateUrl="~/Default.aspx">Home</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/About.aspx">About</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Products.aspx">Products</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Contact.aspx">Contact</asp:HyperLink></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Cart.aspx">Cart  <span class="badge">7</span></asp:HyperLink></li>
+            </ul>
+            </div>
+        </nav>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+</body>
+</html>
