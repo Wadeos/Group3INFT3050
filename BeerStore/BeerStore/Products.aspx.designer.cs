@@ -10,33 +10,51 @@
 namespace BeerStore {
     
     
-    public partial class _default {
+    public partial class Products1 {
         
         /// <summary>
-        /// homePage control.
+        /// Products control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm homePage;
+        protected global::System.Web.UI.HtmlControls.HtmlForm Products;
         
         /// <summary>
-        /// searchBar control.
+        /// CategoryList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox searchBar;
+        protected global::System.Web.UI.WebControls.DropDownList CategoryList;
         
         /// <summary>
-        /// test control.
+        /// beerName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label test;
+        protected global::System.Web.UI.WebControls.Label beerName;
+        
+        /// <summary>
+        /// beerDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label beerDescription;
+        
+        /// <summary>
+        /// categoryType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label categoryType;
     }
 }
