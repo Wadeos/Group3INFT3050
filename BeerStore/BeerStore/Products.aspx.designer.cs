@@ -22,31 +22,13 @@ namespace BeerStore {
         protected global::System.Web.UI.HtmlControls.HtmlForm Products;
         
         /// <summary>
-        /// CategoryList control.
+        /// Table1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList CategoryList;
-        
-        /// <summary>
-        /// beerName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label beerName;
-        
-        /// <summary>
-        /// beerDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label beerDescription;
+        protected global::System.Web.UI.WebControls.Table Table1;
         
         /// <summary>
         /// categoryType control.
@@ -55,6 +37,24 @@ namespace BeerStore {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label categoryType;
+        protected global::System.Web.UI.WebControls.TableHeaderCell categoryType;
+        
+        /// <summary>
+        /// beerName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableHeaderCell beerName;
+        
+        /// <summary>
+        /// beerDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableCell beerDescription;
     }
 }

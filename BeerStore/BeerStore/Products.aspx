@@ -3,12 +3,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="Products" runat="server" class="margin">
-         <asp:DropDownList ID="CategoryList" runat="server">
-             <asp:ListItem text=""></asp:ListItem>
-             <asp:ListItem text=""></asp:ListItem>
-         </asp:DropDownList>
-         <asp:label ID="beerName" runat="server"></asp:label>
-         <asp:label ID="beerDescription" runat="server"></asp:label>
-         <asp:label ID="categoryType" runat="server"></asp:label>
+         <asp:Table ID="Table1" runat="server">
+                <asp:TableHeaderRow>
+                    <asp:TableHeadercell ID="categoryType"></asp:TableHeadercell>
+                    <asp:TableHeadercell ID="beerName"></asp:TableHeadercell>
+                </asp:TableHeaderRow>
+                <asp:TableRow>
+                        <asp:TableCell ID="beerDescription"></asp:TableCell>
+                </asp:TableRow>
+         </asp:Table>
     </form>
 </asp:Content>
