@@ -8,8 +8,10 @@
     top: -47px;
     left: 379px;
 }
-.container {
+.headermargin {
     margin: 0 auto 0 auto;
+    background-color: gainsboro;
+    width: 100%;
 }
 
 .rightalign {

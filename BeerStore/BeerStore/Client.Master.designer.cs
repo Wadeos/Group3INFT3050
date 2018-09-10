@@ -10,7 +10,7 @@
 namespace BeerStore {
     
     
-    public partial class Client {
+    public partial class Products {
         
         /// <summary>
         /// head control.

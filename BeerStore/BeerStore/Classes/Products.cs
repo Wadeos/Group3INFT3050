@@ -5,7 +5,7 @@ using System.Web;
 
 namespace BeerStore
 {
-    public class Products
+    public class Products1
     {
         public int productID { get; set; }
         public string Name { get; set; }
