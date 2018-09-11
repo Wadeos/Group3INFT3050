@@ -11,7 +11,7 @@ namespace BeerStore
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+ 
         }
 
         protected void RegisterButton_Click(object sender, EventArgs e)

@@ -48,8 +48,8 @@
                     <asp:label id="lblContactMethod" runat="server"><b> Preffered contact method </b></asp:label>
                 </div>
                 <div>
-                    <asp:RadioButton ID="rdoPhone" runat="server" GroupBy="ContactBy" Text="Phone" OnCheckedChanged="rdoPhone_CheckedChanged1" />
-                    <asp:RadioButton ID="rdoEmail" runat="server" GroupBy="ContactBy" Text="Email" />
+                    <asp:RadioButton ID="rdoPhone" runat="server" class="radio-inline" GroupName="contactMethod" Text="Phone" OnCheckedChanged="rdoPhone_CheckedChanged1" />
+                    <asp:RadioButton ID="rdoEmail" runat="server" class="radio-inline" GroupName="contactMethod" Text="Email" />
                 </div>
             </div>
                 

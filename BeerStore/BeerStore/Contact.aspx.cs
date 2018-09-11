@@ -23,5 +23,10 @@ namespace BeerStore
         {
            
         }
+
+        protected void rdoPhone_CheckedChanged1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Client.master.cs" Inherits="BeerStore.Products" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Client.master.cs" Inherits="BeerStore.Client" %>
 
 <!DOCTYPE html>
 
@@ -19,7 +19,7 @@
            <h1 class="leftalign"> Beer Store</h1> 
            <asp:HyperLink ID="loginLink" runat="server" class="rightalign btn" NavigateUrl="~/Login.aspx">Login   <span class="glyphicon glyphicon-user"></span></asp:HyperLink>
            <asp:HyperLink ID="RegisterLink" runat="server" class="rightalign btn" NavigateUrl="~/Register.aspx">Register   <span class="glyphicon glyphicon-log-in"></span></asp:HyperLink>
-            <span class="rightalign col-lg-2 margintop"> Welcome 'firstname'</span>
+            <span class="rightalign col-lg-2 margintop"> Welcome <asp:Label id="firstname" runat="server"></asp:Label></span>
         </div>
         <nav class="navbar navbar-default">
             <div class="container-fluid">

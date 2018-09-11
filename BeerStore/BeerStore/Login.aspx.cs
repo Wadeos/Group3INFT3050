@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.SessionState;
 
 namespace BeerStore
 {
@@ -16,7 +17,9 @@ namespace BeerStore
 
         protected void loginButton_Click(object sender, EventArgs e)
         {
-            Server.Transfer("Default.aspx", true);
+            Session["Email"] = emailtxt.Text;
+            Session["password"] = passwordtxt.Text;
+            Response.Redirect("Default.aspx", true);
         }
     }
 }

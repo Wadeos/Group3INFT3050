@@ -97,8 +97,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\ProductCategory.cs" />
-    <Compile Include="Classes\Products.cs" />
+    <Compile Include="Classes\Cart.cs" />
+    <Compile Include="Classes\CartList.cs" />
+    <Compile Include="Classes\Product.cs" />
     <Compile Include="Client.Master.cs">
       <DependentUpon>Client.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
