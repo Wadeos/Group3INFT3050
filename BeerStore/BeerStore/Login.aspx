@@ -9,22 +9,31 @@
     </div>
     <div class="form-group">
         <asp:label id="lblemail" runat="server"> E-mail: </asp:label>
-        <br />
-        <asp:TextBox ID="emailtxt" runat="server" class="form-control" Width="300px"></asp:TextBox>
+        <div class="form-inline">
+                <asp:TextBox ID="emailtxt" runat="server" class="form-control" Width="300px"></asp:TextBox>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                     ErrorMessage="Please Enter Email" ControlToValidate="emailtxt" 
+                     ForeColor="Red">*</asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator id="emailvalid" runat="server" ControlToValidate="emailtxt" 
+                    ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
+                    ErrorMessage="Email must be in correct format" ForeColor="Red">
+                </asp:RegularExpressionValidator>
+        </div>
     </div>
-    <div class="form-group">
-        <asp:label id="lblpassword" runat="server">Password: </asp:label>
-        <br />
-        <asp:TextBox id="passwordtxt" runat="server" class="form-control" Width="300px"></asp:TextBox>
-    </div>
+     <div class="form-group">
+            <asp:label ID="password" runat="server" Text="Password:"></asp:label>
+             <div class="form-inline">
+                    <asp:TextBox ID="passwordtxt" runat="server" class="form-control" Width="200px" TextMode="Password"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
+                     ErrorMessage="Please Enter Password" ControlToValidate="passwordtxt" 
+                     ForeColor="Red">* </asp:RequiredFieldValidator>
+             </div>
+        </div>
     <div class="form-group">
         <asp:Button ID="loginButton" runat="server" Text="Login" OnClick="loginButton_Click" CssClass="btn btn-primary"/>
     </div>
     <div>
-         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please Enter an E-mail" ControlToValidate="emailtxt" ForeColor="Red">
-         </asp:RequiredFieldValidator> <br />
-         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please Enter a Password" ControlToValidate="passwordtxt" ForeColor="Red">
-         </asp:RequiredFieldValidator> <br />
+        <asp:ValidationSummary ID="validsummary" runat="server"  ForeColor="Red" HeaderText="Please fix errors below:" />
     </div>
 </form>
 </asp:Content>

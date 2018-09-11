@@ -13,6 +13,8 @@
             </asp:LinkButton>
         </div>
     </div>
+        <asp:Label ID="test" runat="server"> </asp:Label>
 </form>
+
 </asp:Content>
 

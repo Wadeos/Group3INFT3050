@@ -11,12 +11,12 @@ namespace BeerStore
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+      
         }
 
         protected void searchbutton_Click(object sender, EventArgs e)
         {
-
+     
         }
     }
 }
