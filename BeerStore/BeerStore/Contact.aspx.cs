@@ -13,5 +13,15 @@ namespace BeerStore
         {
 
         }
+
+        protected void rdoPhone_CheckedChanged(object sender, EventArgs e)
+        {
+            //customer.ContactVia = "Phone";
+        }
+
+        protected void rdoEmail_CheckedChanged(object sender, EventArgs e)
+        {
+            //customer.ContactVia = "Email";
+        }
     }
 }
