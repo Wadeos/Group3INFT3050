@@ -3,7 +3,6 @@
     <title> Login Page</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="loginform" runat="server" class="margin">
     <div>
         <h1> Login </h1>
     </div>
@@ -35,5 +34,4 @@
     <div>
         <asp:ValidationSummary ID="validsummary" runat="server"  ForeColor="Red" HeaderText="Please fix errors below:" />
     </div>
-</form>
 </asp:Content>

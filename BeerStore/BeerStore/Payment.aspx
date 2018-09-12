@@ -3,7 +3,6 @@
     <title>Payment Page</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="paymentForm" runat="server" class="margin">
         <div>
             <h1>Payment Information</h1>
         </div>
@@ -156,5 +155,4 @@
         <div class="form-group">
                 <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary" />
          </div>
-    </form>
 </asp:Content>

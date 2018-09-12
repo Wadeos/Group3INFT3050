@@ -3,7 +3,6 @@
     <title> Register Page </title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="registerForm" runat="server" class="margin">
         <div class="row">
             <h1> Please Enter Register Details</h1>
         </div>
@@ -68,5 +67,4 @@
         <div>
             <asp:ValidationSummary ID="validsummary" runat="server"  ForeColor="Red" HeaderText="Please fix errors below:" />
         </div>
-  </form>
 </asp:Content>

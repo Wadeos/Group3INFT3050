@@ -15,12 +15,20 @@ namespace BeerStore
             if (Session["Email"] == null)
             {
                 firstname.Text = "Please Login";
+                logoutbtn.Visible = false;
             }
             else
             {
                 firstname.Text = Session["Email"].ToString();
+                logoutbtn.Visible = true;
             }
            
+        }
+
+        protected void logoutbtn_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("Default.aspx");
         }
     }
 }

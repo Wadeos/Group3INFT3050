@@ -2,7 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="Products" runat="server" class="margin">
         <div>
             <h3> Search for products</h3>
             <div class="input-group col-lg-4">
@@ -23,6 +22,4 @@
             </table>
         </div>
         <asp:Button ID="Button1" runat="server" class="btn btn-default" Text="Add to Cart" OnClick="Button1_Click" />
-        
-    </form>
 </asp:Content>
