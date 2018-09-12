@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace BeerStore
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class Contact : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -16,12 +16,12 @@ namespace BeerStore
 
         protected void rdoPhone_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void rdoEmail_CheckedChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         protected void rdoPhone_CheckedChanged1(object sender, EventArgs e)

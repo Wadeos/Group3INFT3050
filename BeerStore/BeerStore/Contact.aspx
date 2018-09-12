@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Client.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="BeerStore.WebForm1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Client.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="BeerStore.Contact" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Contact Page</title>
@@ -35,30 +35,8 @@
                     <asp:ListItem Value="5">Compliments</asp:ListItem>
                     <asp:ListItem Value="6">Complaints</asp:ListItem>
                     <asp:ListItem Value="7">Other</asp:ListItem>
-<<<<<<< HEAD
                     </asp:DropDownList>
-                </div>
-                <br />
-                <asp:label id="lblEnquiry" runat="server"><b> Your Enquiry/Feedback </b></asp:label>
-                <div>
-                    <textarea id="enquiryArea" cols="50" rows="10" placeholder="Briefly tell us what we can help you with"></textarea>
-                </div>
-                <br />
-                <div>
-                    <asp:label id="lblContactMethod" runat="server"><b> Preffered contact method </b></asp:label>
-                </div>
-                <div>
-                    <asp:RadioButton ID="rdoPhone" runat="server" class="radio-inline" GroupName="contactMethod" Text="Phone" OnCheckedChanged="rdoPhone_CheckedChanged1" />
-                    <asp:RadioButton ID="rdoEmail" runat="server" class="radio-inline" GroupName="contactMethod" Text="Email" />
-                </div>
-            </div>
-                
-         </main>
-
-     
-=======
-                </asp:DropDownList>
-            </div>
+             </div>
             <br />
             <asp:Label ID="lblEnquiry" runat="server"><b> Your Enquiry/Feedback </b></asp:Label>
             <div>
@@ -102,6 +80,5 @@
             <div class="form-group">
                 <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary" />
             </div>
-    </form>
->>>>>>> dc3a760f0bd46af2671291896b0c0c6f12374f3f
+        </div>
 </asp:Content>
