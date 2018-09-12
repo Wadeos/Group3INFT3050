@@ -10,7 +10,7 @@
 namespace BeerStore {
     
     
-    public partial class WebForm1 {
+    public partial class Contact {
         
         /// <summary>
         /// contactForm control.
