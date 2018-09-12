@@ -7,9 +7,9 @@ namespace BeerStore.Classes
 {
     public class Product
     {
-        public int productID;
+        public int productID { get; set; }
         public string Name;
-        public string Brand;
+        public string Brand { get; set; }
         public string shortDescription { get; set; }
         public string longDescription { get; set; }
         public int categoryID { get; set; }
@@ -18,14 +18,24 @@ namespace BeerStore.Classes
         public int QuantityAvaliable { get; set; }
         public string productManager { get; set; }
 
+        public Product()
+        {
+            setName("Tooheys");
+        }
+            
         public void setName(string newName)
         {
             HttpContext.Current.Session["Name"] = newName;
         }
-        
-        public void DisplayProducts()
+
+       /* public List<Product> GetItems()
         {
-            setName("Tooheys");
-        }
+            List<Product> p = new List<Product>();
+            p.Add(new Product("Tooheys", "New"));
+            p.Add(new Product("Carlton", "Dry"));
+            return p;
+
+        }*/
+
     }
 }
