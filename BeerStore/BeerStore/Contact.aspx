@@ -80,4 +80,8 @@
             <div class="form-group">
                 <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary" />
             </div>
+<<<<<<< HEAD
+=======
+    </form>
+>>>>>>> dc3a760f0bd46af2671291896b0c0c6f12374f3f
 </asp:Content>

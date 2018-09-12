@@ -11,6 +11,18 @@ namespace BeerStore {
     
     
     public partial class Contact {
+<<<<<<< HEAD
+=======
+        
+        /// <summary>
+        /// contactForm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm contactForm;
+>>>>>>> dc3a760f0bd46af2671291896b0c0c6f12374f3f
         
         /// <summary>
         /// lblReason control.

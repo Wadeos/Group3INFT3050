@@ -100,6 +100,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Cart.cs" />
+<<<<<<< HEAD
+=======
+    <Compile Include="Classes\CartList.cs" />
+>>>>>>> dc3a760f0bd46af2671291896b0c0c6f12374f3f
     <Compile Include="Classes\Product.cs" />
     <Compile Include="Classes\ProductData.cs" />
     <Compile Include="Client.Master.cs">
