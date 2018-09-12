@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BeerStore
+namespace BeerStore.Classes
 {
-    public class Products1
+    public class Product
     {
-        public int productID { get; set; }
-        public string Name { get; set; }
-        public string Brand { get; set; }
+        public int productID;
+        public string Name;
+        public string Brand;
         public string shortDescription { get; set; }
         public string longDescription { get; set; }
         public int categoryID { get; set; }
@@ -17,5 +17,15 @@ namespace BeerStore
         public double Price { get; set; }
         public int QuantityAvaliable { get; set; }
         public string productManager { get; set; }
+
+        public void setName(string newName)
+        {
+            HttpContext.Current.Session["Name"] = newName;
+        }
+        
+        public void DisplayProducts()
+        {
+            setName("Tooheys");
+        }
     }
 }

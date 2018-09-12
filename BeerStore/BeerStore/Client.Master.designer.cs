@@ -40,6 +40,15 @@ namespace BeerStore {
         protected global::System.Web.UI.WebControls.HyperLink RegisterLink;
         
         /// <summary>
+        /// firstname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label firstname;
+        
+        /// <summary>
         /// HyperLink5 control.
         /// </summary>
         /// <remarks>
