@@ -10,16 +10,16 @@
 namespace BeerStore {
     
     
-    public partial class Product {
+    public partial class Products {
         
         /// <summary>
-        /// Products control.
+        /// searchBar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm Products;
+        protected global::System.Web.UI.WebControls.TextBox searchBar;
         
         /// <summary>
         /// productName control.
@@ -29,15 +29,6 @@ namespace BeerStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label productName;
-        
-        /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
         /// Button1 control.

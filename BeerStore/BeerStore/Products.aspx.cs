@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BeerStore.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,8 +12,23 @@ namespace BeerStore
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Product p = new Product();
-            p.DisplayProducts();
+            if (!IsPostBack)
+            {
+                Products p = new Products();
+                //productName.Text = Session["Name"].ToString();
+                
+                
+            }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            //Add to Cart
+        }
+
+        protected void searchbutton_Click(object sender, EventArgs e)
+        {
+            //Search for products
         }
     }
 }

@@ -68,6 +68,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AboutUs.aspx" />
+    <Content Include="AdminLogin.aspx" />
+    <Content Include="AdminManageItems.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -88,8 +91,11 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Contact.aspx" />
+<<<<<<< HEAD
     <Content Include="Payment.aspx" />
     <Content Include="PurchaseHistory.aspx" />
+=======
+>>>>>>> c5d9eb85eb04f92a7c2bbce346655bde2dd7b1aa
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -99,9 +105,31 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutUs.aspx.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AboutUs.aspx.designer.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminLogin.aspx.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminLogin.aspx.designer.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManageItems.aspx.cs">
+      <DependentUpon>AdminManageItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminManageItems.aspx.designer.cs">
+      <DependentUpon>AdminManageItems.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Cart.cs" />
     <Compile Include="Classes\CartList.cs" />
     <Compile Include="Classes\Product.cs" />
+    <Compile Include="Classes\ProductData.cs" />
     <Compile Include="Client.Master.cs">
       <DependentUpon>Client.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -159,6 +187,7 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Payment.aspx.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -173,6 +202,8 @@
     <Compile Include="PurchaseHistory.aspx.designer.cs">
       <DependentUpon>PurchaseHistory.aspx</DependentUpon>
     </Compile>
+=======
+>>>>>>> c5d9eb85eb04f92a7c2bbce346655bde2dd7b1aa
   </ItemGroup>
   <ItemGroup>
     <Content Include="Client.Master" />
