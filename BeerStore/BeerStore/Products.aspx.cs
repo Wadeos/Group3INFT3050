@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BeerStore.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,8 +14,10 @@ namespace BeerStore
         {
             if (!IsPostBack)
             {
-                Product p = new Product();
-                productName.Text = Session["Name"].ToString();
+                Products p = new Products();
+                //productName.Text = Session["Name"].ToString();
+                
+                
             }
         }
 
