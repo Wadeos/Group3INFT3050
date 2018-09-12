@@ -11,8 +11,6 @@ namespace BeerStore {
     
     
     public partial class Contact {
-<<<<<<< HEAD
-=======
         
         /// <summary>
         /// contactForm control.
