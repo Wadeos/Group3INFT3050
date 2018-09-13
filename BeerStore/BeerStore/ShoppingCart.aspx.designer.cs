@@ -10,7 +10,16 @@
 namespace BeerStore {
     
     
-    public partial class WebForm3 {
+    public partial class ShoppingCart {
+        
+        /// <summary>
+        /// HyperLinkShopping control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkShopping;
         
         /// <summary>
         /// ObjectDataSource1 control.
@@ -22,12 +31,21 @@ namespace BeerStore {
         protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource1;
         
         /// <summary>
-        /// GridViewPurchaseHistory control.
+        /// GridViewShoppingCart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewPurchaseHistory;
+        protected global::System.Web.UI.WebControls.GridView GridViewShoppingCart;
+        
+        /// <summary>
+        /// btnCheckout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCheckout;
     }
 }

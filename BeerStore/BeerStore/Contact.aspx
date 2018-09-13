@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Client.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="BeerStore.Contact" %>
+﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Client.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="BeerStore.Contact" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Contact Page</title>
@@ -7,6 +7,7 @@
         <div>
             <h1 align="center">Contact Us</h1>
         </div>
+        <br />
         <div class="row" align="center">
             <div><b><font size="4">1300 00 00 00</font></b></div>
             <div>International: +61 2 1234 1234</div>

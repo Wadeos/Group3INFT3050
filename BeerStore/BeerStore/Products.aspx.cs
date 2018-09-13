@@ -12,13 +12,7 @@ namespace BeerStore
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                Products p = new Products();
-                //productName.Text = Session["Name"].ToString();
-                
-                
-            }
+            
         }
 
         protected void Button1_Click(object sender, EventArgs e)
