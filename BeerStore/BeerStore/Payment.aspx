@@ -3,6 +3,7 @@
     <title>Payment Page</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+        <asp:HyperLink ID="HyperLinkCart" runat="server" NavigateUrl="~/ShoppingCart.aspx">Back</asp:HyperLink>
         <div>
             <h1>Payment Information</h1>
         </div>
@@ -153,6 +154,6 @@
             </div>
         </div>
         <div class="form-group">
-                <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary" />
+                <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary" OnClick="btnSubmit_Click" />
          </div>
 </asp:Content>

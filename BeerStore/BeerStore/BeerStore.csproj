@@ -93,6 +93,9 @@
     <Content Include="Contact.aspx" />
     <Content Include="Payment.aspx" />
     <Content Include="PurchaseHistory.aspx" />
+    <Content Include="ShoppingCart.aspx" />
+    <Content Include="Confirmation.aspx" />
+    <Content Include="Approved.aspx" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -128,6 +131,8 @@
     <Compile Include="Classes\ProductData.cs" />
     <Compile Include="Classes\PurchaseHistory.cs" />
     <Compile Include="Classes\PurchaseHistoryData.cs" />
+    <Compile Include="Classes\ShoppingCart.cs" />
+    <Compile Include="Classes\ShoppingCartData.cs" />
     <Compile Include="Client.Master.cs">
       <DependentUpon>Client.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -198,6 +203,27 @@
     </Compile>
     <Compile Include="PurchaseHistory.aspx.designer.cs">
       <DependentUpon>PurchaseHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingCart.aspx.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShoppingCart.aspx.designer.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Confirmation.aspx.cs">
+      <DependentUpon>Confirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Confirmation.aspx.designer.cs">
+      <DependentUpon>Confirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Approved.aspx.cs">
+      <DependentUpon>Approved.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Approved.aspx.designer.cs">
+      <DependentUpon>Approved.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
