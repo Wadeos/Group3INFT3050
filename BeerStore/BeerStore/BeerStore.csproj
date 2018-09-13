@@ -68,7 +68,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Content Include="AboutUs.aspx" />
+=======
+    <Content Include="About.aspx" />
+>>>>>>> bd2b7e25e7d7dd98eb663a12bb913ff950bfd59b
     <Content Include="AdminLogin.aspx" />
     <Content Include="AdminManageItems.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -102,12 +106,21 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="AboutUs.aspx.cs">
       <DependentUpon>AboutUs.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AboutUs.aspx.designer.cs">
       <DependentUpon>AboutUs.aspx</DependentUpon>
+=======
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+>>>>>>> bd2b7e25e7d7dd98eb663a12bb913ff950bfd59b
     </Compile>
     <Compile Include="AdminLogin.aspx.cs">
       <DependentUpon>AdminLogin.aspx</DependentUpon>
@@ -123,11 +136,16 @@
     <Compile Include="AdminManageItems.aspx.designer.cs">
       <DependentUpon>AdminManageItems.aspx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Class1.cs" />
+=======
+>>>>>>> bd2b7e25e7d7dd98eb663a12bb913ff950bfd59b
     <Compile Include="Classes\Cart.cs" />
     <Compile Include="Classes\CartList.cs" />
     <Compile Include="Classes\Product.cs" />
     <Compile Include="Classes\ProductData.cs" />
+    <Compile Include="Classes\PurchaseHistory.cs" />
+    <Compile Include="Classes\PurchaseHistoryData.cs" />
     <Compile Include="Client.Master.cs">
       <DependentUpon>Client.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
