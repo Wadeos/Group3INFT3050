@@ -14,10 +14,12 @@ namespace BeerStore
         {
             if (!IsPostBack)
             {
-                Products p = new Products();
-                //productName.Text = Session["Name"].ToString();
-                
-                
+                ProductData pdata1 = new ProductData();
+                var p1 = pdata1.GetProduct(1);
+
+                Session["Name"] = p1.Name;
+                nametxt.Text = Session["Name"].ToString();
+                image.ImageUrl = p1.image;
             }
         }
 
