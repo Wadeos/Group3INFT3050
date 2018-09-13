@@ -10,7 +10,7 @@
 namespace BeerStore {
     
     
-    public partial class Products {
+    public partial class Product {
         
         /// <summary>
         /// searchBar control.
