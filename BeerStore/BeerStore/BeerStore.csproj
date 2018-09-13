@@ -68,7 +68,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
     <Content Include="AdminLogin.aspx" />
     <Content Include="AdminManageItems.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -77,9 +76,12 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Default.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Images\64871-1.png" />
+    <Content Include="Images\dry.png" />
+    <Content Include="Images\new.PNG" />
+    <Content Include="Images\old.PNG" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
+    <Content Include="ProductDetails.aspx" />
     <Content Include="Products.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -105,12 +107,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="AdminLogin.aspx.cs">
       <DependentUpon>AdminLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -129,10 +125,16 @@
     <Compile Include="Classes\CartList.cs" />
     <Compile Include="Classes\Product.cs" />
     <Compile Include="Classes\ProductData.cs" />
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <Compile Include="Classes\PurchaseHistory.cs" />
     <Compile Include="Classes\PurchaseHistoryData.cs" />
     <Compile Include="Classes\ShoppingCart.cs" />
     <Compile Include="Classes\ShoppingCartData.cs" />
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     <Compile Include="Client.Master.cs">
       <DependentUpon>Client.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -160,6 +162,13 @@
     </Compile>
     <Compile Include="Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductDetails.aspx.cs">
+      <DependentUpon>ProductDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductDetails.aspx.designer.cs">
+      <DependentUpon>ProductDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Products.aspx.cs">
       <DependentUpon>Products.aspx</DependentUpon>
