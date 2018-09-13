@@ -125,16 +125,10 @@
     <Compile Include="Classes\CartList.cs" />
     <Compile Include="Classes\Product.cs" />
     <Compile Include="Classes\ProductData.cs" />
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
     <Compile Include="Classes\PurchaseHistory.cs" />
     <Compile Include="Classes\PurchaseHistoryData.cs" />
     <Compile Include="Classes\ShoppingCart.cs" />
     <Compile Include="Classes\ShoppingCartData.cs" />
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     <Compile Include="Client.Master.cs">
       <DependentUpon>Client.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
