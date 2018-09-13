@@ -8,12 +8,12 @@ namespace BeerStore.Classes
     public class Cart
     {
         public Cart() { }
-        public Cart (Product Product, int quantity)
+        public Cart (Products Product, int quantity)
         {
             this.Products = Product;
             this.Quantity = quantity;
         }
-        public Product Products { get; set; }
+        public Products Products { get; set; }
         public int Quantity { get; set; }
 
         public void AddQuantity (int quantity)

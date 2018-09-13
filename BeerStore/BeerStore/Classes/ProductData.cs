@@ -26,11 +26,11 @@ namespace BeerStore.Classes
 
         public ProductData()
         {
-            p_product.Add(new Product() { productID = 1, Name = "New", Brand = "Tooheys",image = "Images/64871-1.png", price = 51.00 });
-            p_product.Add(new Product() { productID = 2, Name = "Old Ale", Brand = "Tooheys", image = "", price = 48.00 });
-            p_product.Add(new Product() { productID = 3, Name = "Dry", Brand = "Carlton", image = "", price = 48.00 });
-            p_product.Add(new Product() { productID = 4, Name = "Original", Brand = "Great Northern Brewing Company", image = "", price = 44.00 });
-            p_product.Add(new Product() { productID = 5, Name = "Ligera", Brand = "Corona", image = "", price = 52.00 });
+            p_product.Add(new Product() { productID = 1, Name = "Tooheys", Brand = "Tooheys" });
+            p_product.Add(new Product() { productID = 2, Name = "Tooheys", Brand = "Tooheys" });
+            p_product.Add(new Product() { productID = 3, Name = "Tooheys", Brand = "Tooheys" });
+            p_product.Add(new Product() { productID = 4, Name = "Tooheys", Brand = "Tooheys" });
+            p_product.Add(new Product() { productID = 5, Name = "Tooheys", Brand = "Tooheys" });
         }
 
         public List<Product> Products
@@ -50,7 +50,7 @@ namespace BeerStore.Classes
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Product> GetProducts()
+        public List<Product> GetProduct()
         {
             return p_product;
         }
