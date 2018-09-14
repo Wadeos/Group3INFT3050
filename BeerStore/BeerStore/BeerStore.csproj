@@ -129,6 +129,8 @@
     <Compile Include="Classes\PurchaseHistoryData.cs" />
     <Compile Include="Classes\ShoppingCart.cs" />
     <Compile Include="Classes\ShoppingCartData.cs" />
+    <Compile Include="Classes\UserAccount.cs" />
+    <Compile Include="Classes\UserAccountData.cs" />
     <Compile Include="Client.Master.cs">
       <DependentUpon>Client.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

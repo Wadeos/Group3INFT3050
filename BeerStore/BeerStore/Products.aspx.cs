@@ -12,9 +12,7 @@ namespace BeerStore
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-<<<<<<< Updated upstream
             
-=======
             if (!IsPostBack)
             {
                 ProductData p = new ProductData();
@@ -39,7 +37,6 @@ namespace BeerStore
                 image2.ImageUrl = p3.imagefile;
 
             }
->>>>>>> Stashed changes
         }
 
         protected void Button1_Click(object sender, EventArgs e)
