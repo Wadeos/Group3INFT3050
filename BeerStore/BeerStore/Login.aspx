@@ -5,6 +5,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
         <h1> Login </h1>
+        <div>
+            <asp:Button ID="Button1" runat="server" Text="Admin Login" OnClick="adminPage_Click" class="btn-link" CausesValidation="False"/>
+        </div>
+        <hr />
     </div>
     <div class="form-group">
         <asp:label id="lblemail" runat="server"> E-mail: </asp:label>

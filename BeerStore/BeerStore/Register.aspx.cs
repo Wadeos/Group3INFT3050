@@ -18,5 +18,10 @@ namespace BeerStore
         {
             Server.Transfer("Default.aspx", true);
         }
+
+        protected void registerPage_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminRegister.aspx");
+        }
     }
 }

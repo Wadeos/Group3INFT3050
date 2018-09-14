@@ -12,19 +12,42 @@ namespace BeerStore
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Displays please login message, buttons that are not required made hidden
             if (Session["Email"] == null)
             {
-                firstname.Text = "Please Login";
+                emailtxt.Text = "Please Login";
                 logoutbtn.Visible = false;
+                HyperLink6.Visible = false;
+
+                if (Session["AdminEmail"] == null)
+                {
+                    emailtxt.Text = "Please Login";
+                    logoutbtn.Visible = false;
+                    HyperLink6.Visible = false;
+                }
+                //If user enters valid email displays welcome
+                else
+                {
+                    emailtxt.Text = Session["AdminEmail"].ToString();
+                    logoutbtn.Visible = true;
+                    HyperLink6.Visible = true;
+                    RegisterLink.Visible = false;
+                    loginLink.Visible = false;
+                }
+
             }
             else
             {
-                firstname.Text = Session["Email"].ToString();
+                emailtxt.Text = Session["Email"].ToString();
                 logoutbtn.Visible = true;
+                HyperLink6.Visible = false;
+                RegisterLink.Visible = false;
+                loginLink.Visible = false;
             }
-           
-        }
 
+
+        }
+        //Ends session when user logs out
         protected void logoutbtn_Click(object sender, EventArgs e)
         {
             Session.Abandon();

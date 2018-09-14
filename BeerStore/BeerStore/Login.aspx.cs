@@ -21,5 +21,10 @@ namespace BeerStore
             Session["password"] = passwordtxt.Text;
             Response.Redirect("Default.aspx", true);
         }
+
+        protected void adminPage_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("AdminLogin.aspx");
+        }
     }
 }

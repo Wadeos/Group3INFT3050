@@ -20,9 +20,8 @@
            <h1 class="leftalign"> Beer Store</h1> 
            <asp:HyperLink ID="loginLink" runat="server" class="rightalign btn" NavigateUrl="~/Login.aspx">Login   <span class="glyphicon glyphicon-user"></span></asp:HyperLink>
            <asp:HyperLink ID="RegisterLink" runat="server" class="rightalign btn" NavigateUrl="~/Register.aspx">Register   <span class="glyphicon glyphicon-log-in"></span></asp:HyperLink>
-            <span class="rightalign col-lg-2 margintop"> Welcome <asp:Label id="firstname" runat="server"></asp:Label><br />
-                <asp:Button ID="logoutbtn" runat="server" class="btn-link" Text="Logout" OnClick="logoutbtn_Click" />
-            </span>
+            <div class="rightalign"><span class="col-md-2 margintop"> Welcome <asp:Label id="emailtxt" runat="server"></asp:Label><br />
+                <asp:Button ID="logoutbtn" runat="server" class="btn-link" Text="Logout" OnClick="logoutbtn_Click" /></span></div> 
         </div>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
@@ -34,6 +33,7 @@
                 <li><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/About.aspx">About</asp:HyperLink></li>
                 <li><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Products.aspx">Products</asp:HyperLink></li>
                 <li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Contact.aspx">Contact</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/AdminManageItems.aspx">Manage Products</asp:HyperLink></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/ShoppingCart.aspx">View Cart<span class="badge">7</span></asp:HyperLink></li>

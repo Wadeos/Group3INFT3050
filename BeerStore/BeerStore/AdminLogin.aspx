@@ -3,7 +3,6 @@
     <title> Admin Login Page</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="loginform" runat="server" class="margin">
     <div>
         <h1> Admin Login </h1>
     </div>
@@ -15,7 +14,7 @@
     <div class="form-group">
         <asp:label id="lblpassword" runat="server">Password: </asp:label>
         <br />
-        <asp:TextBox id="passwordtxt" runat="server" class="form-control" Width="300px"></asp:TextBox>
+        <asp:TextBox id="passwordtxt" runat="server" class="form-control" Width="300px" TextMode="Password" ></asp:TextBox>
     </div>
     <div class="form-group">
         <asp:Button ID="loginButton" runat="server" Text="Login" OnClick="loginButton_Click" CssClass="btn btn-primary"/>
@@ -26,5 +25,4 @@
          <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please Enter a Password" ControlToValidate="passwordtxt" ForeColor="Red">
          </asp:RequiredFieldValidator> <br />
     </div>
-</form>
 </asp:Content>

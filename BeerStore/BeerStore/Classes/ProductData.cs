@@ -11,18 +11,7 @@ namespace BeerStore.Classes
     [DataObject(true)]
     public class ProductData
     {
-         //public System.Web.SessionState.HttpSessionState Session { get; }
-         /*
-        public string shortDescription { get; set; }
-        public string longDescription { get; set; }
-        public int categoryID { get; set; }
-        public string imageFile { get; set; }
-        public double Price { get; set; }
-        public int QuantityAvaliable { get; set; }
-        public string productManager { get; set; }*/
-
-
-
+     
 
         public ProductData()
         {
@@ -57,27 +46,6 @@ namespace BeerStore.Classes
         }
 
         private List<Product> p_product = new List<Product>();
-
-        /*public Product()
-        {
-            setName("Tooheys");
-        }
-            
-        public void setName(string newName)
-        {
-            Session["Name"] = newName;
-        }
-
-        /* public List<Product> GetItems()
-         {
-             List<Product> p = new List<Product>();
-             p.Add(new Product("Tooheys", "New"));
-             p.Add(new Product("Carlton", "Dry"));
-             return p;
-
-         }*/
-
-
 
         
     }

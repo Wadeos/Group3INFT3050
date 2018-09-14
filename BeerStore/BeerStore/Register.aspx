@@ -5,9 +5,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <div class="row">
             <h1> Please Enter Register Details</h1>
+            <asp:Button ID="Button1" runat="server" class="btn-link" OnClick="registerPage_Click" CausesValidation="False" Text="Admin Register" />
         </div>
         <div class="form-group">
             <asp:label ID="email" runat="server" Text="Email:"></asp:label>
+            <!-- Use Regular expression to determine if Email is in right format-->
             <div class="form-inline">
                  <asp:TextBox ID="emailtxt" runat="server" class="form-control" Width="300px"></asp:TextBox> 
                  <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 

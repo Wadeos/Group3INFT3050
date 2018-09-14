@@ -70,6 +70,7 @@
   <ItemGroup>
     <Content Include="AdminLogin.aspx" />
     <Content Include="AdminManageItems.aspx" />
+    <Content Include="AdminRegister.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -120,6 +121,13 @@
     </Compile>
     <Compile Include="AdminManageItems.aspx.designer.cs">
       <DependentUpon>AdminManageItems.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminRegister.aspx.cs">
+      <DependentUpon>AdminRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminRegister.aspx.designer.cs">
+      <DependentUpon>AdminRegister.aspx</DependentUpon>
     </Compile>
     <Compile Include="Classes\Cart.cs" />
     <Compile Include="Classes\CartList.cs" />
