@@ -31,22 +31,22 @@ namespace BeerStore {
         protected global::System.Web.UI.WebControls.Label lblPaymentMethod;
         
         /// <summary>
-        /// rdoVisa control.
+        /// rblPaymentMethod control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdoVisa;
+        protected global::System.Web.UI.WebControls.RadioButtonList rblPaymentMethod;
         
         /// <summary>
-        /// rdoMasterCard control.
+        /// RequiredFieldValidatorPaymentMethod control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdoMasterCard;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorPaymentMethod;
         
         /// <summary>
         /// lblCardNumber control.
@@ -76,6 +76,15 @@ namespace BeerStore {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredCardNumber;
         
         /// <summary>
+        /// revCardNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revCardNumber;
+        
+        /// <summary>
         /// lblExpiryDate control.
         /// </summary>
         /// <remarks>
@@ -94,6 +103,15 @@ namespace BeerStore {
         protected global::System.Web.UI.WebControls.DropDownList ddlMonth;
         
         /// <summary>
+        /// rfvMonth control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvMonth;
+        
+        /// <summary>
         /// ddlYear control.
         /// </summary>
         /// <remarks>
@@ -101,6 +119,15 @@ namespace BeerStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlYear;
+        
+        /// <summary>
+        /// rfvYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvYear;
         
         /// <summary>
         /// lblCVV control.
@@ -121,13 +148,22 @@ namespace BeerStore {
         protected global::System.Web.UI.WebControls.TextBox txtCVV;
         
         /// <summary>
-        /// requiredCVV control.
+        /// rfvCVV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredCVV;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCVV;
+        
+        /// <summary>
+        /// revCVV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revCVV;
         
         /// <summary>
         /// lblNameOnCard control.
@@ -148,13 +184,22 @@ namespace BeerStore {
         protected global::System.Web.UI.WebControls.TextBox txtNameOnCard;
         
         /// <summary>
-        /// requiredNameOnCard control.
+        /// rfvNameOnCard control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredNameOnCard;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNameOnCard;
+        
+        /// <summary>
+        /// revName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revName;
         
         /// <summary>
         /// lblCountry control.
@@ -166,13 +211,22 @@ namespace BeerStore {
         protected global::System.Web.UI.WebControls.Label lblCountry;
         
         /// <summary>
-        /// DropDownList1 control.
+        /// ddlCountry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCountry;
+        
+        /// <summary>
+        /// rfvCOuntry control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCOuntry;
         
         /// <summary>
         /// lblAddress1 control.
@@ -200,6 +254,15 @@ namespace BeerStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredAddress1;
+        
+        /// <summary>
+        /// revAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revAddress;
         
         /// <summary>
         /// lblAddress2 control.
@@ -247,6 +310,15 @@ namespace BeerStore {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredCity;
         
         /// <summary>
+        /// revCity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revCity;
+        
+        /// <summary>
         /// lblState control.
         /// </summary>
         /// <remarks>
@@ -272,6 +344,15 @@ namespace BeerStore {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredState;
+        
+        /// <summary>
+        /// revState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revState;
         
         /// <summary>
         /// lblPostalCode control.
@@ -301,6 +382,15 @@ namespace BeerStore {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredPostalCode;
         
         /// <summary>
+        /// revPostal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revPostal;
+        
+        /// <summary>
         /// lblContactNumber control.
         /// </summary>
         /// <remarks>
@@ -319,13 +409,22 @@ namespace BeerStore {
         protected global::System.Web.UI.WebControls.TextBox txtContactNumber;
         
         /// <summary>
-        /// requiredContactNumber control.
+        /// rfvContactNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredContactNumber;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvContactNumber;
+        
+        /// <summary>
+        /// revContactNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revContactNumber;
         
         /// <summary>
         /// lblEmail control.
@@ -346,22 +445,22 @@ namespace BeerStore {
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
         
         /// <summary>
-        /// requiredEmail control.
+        /// rfvEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredEmail;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmail;
         
         /// <summary>
-        /// validEmail control.
+        /// revEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator validEmail;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revEmail;
         
         /// <summary>
         /// btnSubmit control.

@@ -98,6 +98,7 @@
     <Content Include="ShoppingCart.aspx" />
     <Content Include="Confirmation.aspx" />
     <Content Include="Approved.aspx" />
+    <Content Include="ContactConfirm.aspx" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -229,6 +230,13 @@
     </Compile>
     <Compile Include="Approved.aspx.designer.cs">
       <DependentUpon>Approved.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContactConfirm.aspx.cs">
+      <DependentUpon>ContactConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContactConfirm.aspx.designer.cs">
+      <DependentUpon>ContactConfirm.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

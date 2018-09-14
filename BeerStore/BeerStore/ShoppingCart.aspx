@@ -10,6 +10,7 @@
     </div>
     <br />
     <div align="center">
+        <%-- Products thats been added to the shopping cart --%>
         <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetShoppingCart" TypeName="BeerStore.Classes.ShoppingCartData"></asp:ObjectDataSource>
         <asp:GridView ID="GridViewShoppingCart" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1" CssClass="table table-bordered table-striped table-condensed"
          OnPreRender="grdCategories_PreRender">

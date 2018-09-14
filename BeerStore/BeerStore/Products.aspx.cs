@@ -10,12 +10,14 @@ namespace BeerStore
 {
     public partial class Product : System.Web.UI.Page
     {
+        ProductData p = new ProductData();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             
             if (!IsPostBack)
             {
-                ProductData p = new ProductData();
+                
                 var p1 = p.GetProduct(1);
                 var p2 = p.GetProduct(2);
                 var p3 = p.GetProduct(3);
@@ -51,11 +53,6 @@ namespace BeerStore
 
         protected void displayMore(object sender, EventArgs e)
         {
-            if(image.UniqueID != null)
-            {
-                Session["Name"] = nametxt.Text;
-            }
-
         }
     }
 }
