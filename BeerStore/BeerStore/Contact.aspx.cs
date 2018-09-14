@@ -13,20 +13,9 @@ namespace BeerStore
         {
 
         }
-
-        protected void rdoPhone_CheckedChanged(object sender, EventArgs e)
+        protected void btnSubmit_Click(object sender, EventArgs e)
         {
-
-        }
-
-        protected void rdoEmail_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void rdoPhone_CheckedChanged1(object sender, EventArgs e)
-        {
-
+            Response.Redirect("ContactConfirm.aspx");
         }
     }
 }
