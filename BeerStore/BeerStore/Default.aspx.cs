@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BeerStore.DAL;
+using BeerStore.BL;
 
 namespace BeerStore
 {
@@ -11,7 +13,8 @@ namespace BeerStore
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-      
+            ProductsBL p = new ProductsBL();
+            this.GridView1.DataSource = p.GetProducts();
         }
 
         protected void searchbutton_Click(object sender, EventArgs e)
