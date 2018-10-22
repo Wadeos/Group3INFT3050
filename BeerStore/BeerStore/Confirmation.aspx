@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Confirmation" Language="C#" MasterPageFile="~/Client.Master" AutoEventWireup="true" CodeBehind="Confirmation.aspx.cs" Inherits="BeerStore.WebForm1" %>
+﻿<%@ Page Title="Confirmation" Language="C#" MasterPageFile="~/Client.Master" AutoEventWireup="true" CodeBehind="Confirmation.aspx.cs" Inherits="BeerStore.Confirmation" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

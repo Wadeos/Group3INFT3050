@@ -12,18 +12,23 @@ namespace BeerStore
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Displays please login message, buttons that are not required made hidden
             if (Session["Email"] == null)
             {
+                //Displays please login message
                 emailtxt.Text = "Please Login";
+                //links hidden and visible depending on user login status
                 logoutbtn.Visible = false;
                 HyperLink6.Visible = false;
+                HyperLink7.Visible = false;
+                HyperLink8.Visible = false;
 
                 if (Session["AdminEmail"] == null)
                 {
                     emailtxt.Text = "Please Login";
                     logoutbtn.Visible = false;
                     HyperLink6.Visible = false;
+                    HyperLink7.Visible = false;
+                    HyperLink8.Visible = false;
                 }
                 //If user enters valid email displays welcome
                 else
@@ -33,6 +38,8 @@ namespace BeerStore
                     HyperLink6.Visible = true;
                     RegisterLink.Visible = false;
                     loginLink.Visible = false;
+                    HyperLink7.Visible = true;
+                    HyperLink8.Visible = true;
                 }
 
             }
@@ -43,6 +50,8 @@ namespace BeerStore
                 HyperLink6.Visible = false;
                 RegisterLink.Visible = false;
                 loginLink.Visible = false;
+                HyperLink7.Visible = false;
+                HyperLink8.Visible = true;
             }
 
 

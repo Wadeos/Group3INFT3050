@@ -9,12 +9,13 @@
         </div>
         <div class="form-group">
             <asp:label ID="email" runat="server" Text="Email:"></asp:label>
-            <!-- Use Regular expression to determine if Email is in right format-->
+            <!-- Required validator determines if user has entered data-->
             <div class="form-inline">
                  <asp:TextBox ID="emailtxt" runat="server" class="form-control" Width="300px"></asp:TextBox> 
                  <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                      ErrorMessage="Please Enter Email" ControlToValidate="emailtxt" 
                      ForeColor="Red">*</asp:RequiredFieldValidator>
+                <!-- Use Regular expression to determine if Email is in right format-->
                 <asp:RegularExpressionValidator id="emailvalid" runat="server" ControlToValidate="emailtxt" 
                     ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
                     ErrorMessage="Email must be in correct format" ForeColor="Red">
@@ -55,6 +56,7 @@
                   <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server"
                     ErrorMessage="Please Confirm Password" ControlToValidate="confirmtxt" 
                     ForeColor="Red">* </asp:RequiredFieldValidator>
+                <!-- compares passwords -->
                  <asp:CompareValidator ID="CompareValidator1" runat="server" 
                      ErrorMessage="Passwords must match" EnableClientScript="True" 
                      ControlToCompare="passwordtxt" 
@@ -65,7 +67,7 @@
         <div class="form-group">
             <asp:Button ID="RegisterButton" runat="server" Text="Register" OnClick="RegisterButton_Click" class="btn btn-primary"/>
         </div>
-           
+          <!-- Summary of all errors on page -->
         <div>
             <asp:ValidationSummary ID="validsummary" runat="server"  ForeColor="Red" HeaderText="Please fix errors below:" />
         </div>

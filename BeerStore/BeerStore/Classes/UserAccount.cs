@@ -6,7 +6,7 @@ using System.Web;
 namespace BeerStore.Classes
 {
     public class UserAccount
-    {
+    {   //declare user account data to be used in list
         public int userId { get; set; }
         public string email { get; set; }
         public string firstName { get; set; }

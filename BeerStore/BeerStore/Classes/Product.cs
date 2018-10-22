@@ -7,7 +7,7 @@ namespace BeerStore.Classes
 {
     public class Product
     {
-
+        //creates values to be inserted into the product data
         public int productID { get; set; }
         public string Name { get; set; }
         public string Brand { get; set; }

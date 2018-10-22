@@ -8,7 +8,7 @@ namespace BeerStore.Classes
     public class CartList
     {
         private List<Cart> cart;
-
+        //create new cart list from cart class
         public CartList()
         {
             cart = new List<Cart>();

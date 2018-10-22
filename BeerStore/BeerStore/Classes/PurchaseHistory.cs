@@ -7,6 +7,7 @@ namespace BeerStore.Classes
 {
     public class PurchaseHistory
     {
+        //declare variables used in Purchase history data
         public int OrderID { get; set; }
         public DateTime Date { get; set; }
         public string Product { get; set; }

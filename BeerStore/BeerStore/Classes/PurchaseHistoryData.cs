@@ -11,6 +11,7 @@ namespace BeerStore.Classes
     [DataObject(true)]
     public class PurchaseHistoryData
     {
+        //create purchase history list, add data to list
         public PurchaseHistoryData()
         {
             p_purchase.Add(new PurchaseHistory() { OrderID = 1, Date = new DateTime(2018, 1, 1, 18, 24, 36), Product = "Tooheys", Price = 9.99, Quantity = 1, Status = "Complete", Total = 9.99 });
@@ -18,12 +19,12 @@ namespace BeerStore.Classes
             p_purchase.Add(new PurchaseHistory() { OrderID = 1, Date = new DateTime(2018, 7, 24, 23, 59, 59), Product = "Tooheys", Price = 9.99, Quantity = 6, Status = "Complete", Total = 59.94 });
             p_purchase.Add(new PurchaseHistory() { OrderID = 1, Date = new DateTime(2018, 8, 11, 18, 30, 30), Product = "Tooheys", Price = 9.99, Quantity = 1, Status = "Pending", Total = 9.99 });
         }
-
+        //get products from list
         public List<PurchaseHistory> PurchaseHistory
         {
             get { return p_purchase; }
         }
-
+        //return order row based on orderId
         [DataObjectMethod(DataObjectMethodType.Select)]
         public PurchaseHistory GetPurchaseHistory(int id)
         {
@@ -34,7 +35,7 @@ namespace BeerStore.Classes
             }
             return null;
         }
-
+        //retunr all orders
         [DataObjectMethod(DataObjectMethodType.Select)]
         public List<PurchaseHistory> GetPurchaseHistory()
         {

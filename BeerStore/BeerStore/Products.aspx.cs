@@ -15,16 +15,7 @@ namespace BeerStore
 
         protected void Page_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
 
-            if (!IsPostBack)
-            {
-=======
-            
-            if (!IsPostBack)
-            {
-                
->>>>>>> e663dd3292033d653d654295359b1de16215e53c
                 var p1 = p.GetProduct(1);
                 var p2 = p.GetProduct(2);
                 var p3 = p.GetProduct(3);
@@ -44,8 +35,6 @@ namespace BeerStore
                 brandtxt2.Text = p3.Brand;
                 price2.Text = "$" + p3.price.ToString();
                 image2.ImageUrl = p3.imagefile;
-
-            }
         }
 
         protected void AddtoCart_Click(object sender, EventArgs e)
@@ -62,7 +51,7 @@ namespace BeerStore
         //create sessions states when product image is selected
         protected void btn1_click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
+
             var p1 = p.GetProduct(1);
             Session["ID"] = p1.productID;
             Session["Name"] = p1.Brand + " "+ p1.Name;
@@ -70,8 +59,7 @@ namespace BeerStore
             Session["ShortDescription"] = p1.shortDescription;
             Session["ImageFile"] = p1.imagefile;
             Response.Redirect("ProductDetails.aspx");
-=======
->>>>>>> e663dd3292033d653d654295359b1de16215e53c
+
         }
         protected void btn2_click(object sender, EventArgs e)
         {

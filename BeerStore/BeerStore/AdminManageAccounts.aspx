@@ -4,6 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
     <h1>Manage User Accounts</h1>
+        <!-- Adds data from user Accounts data class which then can be edited with the command fields -->
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1"
         CssClass="table table-bordered table-striped table-condensed"
         OnPreRender="GridView1_PreRender">
