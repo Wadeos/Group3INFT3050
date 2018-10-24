@@ -5,16 +5,18 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BeerStore.DAL;
+using System.Data;
 using BeerStore.BL;
 
 namespace BeerStore
 {
     public partial class _default : System.Web.UI.Page
     {
+        ProductsBL p = new ProductsBL();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            ProductsBL p = new ProductsBL();
-            this.GridView1.DataSource = p.GetProducts();
+
         }
 
         protected void searchbutton_Click(object sender, EventArgs e)

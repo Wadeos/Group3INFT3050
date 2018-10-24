@@ -10,25 +10,27 @@ namespace BeerStore.DAL
 {
     public class ProductsDAL
     {
-        string conString = (ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
-        SqlConnection con = new SqlConnection();
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
         Product objP = null;
         List<Product> List = new List<Product>();
 
-        public List<Product> Read()
+        public DataSet getData()
         {
-            con.ConnectionString = conString;
-            if (ConnectionState.Closed == con.State)
-                con.Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Product", con);
 
-            SqlDataReader rd = cmd.ExecuteReader();
-            while (rd.Read())
+            if (con.State != ConnectionState.Open)
             {
-                objP = new Product();
-                objP.ID = rd.GetValue(0).ToString();
-                List.Add(objP);
+                con.Open();
             }
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Product", con);
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(ds);
+            con.Close();
+            return ds;
+        }
+
+        public List<Product> getList()
+        {
             return List;
         }
     }

@@ -35,5 +35,6 @@
         <div><asp:Label ID="brandtxt2" runat="server"/>&nbsp<asp:Label ID="nametxt2" runat="server"/></div>
         <div><div class="pull-right"><asp:Button ID="Button2" runat="server" CssClass="btn btn-danger" Text="BUY" OnClick="AddtoCart_Click"/></div><div class="text-danger"><asp:Label ID="price2" runat="server"/></div></div>
     </div>
+            <asp:GridView ID="GridView1" runat="server"></asp:GridView>
  </div>
 </asp:Content>

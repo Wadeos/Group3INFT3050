@@ -9,10 +9,10 @@ namespace BeerStore.BL
 {
     public class ProductsBL
     {
-        public List<Product> GetProducts()
+        public DataSet GetProducts()
         {
             ProductsDAL Dal = new ProductsDAL();
-            return Dal.Read();
+            return Dal.getData();
         }
     }
 }

@@ -6,17 +6,23 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.SessionState;
+using System.Data;
+using BeerStore.BL;
 
 namespace BeerStore
 {
     public partial class Product : System.Web.UI.Page
     {
+        ProductsBL BL = new ProductsBL();
         ProductData p = new ProductData();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            DataSet ds = BL.GetProducts();
+            this.GridView1.DataSource = ds.Tables[0];
+            GridView1.DataBind();
 
-                var p1 = p.GetProduct(1);
+            var p1 = p.GetProduct(1);
                 var p2 = p.GetProduct(2);
                 var p3 = p.GetProduct(3);
                 //Inserting data into the table
