@@ -14,79 +14,41 @@ namespace BeerStore
     public partial class Product : System.Web.UI.Page
     {
         ProductsBL BL = new ProductsBL();
-        ProductData p = new ProductData();
+        DataRow dr;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataSet ds = BL.GetProducts();
-            this.GridView1.DataSource = ds.Tables[0];
-            GridView1.DataBind();
+            if(!IsPostBack)
+            {
+                DataSet ds = BL.getData();
 
-            var p1 = p.GetProduct(1);
-                var p2 = p.GetProduct(2);
-                var p3 = p.GetProduct(3);
-                //Inserting data into the table
-                //Product 1
-                nametxt.Text = p1.Name;
-                brandtxt.Text = p1.Brand;
-                price.Text = "$"+ p1.price.ToString();
-                image.ImageUrl = p1.imagefile;
-                //Product 2
-                nametxt1.Text = p2.Name;
-                brandtxt1.Text = p2.Brand;
-                price1.Text = "$" + p2.price.ToString();
-                image1.ImageUrl = p2.imagefile;
-                //Product 3
-                nametxt2.Text = p3.Name;
-                brandtxt2.Text = p3.Brand;
-                price2.Text = "$" + p3.price.ToString();
-                image2.ImageUrl = p3.imagefile;
-        }
-
-        protected void AddtoCart_Click(object sender, EventArgs e)
-        {
-            Session["Cart"] = "";
-            Response.Redirect("ShoppingCart.aspx");
+                Repeater1.DataSource = BL.getData();
+                Repeater1.DataBind();
+            }
         }
 
         protected void searchbutton_Click(object sender, EventArgs e)
         {
-            //Search for products
+                Repeater1.DataSource = BL.search(searchBar.Text);
+                Repeater1.DataBind();
         }
 
-        //create sessions states when product image is selected
-        protected void btn1_click(object sender, EventArgs e)
+        protected void btn_showAll(object sender, EventArgs e)
         {
-
-            var p1 = p.GetProduct(1);
-            Session["ID"] = p1.productID;
-            Session["Name"] = p1.Brand + " "+ p1.Name;
-            Session["Description"] = p1.longDescription;
-            Session["ShortDescription"] = p1.shortDescription;
-            Session["ImageFile"] = p1.imagefile;
-            Response.Redirect("ProductDetails.aspx");
-
+            Repeater1.DataSource = BL.getData();
+            Repeater1.DataBind();
         }
-        protected void btn2_click(object sender, EventArgs e)
+        //redirects when certain button or image is clicked
+        //either will add to cart or show product details
+        protected void Repeater1_ItemCommand1(object source, RepeaterCommandEventArgs e)
         {
-            var p2 = p.GetProduct(2);
-            Session["ID"] = p2.productID;
-            Session["Name"] = p2.Brand + " " + p2.Name;
-            Session["Description"] = p2.longDescription;
-            Session["ShortDescription"] = p2.shortDescription;
-            Session["ImageFile"] = p2.imagefile;
-            Response.Redirect("ProductDetails.aspx");
+            if(e.CommandName == "Add")
+            {
+                Response.Redirect("ProductDetails.aspx?id=" + e.CommandArgument.ToString());
+            }
+            else{
+                Response.Redirect("ShoppingCart.aspx?id=" + e.CommandArgument.ToString());
+            }
         }
-        protected void btn3_click(object sender, EventArgs e)
-        {
-            var p3 = p.GetProduct(3);
-            Session["ID"] = p3.productID;
-            Session["Name"] = p3.Brand + " " + p3.Name;
-            Session["Description"] = p3.longDescription;
-            Session["ShortDescription"] = p3.shortDescription;
-            Session["ImageFile"] = p3.imagefile;
-            Response.Redirect("ProductDetails.aspx");
-        }
-
     }
 }

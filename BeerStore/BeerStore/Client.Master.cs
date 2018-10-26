@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.SessionState;
+using System.Data;
 
 namespace BeerStore
 {
@@ -12,6 +13,16 @@ namespace BeerStore
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            DataTable dt;
+            dt = (DataTable)Session["AddItems"];
+            if (dt == null)
+            {
+                cartCount.Text = 0.ToString();
+            }
+            else{
+                cartCount.Text = dt.Rows.Count.ToString();
+            }
+
             if (Session["Email"] == null)
             {
                 //Displays please login message
