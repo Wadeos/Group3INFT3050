@@ -4,9 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using BeerStore.DAL;
+using System.Web.SessionState;
 
 namespace BeerStore.BL
 {
+
     public class ProductsBL
     {
         public DataSet getData()
@@ -29,7 +31,7 @@ namespace BeerStore.BL
             ProductsDAL Dal = new ProductsDAL();
             return Dal.search(search);
         }
-        public DataTable getProductRow(int ProductID)
+        public DataSet AddToCart(int ProductID)
         {
             ProductsDAL Dal = new ProductsDAL();
             return Dal.AddToCart(ProductID);

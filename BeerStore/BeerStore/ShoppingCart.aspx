@@ -9,11 +9,14 @@
         <p>For help and enquiries, call <b>1300 00 00 00</b> </p>
     </div>
     <br />
-    <div align="center">
-        <%-- Products thats been added to the shopping cart --%>
+    <div>
+        <asp:GridView ID="Gridview1" runat="server" CssClass="table table-bordered table-striped table-condensed">
+        </asp:GridView>
+    </div>
+    <!--<div align="center">
+         Products thats been added to the shopping cart
         <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetShoppingCart" TypeName="BeerStore.Classes.ShoppingCartData"></asp:ObjectDataSource>
-        <asp:GridView ID="GridViewShoppingCart" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1" CssClass="table table-bordered table-striped table-condensed"
-         OnPreRender="grdCategories_PreRender">
+        <asp:GridView ID="GridViewShoppingCart" runat="server" AutoGenerateColumns="False" CssClass="table table-bordered table-striped table-condensed">
             <Columns>
                 <asp:BoundField DataField="Product" HeaderText="Product" SortExpression="Product"> 
                     <ItemStyle CssClass="col-xs-2" />
@@ -28,8 +31,8 @@
                     <ItemStyle CssClass="col-xs-1" />
                 </asp:BoundField>
             </Columns>
-        </asp:GridView>
-    </div>
+        </asp:GridView> 
+    </div> -->
     <div class="form-group" align="center">
         <p>
             <b> <font size="3">Subtotal *</font> <font size="7">$175</font></b> <br />

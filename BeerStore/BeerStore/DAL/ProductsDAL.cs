@@ -72,15 +72,17 @@ namespace BeerStore.DAL
             }
             return p.Name;
         }
-        public DataTable AddToCart(int ProductID)
+        public DataSet AddToCart(int ProductID)
         {
-            DataTable dt = new DataTable();
-            DataRow dr;
-            con.Open();
-            SqlCommand cmd = new SqlCommand("SELECT Name, Price FROM Product WHERE productID = " + ProductID + "", con);
-            SqlDataAdapter da = new SqlDataAdapter();
-            da.SelectCommand = cmd;
-            return dt;
+                DataSet ds = new DataSet();
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT p.Brand, p.Name, p.Price, s.ItemQuantity FROM Product p, ShoppingCart s" +
+                    " WHERE p.productID = " + ProductID + " AND p.productID = s.productID", con);
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+                da.Fill(ds);
+                con.Close();
+                return ds;
         }
 
         public DataSet search(String search)

@@ -14,7 +14,6 @@ namespace BeerStore
     public partial class Product : System.Web.UI.Page
     {
         ProductsBL BL = new ProductsBL();
-        DataRow dr;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -44,11 +43,12 @@ namespace BeerStore
         {
             if(e.CommandName == "Add")
             {
-                Response.Redirect("ProductDetails.aspx?id=" + e.CommandArgument.ToString());
-            }
-            else{
                 Response.Redirect("ShoppingCart.aspx?id=" + e.CommandArgument.ToString());
             }
+            else{
+                Response.Redirect("ProductDetails.aspx?id=" + e.CommandArgument.ToString());
+            }
         }
+      
     }
 }
