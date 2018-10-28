@@ -16,18 +16,32 @@ namespace BeerStore
         {
             if (!IsPostBack)
             {
-                Gridview1.DataSource = Session["AddItems"];
-
+                DataTable dt = new DataTable();
+                DataRow dr;
                 if (Request.QueryString["id"] != null)
                 {
-                    DataSet ds = BL.AddToCart(Convert.ToInt32(Request.QueryString["id"]));
-                    Gridview1.DataSource = ds;
-                    Gridview1.DataBind();
-                    Session["AddItems"] = ds;
-
+                    if (Session["AddItems"] == null)
+                    {
+                        BL.addToCart(1, Convert.ToInt32(Request.QueryString["id"]), 
+                            BL.getProductPrice(Convert.ToInt32(Request.QueryString["id"])) * 1, 1, dt);
+                        BL.displayCart();
+                        Gridview1.DataSource = BL.displayCart();
+                        Gridview1.DataBind();
+                        Session["AddItems"] = BL.displayCart();
+                    }
+                    else {
+                        dt = (DataTable)Session["AddItems"];
+                        BL.addToCart(1, Convert.ToInt32(Request.QueryString["id"]), 
+                            BL.getProductPrice(Convert.ToInt32(Request.QueryString["id"])) * 1, 1, dt);
+                        BL.displayCart();
+                        Gridview1.DataSource = BL.displayCart();
+                        Gridview1.DataBind();
+                        Session["AddItems"] = BL.displayCart();
+                    }
                 }
+
             }
-         
+
         }
         /*
         protected void grdCategories_PreRender(object sender, EventArgs e)

@@ -21,20 +21,25 @@ namespace BeerStore.BL
             ProductsDAL Dal = new ProductsDAL();
             return Dal.getProducts();
         }
-        public string getProductName()
+        public double getProductPrice(int ProductID)
         {
             ProductsDAL Dal = new ProductsDAL();
-            return Dal.getProductName(1);
+            return Dal.getProductPrice(ProductID);
         }
         public DataSet search(string search)
         {
             ProductsDAL Dal = new ProductsDAL();
             return Dal.search(search);
         }
-        public DataSet AddToCart(int ProductID)
+        public DataTable displayCart()
         {
             ProductsDAL Dal = new ProductsDAL();
-            return Dal.AddToCart(ProductID);
+            return Dal.displayCart();
+        }
+        public void addToCart(int InvoiceID, int ProductID, double price, int quantity, DataTable dt)
+        {
+            ProductsDAL Dal = new ProductsDAL();
+            Dal.addToCart(InvoiceID, ProductID, price, quantity, dt);
         }
     }
 }

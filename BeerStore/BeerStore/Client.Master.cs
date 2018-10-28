@@ -13,14 +13,14 @@ namespace BeerStore
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataSet ds;
-            ds = (DataSet)Session["AddItems"];
-            if (ds == null)
+            DataTable dt;
+            dt = (DataTable)Session["AddItems"];
+            if (dt == null)
             {
                 cartCount.Text = 0.ToString();
             }
             else{
-                cartCount.Text = ds.Tables[0].Rows.Count.ToString();
+                cartCount.Text = dt.Rows.Count.ToString();
             }
 
             if (Session["Email"] == null)

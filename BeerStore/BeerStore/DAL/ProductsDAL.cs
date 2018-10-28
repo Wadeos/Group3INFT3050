@@ -28,7 +28,6 @@ namespace BeerStore.DAL
         List<Product> List = new List<Product>();
         List<CartList> cartItems = new List<CartList>();
         DataSet ds = new DataSet();
-        DataView dv = new DataView();
 
         public DataSet getData()
         {
@@ -48,7 +47,7 @@ namespace BeerStore.DAL
         {
             con.Open();
             SqlCommand cmd = new SqlCommand("SELECT Name FROM Product", con);
-            SqlDataReader reader = cmd.ExecuteReader() ;
+            SqlDataReader reader = cmd.ExecuteReader();
             Product p = new Product();
             while (reader.Read())
             {
@@ -59,31 +58,41 @@ namespace BeerStore.DAL
             return List;
 
         }
-        public string getProductName(int ID)
+        public double getProductPrice(int ID)
         {
             con.Open();
-            SqlCommand cmd = new SqlCommand("SELECT Name FROM Product WHERE productID = " + ID + "", con);
+            SqlCommand cmd = new SqlCommand("SELECT Price FROM Product WHERE productID = " + ID + "", con);
             SqlDataReader reader = cmd.ExecuteReader();
             Product p = new Product();
             while (reader.Read())
             {
-                p.Name = (string)reader["Name"];
+                p.price = Convert.ToDouble(reader["Price"]);
                 List.Add(p);
             }
-            return p.Name;
+            return p.price;
         }
-        public DataSet AddToCart(int ProductID)
+        public DataTable displayCart()
         {
-                DataSet ds = new DataSet();
-                con.Open();
+            DataTable dt = new DataTable();
+                 con.Open();
                 SqlCommand cmd = new SqlCommand("SELECT p.Brand, p.Name, p.Price, s.ItemQuantity FROM Product p, ShoppingCart s" +
-                    " WHERE p.productID = " + ProductID + " AND p.productID = s.productID", con);
+                            " WHERE p.productID = s.productID", con);
                 SqlDataAdapter da = new SqlDataAdapter();
                 da.SelectCommand = cmd;
-                da.Fill(ds);
+                da.Fill(dt);
                 con.Close();
-                return ds;
+            return dt;
         }
+
+        public void addToCart(int InvoiceID, int ProductID, double price, int quantity, DataTable dt)
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("INSERT INTO ShoppingCart VALUES (" + InvoiceID + "," + ProductID + "," + price + "," + quantity + ")", con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+    
+    
 
         public DataSet search(String search)
         {

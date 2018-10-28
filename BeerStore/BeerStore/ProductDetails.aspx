@@ -7,7 +7,7 @@
         <h1> Product Details</h1>
     </div>
         <div class="col-md-4 box">
-            <asp:ImageButton ID="image" runat="server" class="img-responsive img-thumbnail img center-block"/>
+            <asp:ImageButton ID="image" runat="server" CssClass="img-responsive img-thumbnail img center-block"/>
             <hr />
             <div><asp:Label ID="Label1" runat="server" CssClass="h2 text-danger center-block"></asp:Label></div>
                 <hr />

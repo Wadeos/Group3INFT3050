@@ -28,7 +28,7 @@
             <div class="col-md-2 column box">
                 <asp:ImageButton ID="img" runat="server" class="img-responsive img img-thumbnail center-block" ImageUrl='<%#Eval("ImageFile") %>' CommandName="ShowDetails" CommandArgument='<%#Eval("ProductID") %>'/>
                 <div><asp:Label ID="brand" runat="server" Text='<%#Eval("Brand") %>'/>&nbsp<asp:Label ID="name" runat="server" Text='<%#Eval("Name") %>'/></div>
-                <div><div class="pull-right"><asp:Button ID="Button" runat="server" CssClass="btn btn-danger" Text="BUY" CommandName="Add" CommandArgument='<%#Eval("ProductID") %>'/></div><div class="text-danger"><asp:Label ID="pri" runat="server" Text='<%#Eval("Price") %>'/></div></div>
+                <div><div class="pull-right"><asp:Button ID="Button" runat="server" CssClass="btn btn-danger" Text="Add To Cart" CommandName="Add" CommandArgument='<%#Eval("ProductID") %>'/></div><div class="text-danger"><asp:Label ID="pri" runat="server" Text='<%#Eval("Price") %>'/></div></div>
             </div>
         </ItemTemplate>
     </asp:Repeater>
