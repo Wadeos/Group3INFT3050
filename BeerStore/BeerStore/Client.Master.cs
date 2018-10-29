@@ -5,12 +5,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.SessionState;
+using BeerStore.BL;
 using System.Data;
 
 namespace BeerStore
 {
     public partial class Client : System.Web.UI.MasterPage
     {
+        ProductsBL BL = new ProductsBL();
         protected void Page_Load(object sender, EventArgs e)
         {
             DataTable dt;
@@ -20,7 +22,7 @@ namespace BeerStore
                 cartCount.Text = 0.ToString();
             }
             else{
-                cartCount.Text = dt.Rows.Count.ToString();
+                cartCount.Text = BL.getQuantityCount();
             }
 
             if (Session["Email"] == null)

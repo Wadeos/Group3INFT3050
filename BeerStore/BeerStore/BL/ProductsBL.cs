@@ -16,7 +16,7 @@ namespace BeerStore.BL
             ProductsDAL Dal = new ProductsDAL();
             return Dal.getData();
         }
-        public List<DAL.Product> getProducts()
+        public List<Classes.Product> getProducts()
         {
             ProductsDAL Dal = new ProductsDAL();
             return Dal.getProducts();
@@ -36,10 +36,25 @@ namespace BeerStore.BL
             ProductsDAL Dal = new ProductsDAL();
             return Dal.displayCart();
         }
-        public void addToCart(int InvoiceID, int ProductID, double price, int quantity, DataTable dt)
+        public void addToCart(int InvoiceID, int ProductID, DataTable dt)
         {
             ProductsDAL Dal = new ProductsDAL();
-            Dal.addToCart(InvoiceID, ProductID, price, quantity, dt);
+            Dal.addToCart(InvoiceID, ProductID, dt);
+        }
+        public int getQuantity(int ProductID)
+        {
+            ProductsDAL Dal = new ProductsDAL();
+            return Dal.getQuantity(ProductID);
+        }
+        public string getSum()
+        {
+            ProductsDAL Dal = new ProductsDAL();
+            return Dal.getSum();
+        }
+        public string getQuantityCount()
+        {
+            ProductsDAL Dal = new ProductsDAL();
+            return Dal.getQuantityCount();
         }
     }
 }

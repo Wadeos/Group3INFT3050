@@ -18,26 +18,37 @@ namespace BeerStore
             {
                 DataTable dt = new DataTable();
                 DataRow dr;
+                int ProductID = Convert.ToInt16(Request.QueryString["id"]);
+
+
                 if (Request.QueryString["id"] != null)
                 {
                     if (Session["AddItems"] == null)
                     {
-                        BL.addToCart(1, Convert.ToInt32(Request.QueryString["id"]), 
-                            BL.getProductPrice(Convert.ToInt32(Request.QueryString["id"])) * 1, 1, dt);
+                        BL.addToCart(1, ProductID, dt);
                         BL.displayCart();
                         Gridview1.DataSource = BL.displayCart();
                         Gridview1.DataBind();
                         Session["AddItems"] = BL.displayCart();
+                        dt = (DataTable)Session["AddItems"];
+                        Label2.Text = BL.getSum();
                     }
                     else {
                         dt = (DataTable)Session["AddItems"];
-                        BL.addToCart(1, Convert.ToInt32(Request.QueryString["id"]), 
-                            BL.getProductPrice(Convert.ToInt32(Request.QueryString["id"])) * 1, 1, dt);
+                        BL.addToCart(1, ProductID, dt);
                         BL.displayCart();
                         Gridview1.DataSource = BL.displayCart();
                         Gridview1.DataBind();
                         Session["AddItems"] = BL.displayCart();
+                        dt = (DataTable)Session["AddItems"];
+                        Label2.Text = BL.getSum();
                     }
+                }
+                else {
+                    dt = (DataTable)Session["AddItems"];
+                    Gridview1.DataSource = BL.displayCart();
+                    Gridview1.DataBind();
+                    Label2.Text = BL.getSum();
                 }
 
             }

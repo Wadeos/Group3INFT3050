@@ -35,9 +35,8 @@
     </div> -->
     <div class="form-group" align="center">
         <p>
-            <b> <asp:Label ID="Label1" runat="server" Text="SubTotal:">
-                <asp:Label ID="Label2" runat="server" Text='<%# Eval("Price") %>'></asp:Label></asp:Label> <br />
-            <font size="1" color="grey"> (inc $2.03 GST)</font>
+            <b> <asp:Label ID="Label1" runat="server" Text="Total:">
+                <asp:Label ID="Label2" runat="server"></asp:Label></asp:Label> <br />
         </p>
         <br />
         <asp:Button ID="btnCheckout" runat="server" Text="Secure Checkout" CssClass="btn btn-primary" OnClick="btnCheckout_Click1" />
