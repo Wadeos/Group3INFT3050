@@ -4,11 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BeerStore.BL;
 
 namespace BeerStore
 {
     public partial class AdminLogin : System.Web.UI.Page
     {
+        UserAcountBL BL = new UserAcountBL();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -16,9 +19,16 @@ namespace BeerStore
 
         protected void loginButton_Click(object sender, EventArgs e)
         {
-            Session["AdminEmail"] = emailtxt.Text;
-            Session["AdminPassword"] = passwordtxt.Text;
-            Response.Redirect("Default.aspx");
+            int check = BL.confirmLogin(emailtxt.Text, passwordtxt.Text);
+            if (check == 1)
+            {
+                Session["AdminEmail"] = emailtxt.Text;
+                Response.Redirect("Default.aspx");
+            }
+            else
+            {
+                errorlbl.Text = "Please Enter Valid User Name And/Or Password";
+            }
         }
     }
 }

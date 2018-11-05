@@ -18,8 +18,9 @@ namespace BeerStore
         {
               if(!IsPostBack)
             {
-                DataSet ds = new DataSet();
-                ds = BL.getData();
+                productDetails.DataSource = BL.getProductDetails(Convert.ToInt16(Request.QueryString["id"]));
+                productDetails.DataBind();
+                
             }
         }
 

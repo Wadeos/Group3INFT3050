@@ -32,6 +32,20 @@ namespace BeerStore.DAL
             return ds;
         }
 
+        public DataSet getProductDetails(int ProductID)
+        {
+
+            if (con.State != ConnectionState.Open)
+            {
+                con.Open();
+            }
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Product WHERE productID = "+ProductID+"", con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(ds);
+            con.Close();
+            return ds;
+        }
+
         public List<Classes.Product> getProducts()
         {
             con.Open();

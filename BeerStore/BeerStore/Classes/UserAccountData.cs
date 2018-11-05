@@ -7,7 +7,8 @@ using System.Data.SqlClient;
 using System.ComponentModel;
 
 namespace BeerStore.Classes
-{
+
+{ /*
     [DataObject(true)]
     public class UserAccountData
     {
@@ -45,6 +46,6 @@ namespace BeerStore.Classes
 
 
         private List<UserAccount> u_userAccount = new List<UserAccount>();
-
-    }
+        
+    } */
 }

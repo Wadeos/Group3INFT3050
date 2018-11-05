@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="form-group">
-            <asp:label ID="FirstName" runat="server" Text="First Name:"></asp:label>
+            <asp:label ID="firstNametxt" runat="server" Text="First Name:"></asp:label>
             <div class="form-inline">
                 <asp:TextBox ID="fNametxt" runat="server" class="form-control" Width="200px"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
@@ -63,6 +63,24 @@
                      ControlToValidate="confirmtxt"
                       ForeColor="Red">*</asp:CompareValidator>
             </div>
+        <div class="form-group">
+            <asp:label ID="Phone" runat="server" Text="Phone Number:"></asp:label>
+             <div class="form-inline">
+                    <asp:TextBox ID="phonetxt" runat="server" class="form-control" Width="200px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" 
+                     ErrorMessage="Please Enter Phone" ControlToValidate="phonetxt" 
+                     ForeColor="Red">* </asp:RequiredFieldValidator>
+             </div>
+        </div>
+        <div class="form-group">
+            <asp:label ID="address" runat="server" Text="Address:"></asp:label>
+             <div class="form-inline">
+                    <asp:TextBox ID="addresstxt" runat="server" class="form-control" Width="300px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" 
+                     ErrorMessage="Please Enter Address" ControlToValidate="addresstxt" 
+                     ForeColor="Red">* </asp:RequiredFieldValidator>
+             </div>
+        </div>
         </div>
         <div class="form-group">
             <asp:Button ID="RegisterButton" runat="server" Text="Register" OnClick="RegisterButton_Click" class="btn btn-primary"/>
