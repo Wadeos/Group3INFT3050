@@ -145,6 +145,7 @@
     <Compile Include="BL\INFT3050PaymentSystem.cs" />
     <Compile Include="BL\IPaymentSystem.cs" />
     <Compile Include="BL\ProductsBL.cs" />
+    <Compile Include="BL\UserAcountBL.cs" />
     <Compile Include="Classes\Cart.cs" />
     <Compile Include="Classes\CartList.cs" />
     <Compile Include="Classes\Product.cs" />
@@ -163,6 +164,7 @@
       <DependentUpon>Client.Master</DependentUpon>
     </Compile>
     <Compile Include="DAL\ProductsDAL.cs" />
+    <Compile Include="DAL\UsersDAL.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

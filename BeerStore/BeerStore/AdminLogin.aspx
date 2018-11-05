@@ -16,6 +16,9 @@
         <br />
         <asp:TextBox id="passwordtxt" runat="server" class="form-control" Width="300px" TextMode="Password" ></asp:TextBox>
     </div>
+    <div>
+        <asp:Label ID="errorlbl" runat="server"></asp:Label>
+    </div>
     <div class="form-group">
         <asp:Button ID="loginButton" runat="server" Text="Login" OnClick="loginButton_Click" CssClass="btn btn-primary"/>
     </div>

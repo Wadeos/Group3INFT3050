@@ -16,25 +16,50 @@ namespace BeerStore.BL
             ProductsDAL Dal = new ProductsDAL();
             return Dal.getData();
         }
-        public List<DAL.Product> getProducts()
+        public DataSet getProductDetails(int ProductID)
+        {
+            ProductsDAL Dal = new ProductsDAL();
+            return Dal.getProductDetails(ProductID);
+        }
+        public List<Classes.Product> getProducts()
         {
             ProductsDAL Dal = new ProductsDAL();
             return Dal.getProducts();
         }
-        public string getProductName()
+        public double getProductPrice(int ProductID)
         {
             ProductsDAL Dal = new ProductsDAL();
-            return Dal.getProductName(1);
+            return Dal.getProductPrice(ProductID);
         }
         public DataSet search(string search)
         {
             ProductsDAL Dal = new ProductsDAL();
             return Dal.search(search);
         }
-        public DataSet AddToCart(int ProductID)
+        public DataTable displayCart()
         {
             ProductsDAL Dal = new ProductsDAL();
-            return Dal.AddToCart(ProductID);
+            return Dal.displayCart();
+        }
+        public void addToCart(int InvoiceID, int ProductID, DataTable dt)
+        {
+            ProductsDAL Dal = new ProductsDAL();
+            Dal.addToCart(InvoiceID, ProductID, dt);
+        }
+        public int getQuantity(int ProductID)
+        {
+            ProductsDAL Dal = new ProductsDAL();
+            return Dal.getQuantity(ProductID);
+        }
+        public string getSum()
+        {
+            ProductsDAL Dal = new ProductsDAL();
+            return Dal.getSum();
+        }
+        public string getQuantityCount()
+        {
+            ProductsDAL Dal = new ProductsDAL();
+            return Dal.getQuantityCount();
         }
     }
 }

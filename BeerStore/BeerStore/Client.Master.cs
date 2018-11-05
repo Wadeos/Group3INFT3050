@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.SessionState;
+using BeerStore.BL;
 using System.Data;
 using System.Configuration;
 
@@ -12,16 +13,17 @@ namespace BeerStore
 {
     public partial class Client : System.Web.UI.MasterPage
     {
+        ProductsBL BL = new ProductsBL();
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataSet ds;
-            ds = (DataSet)Session["AddItems"];
-            if (ds == null)
+            DataTable dt;
+            dt = (DataTable)Session["AddItems"];
+            if (dt == null)
             {
                 cartCount.Text = 0.ToString();
             }
             else{
-                cartCount.Text = ds.Tables[0].Rows.Count.ToString();
+                cartCount.Text = BL.getQuantityCount();
             }
 
             if (Session["Email"] == null)

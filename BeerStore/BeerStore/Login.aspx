@@ -32,6 +32,9 @@
                      ForeColor="Red">* </asp:RequiredFieldValidator>
              </div>
         </div>
+    <div>
+        <asp:Label ID="errorlbl" runat="server" ForeColor="Red"></asp:Label>
+    </div>
     <div class="form-group">
         <asp:Button ID="loginButton" runat="server" Text="Login" OnClick="loginButton_Click" CssClass="btn btn-primary"/>
     </div>

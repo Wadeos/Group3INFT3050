@@ -35,8 +35,8 @@
     </div> -->
     <div class="form-group" align="center">
         <p>
-            <b> <font size="3">Subtotal *</font> <font size="7">$175</font></b> <br />
-            <font size="1" color="grey"> (inc $2.03 GST)</font>
+            <b> <asp:Label ID="Label1" runat="server" Text="Total:">
+                <asp:Label ID="Label2" runat="server"></asp:Label></asp:Label> <br />
         </p>
         <br />
         <asp:Button ID="btnCheckout" runat="server" Text="Secure Checkout" CssClass="btn btn-primary" OnClick="btnCheckout_Click1" />
