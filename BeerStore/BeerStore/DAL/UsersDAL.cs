@@ -13,11 +13,11 @@ namespace BeerStore.DAL
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
 
-        public void registerAccount(int userID, string email, string userPassword, string firstName, string lastName, int phoneNumber, string userAddress)
+        public void registerAccount(string email, string userPassword, string firstName, string lastName, int phoneNumber, string userAddress)
         {
             con.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO UserAccount Values (@userId, @email, @userPassword, @firstName, @lastName, @phone, @userAddress)", con);
-            cmd.Parameters.AddWithValue("@userID", userID);
+            SqlCommand cmd = new SqlCommand("INSERT INTO UserAccount (userID, Email, userPassword, firstName, lastName, PhoneNumber, userAddress)" +
+                " Values ("+getUserID()+",@email, @userPassword, @firstName, @lastName, @phone, @userAddress)", con);
             cmd.Parameters.AddWithValue("@email", email);
             cmd.Parameters.AddWithValue("@userPassword", userPassword);
             cmd.Parameters.AddWithValue("@firstName", firstName);
@@ -36,6 +36,24 @@ namespace BeerStore.DAL
             int check = Convert.ToInt32(cmd.ExecuteScalar());
             con.Close();
             return check;
+        }
+        public int getUserID()
+        {
+            if (con.State != ConnectionState.Open)
+            {
+                con.Open();
+            }
+            int maxID = 0;
+            SqlCommand cmd = new SqlCommand("SELECT MAX(userID) FROM UserAccount", con);
+            maxID = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+            if (maxID == 0)
+            {
+                maxID = 1;
+            }
+            else {
+                maxID = maxID + 1;
+            }
+            return maxID;
         }
     }
 }

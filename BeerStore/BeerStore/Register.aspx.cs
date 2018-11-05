@@ -18,7 +18,7 @@ namespace BeerStore
 
         protected void RegisterButton_Click(object sender, EventArgs e)
         {
-                BL.registerAccount(1, emailtxt.Text, passwordtxt.Text, fNametxt.Text, lNametxt.Text, Convert.ToInt32(phonetxt.Text), addresstxt.Text);
+                BL.registerAccount(emailtxt.Text, passwordtxt.Text, fNametxt.Text, lNametxt.Text, Convert.ToInt32(phonetxt.Text), addresstxt.Text);
                 Response.Redirect("Login.aspx");
         }
 
