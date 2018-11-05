@@ -42,10 +42,6 @@ namespace BeerStore
         //either will add to cart or show product details
         protected void Repeater1_ItemCommand1(object source, RepeaterCommandEventArgs e)
         {
-            string url = ConfigurationManager.AppSettings["SecurePath"]
-                + "ShoppingCart.aspx";
-            Response.Redirect(url);
-
             if (e.CommandName == "Add")
             {
                 Response.Redirect("ShoppingCart.aspx?id=" + e.CommandArgument.ToString());
