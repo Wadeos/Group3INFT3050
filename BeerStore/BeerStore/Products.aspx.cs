@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using System.Web.SessionState;
 using System.Data;
 using BeerStore.BL;
+using System.Configuration;
 
 namespace BeerStore
 {
@@ -17,7 +18,7 @@ namespace BeerStore
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 DataSet ds = BL.getData();
 
@@ -41,13 +42,18 @@ namespace BeerStore
         //either will add to cart or show product details
         protected void Repeater1_ItemCommand1(object source, RepeaterCommandEventArgs e)
         {
-            if(e.CommandName == "Add")
+            string url = ConfigurationManager.AppSettings["SecurePath"]
+                + "ShoppingCart.aspx";
+            Response.Redirect(url);
+
+            if (e.CommandName == "Add")
             {
                 Response.Redirect("ShoppingCart.aspx?id=" + e.CommandArgument.ToString());
             }
             else{
                 Response.Redirect("ProductDetails.aspx?id=" + e.CommandArgument.ToString());
             }
+
         }
       
     }

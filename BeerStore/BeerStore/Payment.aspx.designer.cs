@@ -10,7 +10,7 @@
 namespace BeerStore {
     
     
-    public partial class WebForm2 {
+    public partial class Payment {
         
         /// <summary>
         /// HyperLinkCart control.

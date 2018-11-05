@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:HyperLink ID="HyperLinkShopping" runat="server" NavigateUrl="~/Products.aspx">< Continue Shopping</asp:HyperLink>
+    <asp:Button ID="btnBack" runat="server" Text="Continue Shopping" CssClass="btn btn-primary" OnClick="btnBack_Click" />
     <br />
     <div>
         <h1>Shopping Cart</h1>

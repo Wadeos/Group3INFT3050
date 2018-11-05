@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -14,6 +15,14 @@ namespace BeerStore
         ProductsBL BL = new ProductsBL();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Request.IsSecureConnection)
+            {
+                string url =
+                    ConfigurationManager.AppSettings["SecurePath"] +
+                    "ShoppingCart.aspx";
+                Response.Redirect(url);
+            }
+
             if (!IsPostBack)
             {
                 Gridview1.DataSource = Session["AddItems"];
@@ -37,7 +46,9 @@ namespace BeerStore
         } */
         protected void btnCheckout_Click1(object sender, EventArgs e)
         {
-            Response.Redirect("Payment.aspx");
+            string url = ConfigurationManager.AppSettings["SecurePath"]
+                + "Payment.aspx";
+            Response.Redirect(url);
         }
 
         protected void btnClear_Click(object sender, EventArgs e)
@@ -45,5 +56,11 @@ namespace BeerStore
             Session.Clear();
         }
 
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            string url = ConfigurationManager.AppSettings["UnsecurePath"]
+                + "Products.aspx";
+            Response.Redirect(url);
+        }
     }
 }

@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.SessionState;
 using System.Data;
+using System.Configuration;
 
 namespace BeerStore
 {
@@ -71,7 +72,9 @@ namespace BeerStore
         protected void logoutbtn_Click(object sender, EventArgs e)
         {
             Session.Abandon();
-            Response.Redirect("Default.aspx");
+            string url = ConfigurationManager.AppSettings["UnsecurePath"]
+                + "Default.aspx";
+            Response.Redirect(url);
         }
     }
 }

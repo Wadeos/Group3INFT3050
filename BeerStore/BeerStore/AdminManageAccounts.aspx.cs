@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,7 +12,13 @@ namespace BeerStore
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(!Request.IsSecureConnection)
+            {
+                string url =
+                    ConfigurationManager.AppSettings["SecurePath"] +
+                    "AdminManageAccounts.aspx";
+                Response.Redirect(url);
+            }
         }
 
         protected void GridView1_PreRender(object sender,

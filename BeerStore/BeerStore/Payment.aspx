@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Client.Master" AutoEventWireup="true" CodeBehind="Payment.aspx.cs" Inherits="BeerStore.WebForm2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Client.Master" AutoEventWireup="true" CodeBehind="Payment.aspx.cs" Inherits="BeerStore.Payment" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Payment Page</title>
 </asp:Content>
