@@ -20,15 +20,22 @@ namespace BeerStore.DAL
 
         public DataSet getData()
         {
-
-            if (con.State != ConnectionState.Open)
+            try
             {
-                con.Open();
+
+                if (con.State != ConnectionState.Open)
+                {
+                    con.Open();
+                }
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Product", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
+                con.Close();
             }
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Product", con);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(ds);
-            con.Close();
+            catch(SqlException e){
+
+                Console.WriteLine("Error : " + e.Message);
+            }
             return ds;
         }
 
@@ -37,9 +44,9 @@ namespace BeerStore.DAL
 
             if (con.State != ConnectionState.Open)
             {
-                con.Open();
+               con.Open();
             }
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Product WHERE productID = "+ProductID+"", con);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Product WHERE productID = " + ProductID + "", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(ds);
             con.Close();

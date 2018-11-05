@@ -42,13 +42,18 @@ namespace BeerStore
         //either will add to cart or show product details
         protected void Repeater1_ItemCommand1(object source, RepeaterCommandEventArgs e)
         {
-            if (e.CommandName == "Add")
+            if (!Request.IsSecureConnection)
             {
-                Response.Redirect("ShoppingCart.aspx?id=" + e.CommandArgument.ToString());
+                if (e.CommandName == "Add")
+                {
+                    Response.Redirect(ConfigurationManager.AppSettings["SecurePath"] + "ShoppingCart.aspx?id=" + e.CommandArgument.ToString());
+                }
+                else
+                {
+                    Response.Redirect("ProductDetails.aspx?id=" + e.CommandArgument.ToString());
+                }
             }
-            else{
-                Response.Redirect("ProductDetails.aspx?id=" + e.CommandArgument.ToString());
-            }
+            
 
         }
       

@@ -16,6 +16,19 @@ namespace BeerStore
         ProductsBL BL = new ProductsBL();
         protected void Page_Load(object sender, EventArgs e)
         {
+            string unsecured = ConfigurationManager.AppSettings["UnsecurePath"];
+            string secured = ConfigurationManager.AppSettings["securePath"];
+
+            //unsecures/secures all links from navagation menu
+            defaultLink.NavigateUrl = unsecured + "Default.aspx";
+            aboutLink.NavigateUrl = unsecured + "About.aspx";
+            contactLink.NavigateUrl = unsecured + "Contact.aspx";
+            productsLink.NavigateUrl = unsecured + "Products.aspx";
+            manageLink.NavigateUrl = secured + "AdminManageItems.aspx";
+            manageAccountLink.NavigateUrl = secured + "AdminManageAccounts.aspx";
+            HyperLink8.NavigateUrl = secured + "PurchaseHistory.aspx";
+            HyperLink4.NavigateUrl = secured + "ShoppingCart.aspx";
+
             DataTable dt;
             dt = (DataTable)Session["AddItems"];
             if (dt == null)
@@ -32,16 +45,16 @@ namespace BeerStore
                 emailtxt.Text = "Please Login";
                 //links hidden and visible depending on user login status
                 logoutbtn.Visible = false;
-                HyperLink6.Visible = false;
-                HyperLink7.Visible = false;
+                manageLink.Visible = false;
+                manageAccountLink.Visible = false;
                 HyperLink8.Visible = false;
 
                 if (Session["AdminEmail"] == null)
                 {
                     emailtxt.Text = "Please Login";
                     logoutbtn.Visible = false;
-                    HyperLink6.Visible = false;
-                    HyperLink7.Visible = false;
+                    manageLink.Visible = false;
+                    manageAccountLink.Visible = false;
                     HyperLink8.Visible = false;
                 }
                 //If user enters valid email displays welcome
@@ -49,10 +62,10 @@ namespace BeerStore
                 {
                     emailtxt.Text = Session["AdminEmail"].ToString();
                     logoutbtn.Visible = true;
-                    HyperLink6.Visible = true;
+                    manageLink.Visible = true;
                     RegisterLink.Visible = false;
                     loginLink.Visible = false;
-                    HyperLink7.Visible = true;
+                    manageAccountLink.Visible = true;
                     HyperLink8.Visible = true;
                 }
 
@@ -61,10 +74,10 @@ namespace BeerStore
             {
                 emailtxt.Text = Session["Email"].ToString();
                 logoutbtn.Visible = true;
-                HyperLink6.Visible = false;
+                manageLink.Visible = false;
                 RegisterLink.Visible = false;
                 loginLink.Visible = false;
-                HyperLink7.Visible = false;
+                manageAccountLink.Visible = false;
                 HyperLink8.Visible = true;
             }
 

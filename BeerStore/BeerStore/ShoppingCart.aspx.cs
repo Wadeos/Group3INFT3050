@@ -15,18 +15,10 @@ namespace BeerStore
         ProductsBL BL = new ProductsBL();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Request.IsSecureConnection)
-            {
-                string url =
-                    ConfigurationManager.AppSettings["SecurePath"] +
-                    "ShoppingCart.aspx";
-                Response.Redirect(url);
-            }
-
+            
             if (!IsPostBack)
             {
                 DataTable dt = new DataTable();
-                DataRow dr;
                 int ProductID = Convert.ToInt16(Request.QueryString["id"]);
 
 
@@ -34,30 +26,51 @@ namespace BeerStore
                 {
                     if (Session["AddItems"] == null)
                     {
-                        BL.addToCart(1, ProductID, dt);
-                        BL.displayCart();
-                        Gridview1.DataSource = BL.displayCart();
-                        Gridview1.DataBind();
-                        Session["AddItems"] = BL.displayCart();
-                        dt = (DataTable)Session["AddItems"];
-                        Label2.Text = BL.getSum();
+                        try
+                        {
+                            BL.addToCart(1, ProductID, dt);
+                            BL.displayCart();
+                            Gridview1.DataSource = BL.displayCart();
+                            Gridview1.DataBind();
+                            Session["AddItems"] = BL.displayCart();
+                            dt = (DataTable)Session["AddItems"];
+                            Label2.Text = BL.getSum();
+                        }
+                        catch (Exception ex)
+                        {
+                            Label1.Text = "An Errr has occured" + ex.Message;
+                        }
                     }
                     else {
-                        dt = (DataTable)Session["AddItems"];
-                        BL.addToCart(1, ProductID, dt);
-                        BL.displayCart();
-                        Gridview1.DataSource = BL.displayCart();
-                        Gridview1.DataBind();
-                        Session["AddItems"] = BL.displayCart();
-                        dt = (DataTable)Session["AddItems"];
-                        Label2.Text = BL.getSum();
+                        try
+                        {
+                            dt = (DataTable)Session["AddItems"];
+                            BL.addToCart(1, ProductID, dt);
+                            BL.displayCart();
+                            Gridview1.DataSource = BL.displayCart();
+                            Gridview1.DataBind();
+                            Session["AddItems"] = BL.displayCart();
+                            dt = (DataTable)Session["AddItems"];
+                            Label2.Text = BL.getSum();
+                        }
+                        catch (Exception ex)
+                        {
+                            Label1.Text = "An Error has Occured " + ex.Message;
+                        }
                     }
                 }
                 else {
-                    dt = (DataTable)Session["AddItems"];
-                    Gridview1.DataSource = BL.displayCart();
-                    Gridview1.DataBind();
-                    Label2.Text = BL.getSum();
+                    try
+                    {
+                        dt = (DataTable)Session["AddItems"];
+                        Gridview1.DataSource = BL.displayCart();
+                        Gridview1.DataBind();
+                        Label2.Text = BL.getSum();
+                    }
+                    catch (Exception ex)
+                    {
+                        Label1.Text = "An Error has Occured " + ex.Message;
+                    }
                 }
 
             }

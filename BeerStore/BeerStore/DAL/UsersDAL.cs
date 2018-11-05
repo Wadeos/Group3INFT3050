@@ -17,7 +17,7 @@ namespace BeerStore.DAL
         {
             con.Open();
             SqlCommand cmd = new SqlCommand("INSERT INTO UserAccount (userID, Email, userPassword, firstName, lastName, PhoneNumber, userAddress)" +
-                " Values ("+getUserID()+",@email, @userPassword, @firstName, @lastName, @phone, @userAddress)", con);
+                " Values ("+increaseUserID()+",@email, @userPassword, @firstName, @lastName, @phone, @userAddress)", con);
             cmd.Parameters.AddWithValue("@email", email);
             cmd.Parameters.AddWithValue("@userPassword", userPassword);
             cmd.Parameters.AddWithValue("@firstName", firstName);
@@ -37,7 +37,7 @@ namespace BeerStore.DAL
             con.Close();
             return check;
         }
-        public int getUserID()
+        public int increaseUserID()
         {
             if (con.State != ConnectionState.Open)
             {

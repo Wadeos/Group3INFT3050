@@ -32,16 +32,16 @@
             </div>
             <!-- List used to generate navbar -->
             <ul class="nav navbar-nav">
-                <li class="active"><asp:HyperLink ID="HyperLink5"  runat="server" NavigateUrl="~/Default.aspx">Home</asp:HyperLink></li>
-                <li><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/About.aspx">About</asp:HyperLink></li>
-                <li><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Products.aspx">Products</asp:HyperLink></li>
-                <li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Contact.aspx">Contact</asp:HyperLink></li>
-                <li><asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/AdminManageItems.aspx">Manage Products</asp:HyperLink></li>
-                <li><asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/AdminManageAccounts.aspx">Manage Accounts</asp:HyperLink></li>
+                <li class="active"><asp:HyperLink ID="defaultLink"  runat="server">Home</asp:HyperLink></li>
+                <li><asp:HyperLink ID="aboutLink" runat="server">About</asp:HyperLink></li>
+                <li><asp:HyperLink ID="productsLink" runat="server">Products</asp:HyperLink></li>
+                <li><asp:HyperLink ID="contactLink" runat="server">Contact</asp:HyperLink></li>
+                <li><asp:HyperLink ID="manageLink" runat="server">Manage Products</asp:HyperLink></li>
+                <li><asp:HyperLink ID="manageAccountLink" runat="server">Manage Accounts</asp:HyperLink></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/PurchaseHistory.aspx">Purchase History</asp:HyperLink></li>
-                <li><asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/ShoppingCart.aspx">View Cart:<asp:Label ID="cartCount" runat="server"></asp:Label> </asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink8" runat="server">Purchase History</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink4" runat="server" >View Cart:<asp:Label  ID="cartCount" runat="server"></asp:Label><asp:Label ID="Label1" runat="server" CssClass="glyphicon glyphicon-shopping-cart"></asp:Label> </asp:HyperLink></li>
             </ul>
             </div>
         </nav>
