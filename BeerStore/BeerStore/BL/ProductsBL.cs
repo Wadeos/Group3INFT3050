@@ -61,5 +61,15 @@ namespace BeerStore.BL
             ProductsDAL Dal = new ProductsDAL();
             return Dal.getQuantityCount();
         }
+        public void removeCart()
+        {
+            ProductsDAL Dal = new ProductsDAL();
+            Dal.removeCart();
+        }
+        public void removeCartID(string Brand)
+        {
+            ProductsDAL Dal = new ProductsDAL();
+            Dal.removeCartID(Brand);
+        }
     }
 }

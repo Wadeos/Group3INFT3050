@@ -142,7 +142,14 @@ namespace BeerStore.DAL
                 con.Open();
                 using (var cmd = new SqlCommand("SELECT SUM(SubTotal) FROM ShoppingCart", con))
                 {
-                    sum = Convert.ToInt32(cmd.ExecuteScalar());
+                    //If Database value doesn't exist return 0
+                    if (cmd.ExecuteScalar() is DBNull)
+                    {
+                        sum = 0;
+                    }
+                    else {
+                        sum = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
                 }
             return " $" + sum.ToString();
         }
@@ -153,7 +160,14 @@ namespace BeerStore.DAL
             con.Open();
             using (var cmd = new SqlCommand("SELECT SUM(ItemQuantity) FROM ShoppingCart", con))
             {
-                sum = Convert.ToInt32(cmd.ExecuteScalar());
+                if (cmd.ExecuteScalar() is DBNull)
+                {
+                    sum = 0;
+                }
+                else
+                {
+                    sum = Convert.ToInt32(cmd.ExecuteScalar());
+                }
             }
             return sum.ToString();
         }
@@ -177,6 +191,20 @@ namespace BeerStore.DAL
             da.Fill(searchData, "Brand");
             con.Close();
             return searchData;
+        }
+        public void removeCart()
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("DELETE FROM ShoppingCart", con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public void removeCartID(string Brand)
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("DELETE FROM ShoppingCart WHERE p.Brand = "+Brand+" AND s.productID = p.productID", con);
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
     }
 }

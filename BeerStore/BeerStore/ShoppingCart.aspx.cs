@@ -91,7 +91,8 @@ namespace BeerStore
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
-            Session.Clear();
+            BL.removeCart();
+            Response.Redirect(ConfigurationManager.AppSettings["securePath"] + "ShoppingCart.aspx");
         }
 
         protected void btnBack_Click(object sender, EventArgs e)
@@ -99,6 +100,18 @@ namespace BeerStore
             string url = ConfigurationManager.AppSettings["UnsecurePath"]
                 + "Products.aspx";
             Response.Redirect(url);
+        }
+
+        protected void Gridview1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName.Equals("remove"))
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                GridViewRow selectedRow = Gridview1.Rows[index];
+                string brand = selectedRow.Cells[0].Text;
+                BL.removeCartID(brand);
+            }
+            Response.Redirect(ConfigurationManager.AppSettings["securePath"] + "ShoppingCart.aspx");
         }
     }
 }
