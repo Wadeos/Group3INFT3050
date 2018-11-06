@@ -11,7 +11,8 @@
         </div>
     </div>
     <div class="container" align="center">
-        
+        <asp:Button ID="Button1" runat="server" Text="Click To view Invoice" OnClick="displayInvoice_Click" />
+        <asp:GridView ID="GridView1" runat="server" Visible="false"></asp:GridView>
     </div>
     <div class="form-group" align="center">
         <asp:Button ID="btnHome" runat="server" Text="Home" CssClass="btn btn-primary" OnClick="btnHome_Click" />

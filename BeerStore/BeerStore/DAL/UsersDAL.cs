@@ -55,5 +55,24 @@ namespace BeerStore.DAL
             }
             return maxID;
         }
+        public int getUserID(string email)
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("SELECT userID FROM UserAccount WHERE Email = @email", con);
+            cmd.Parameters.AddWithValue("@email", email);
+            int ID = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+            con.Close();
+            return ID;
+        }
+        public DataTable DisplayInvoice(int UserID)
+        {
+            con.Open();
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Invoice WHERE UserID = "+UserID+"", con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            con.Close();
+            return dt;
+        }
     }
 }

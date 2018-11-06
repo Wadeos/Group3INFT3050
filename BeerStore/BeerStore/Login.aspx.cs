@@ -20,20 +20,30 @@ namespace BeerStore
 
         protected void loginButton_Click(object sender, EventArgs e)
         {
-            int check = BL.confirmLogin(emailtxt.Text, passwordtxt.Text);
-            if (check == 1)
+            try
             {
-                Session["Email"] = emailtxt.Text;
-                Response.Redirect("Default.aspx");
+                int check = BL.confirmLogin(emailtxt.Text, passwordtxt.Text);
+                if (check == 1)
+                {
+                    Session["Email"] = emailtxt.Text;
+                    Session["UserID"] = BL.getUserID(emailtxt.Text);
+                    Response.Redirect("Default.aspx");
+                }
+                else
+                {
+                    errorlbl.Text = "Please Enter Valid User Name And/Or Password";
+                }
             }
-            else {
-                errorlbl.Text = "Please Enter Valid User Name And/Or Password";
+            catch (Exception ex)
+            {
+                errorlbl.Text = "Error : " + ex.Message;
             }
+            
         }
 
         protected void adminPage_Click(object sender, EventArgs e)
         {
-            Server.Transfer("AdminLogin.aspx");
+                Server.Transfer("AdminLogin.aspx");
         }
     }
 }

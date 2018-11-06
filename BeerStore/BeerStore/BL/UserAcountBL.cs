@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
 using BeerStore.DAL;
 
 namespace BeerStore.BL
@@ -19,7 +20,15 @@ namespace BeerStore.BL
             UsersDAL DAL = new UsersDAL();
             return DAL.confirmLogin(email, password);
         }
-
-
+        public DataTable displayInvoice(int UserID)
+        {
+            UsersDAL DAL = new UsersDAL();
+            return DAL.DisplayInvoice(UserID);
+        }
+        public int getUserID(string email)
+        {
+            UsersDAL DAL = new UsersDAL();
+            return DAL.getUserID(email);
+        }
     }
 }

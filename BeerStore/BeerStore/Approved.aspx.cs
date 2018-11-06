@@ -5,11 +5,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BeerStore.BL;
 
 namespace BeerStore
 {
     public partial class WebForm4 : System.Web.UI.Page
     {
+        UserAcountBL BL = new UserAcountBL();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -18,6 +21,13 @@ namespace BeerStore
         protected void btnHome_Click(object sender, EventArgs e)
         {
             Response.Redirect("Default.aspx");
+        }
+
+        protected void displayInvoice_Click(object sender, EventArgs e)
+        {
+            GridView1.DataSource = BL.displayInvoice(Convert.ToInt32(Session["UserID"]));
+            GridView1.DataBind();
+            GridView1.Visible = true;
         }
     }
 }
