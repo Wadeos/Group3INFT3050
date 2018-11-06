@@ -5,38 +5,45 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Threading;
+using BeerStore.PaymentSystem;
 
 namespace BeerStore
 {
     public partial class Confirmation : System.Web.UI.Page
     {
+        IPaymentSystem paymentSystem = INFT3050PaymentFactory.Create();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Request.IsSecureConnection)
+            if (!IsPostBack)
             {
-                string url =
-                    ConfigurationManager.AppSettings["SecurePath"] +
-                    "Confirmation.aspx";
-                Response.Redirect(url);
+                resultlbl.Visible = false;
             }
         }
-
-        protected void BackButton_Click(object sender, EventArgs e)
+        protected void showTransactionResult(PaymentResult payment)
         {
-            Session.Remove("Payment");
-            String url =
-                ConfigurationManager.AppSettings["SecurePath"] +
-                "Payment.aspx";
-            Response.Redirect(url);
+            resultlbl.Text = payment.TransactionResult.ToString();
+            Thread.Sleep(5000);
+            Response.Redirect(ConfigurationManager.AppSettings["UnSecurePath"] + "Approved.aspx");
         }
-
-        protected void btnConfirm_Click(object sender, EventArgs e)
+        protected void confirm()
         {
-            if (IsValid)
+            PaymentRequest payment = new PaymentRequest();
+            payment.CardName = "Arthur Anderson";
+            payment.CardNumber = "4444333322221111";
+            payment.CVC = 123;
+            payment.Expiry = new DateTime(2020, 11, 1);
+            payment.Amount = 200;
+            payment.Description = "test";
+
+            var task = paymentSystem.MakePayment(payment);
+            task.Wait();
+            //https://blog.hubilo.com/loading/
+            if (task.IsCompleted)
             {
-                string url = ConfigurationManager.AppSettings["UnsecurePath"]
-                + "Approved.aspx";
-                Response.Redirect(url);
+                showTransactionResult(task.Result);
+
             }
         }
     }

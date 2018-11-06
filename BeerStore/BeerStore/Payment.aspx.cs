@@ -5,6 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BeerStore.Classes;
+using BeerStore.PaymentSystem;
+using BeerStore.BL;
 
 namespace BeerStore
 {
@@ -13,7 +16,6 @@ namespace BeerStore
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!Request.IsSecureConnection)
             {
                 string url =
@@ -22,14 +24,10 @@ namespace BeerStore
                 Response.Redirect(url);
             }
         }
+
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (IsValid)
-            {
-                string url = ConfigurationManager.AppSettings["SecurePath"]
-                + "Confirmation.aspx";
-                Response.Redirect(url);
-            }
+             Response.Redirect(ConfigurationManager.AppSettings["SecurePath"] + "Confirmation.aspx");
         }
     }
 }

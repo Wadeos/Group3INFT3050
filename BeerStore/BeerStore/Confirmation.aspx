@@ -5,16 +5,28 @@
     <div class="container-fluid" align="center" >
         <div class="jumbotron">
             <%-- Confirming details --%>
-            <h1>Confirmation Page</h1>
-            <p>Thank you for ordering from us! Your order total is: <b>$175</b></p>
-            <p>Please confirm your order.</p>
-            <p>Order detail: <b>Corona</b>, Qt: 7</p>
+            <h1>Confirmation Page</h1><
+            <script runat="server">
+                protected void confirm_Click(object sender, EventArgs e)
+                {
+                    confirm();
+                    resultlbl.Visible = true;
+
+                }
+            </script>
+            <asp:ScriptManager ID="ScriptManager1" runat="server" />
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                    <asp:Button ID="Button1" runat="server" Text="Confirm Payment" OnClick="confirm_Click" />
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            <asp:UpdateProgress ID="UpdateProgress1" runat="server">
+                <ProgressTemplate>
+                    <asp:Label ID="Label1" runat="server" Text="Processing Payment Details...."></asp:Label>
+                    <asp:Image ID="Image1" runat="server" ImageUrl="Images/loading.gif" />
+                </ProgressTemplate>
+             </asp:UpdateProgress>
+            <asp:Label ID="resultlbl" runat="server"></asp:Label>
         </div>
-    </div>
-    <div class="form-group" align="center"> 
-        <%-- Back button --%>
-        <asp:Button ID="btnBack" runat="server" Text="Back" OnClick="BackButton_Click" CssClass="btn btn-primary"/>
-        <%-- Confirm button --%>
-        <asp:Button ID="btnConfirm" runat="server" Text="Confirm" OnClick="btnConfirm_Click" CssClass="btn btn-primary" />
     </div>
 </asp:Content>

@@ -23,6 +23,7 @@
         <asp:Button ID="btn_show" runat="server" CssClass="btn btn-danger" Text="Show All Products" OnClick="btn_showAll" />
     </div>
     <!-- Uses repeater to insert the amount of products inside database-->
+    <asp:Label ID="errorlbl" runat="server"></asp:Label>
     <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand1">
         <ItemTemplate>
             <div class="col-md-2 column box">
@@ -33,9 +34,5 @@
         </ItemTemplate>
     </asp:Repeater>
     <div>
-            <asp:GridView ID="Gridview1" runat="server"></asp:GridView>
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-            <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
     </div>
 </asp:Content>

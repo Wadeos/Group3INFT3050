@@ -22,7 +22,6 @@ namespace BeerStore
         {
             Response.Redirect("Default.aspx");
         }
-
         protected void displayInvoice_Click(object sender, EventArgs e)
         {
             GridView1.DataSource = BL.displayInvoice(Convert.ToInt32(Session["UserID"]));

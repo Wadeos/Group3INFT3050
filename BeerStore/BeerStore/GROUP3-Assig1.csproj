@@ -80,6 +80,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Images\Carona.png" />
     <Content Include="Images\dry.png" />
+    <Content Include="Images\loading.gif" />
     <Content Include="Images\new.PNG" />
     <Content Include="Images\old.PNG" />
     <Content Include="Login.aspx" />
@@ -141,6 +142,9 @@
     <Compile Include="AdminRegister.aspx.designer.cs">
       <DependentUpon>AdminRegister.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BL\INFT3050PaymentFactory.cs" />
+    <Compile Include="BL\INFT3050PaymentSystem.cs" />
+    <Compile Include="BL\IPaymentSystem.cs" />
     <Compile Include="BL\ProductsBL.cs" />
     <Compile Include="BL\UserAcountBL.cs" />
     <Compile Include="Classes\Cart.cs" />

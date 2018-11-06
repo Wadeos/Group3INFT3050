@@ -14,16 +14,16 @@
         <div class="form-group">
             <asp:Label ID="lblPaymentMethod" runat="server" Text="Credit Cards Accepted: "></asp:Label>
             <div class="form-inline">
-                <!-- List of payment methods -->
+                <!--List of payment methods -->
                 <asp:RadioButtonList RepeatDirection="Horizontal" ID="rblPaymentMethod" runat="server">
                     <asp:ListItem>&nbsp Visa&nbsp &nbsp </asp:ListItem>
                     <asp:ListItem>&nbsp MasterCard</asp:ListItem>
                 </asp:RadioButtonList>
-                <!-- Requires to choose a payment method -->
+
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorPaymentMethod" runat="server" 
                     ControlToValidate="rblPaymentMethod" 
                     ErrorMessage="Please Choose a Method."
-                    ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                    ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator> 
             </div>
         </div>
         <div class="form-group">
@@ -250,6 +250,10 @@
                 </asp:RegularExpressionValidator>
             </div>
         </div>
+    <div>
+        <asp:Image ID="Image1" runat="server" ImageUrl="Images/loading.gif"/>
+        <asp:Label ID="Label1" runat="server"></asp:Label>
+    </div>
         <div class="form-group">
             <%-- Submit button for payment --%>
             <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary" OnClick="btnSubmit_Click" />
