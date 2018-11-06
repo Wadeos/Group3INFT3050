@@ -66,10 +66,10 @@ namespace BeerStore.BL
             ProductsDAL Dal = new ProductsDAL();
             Dal.removeCart();
         }
-        public void removeCartID(string Brand)
+        public void removeCartID(int ProductID)
         {
             ProductsDAL Dal = new ProductsDAL();
-            Dal.removeCartID(Brand);
+            Dal.removeCartID(ProductID);
         }
     }
 }

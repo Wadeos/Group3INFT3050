@@ -104,12 +104,14 @@ namespace BeerStore
 
         protected void Gridview1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            //finds row from index of the button
+            //uses location of cell to find ID
             if (e.CommandName.Equals("remove"))
             {
                 int index = Convert.ToInt32(e.CommandArgument);
                 GridViewRow selectedRow = Gridview1.Rows[index];
-                string brand = selectedRow.Cells[0].Text;
-                BL.removeCartID(brand);
+                string id = selectedRow.Cells[1].Text;
+                BL.removeCartID(Convert.ToInt32(id));
             }
             Response.Redirect(ConfigurationManager.AppSettings["securePath"] + "ShoppingCart.aspx");
         }

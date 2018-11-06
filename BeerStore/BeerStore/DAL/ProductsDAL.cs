@@ -85,7 +85,7 @@ namespace BeerStore.DAL
         {
             DataTable dt = new DataTable();
                  con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT p.Brand, p.Name, p.Price, s.ItemQuantity, s.SubTotal FROM Product p, ShoppingCart s" +
+                SqlCommand cmd = new SqlCommand("SELECT p.productID, p.Brand, p.Name, p.Price, s.ItemQuantity, s.SubTotal FROM Product p, ShoppingCart s" +
                             " WHERE p.productID = s.productID", con);
                 SqlDataAdapter da = new SqlDataAdapter();
                 da.SelectCommand = cmd;
@@ -199,10 +199,10 @@ namespace BeerStore.DAL
             cmd.ExecuteNonQuery();
             con.Close();
         }
-        public void removeCartID(string Brand)
+        public void removeCartID(int ProductID)
         {
             con.Open();
-            SqlCommand cmd = new SqlCommand("DELETE FROM ShoppingCart WHERE p.Brand = "+Brand+" AND s.productID = p.productID", con);
+            SqlCommand cmd = new SqlCommand("DELETE FROM ShoppingCart WHERE productID = "+ProductID+"", con);
             cmd.ExecuteNonQuery();
             con.Close();
         }
