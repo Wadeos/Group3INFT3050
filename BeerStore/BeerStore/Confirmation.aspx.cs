@@ -18,14 +18,13 @@ namespace BeerStore
         {
             if (!IsPostBack)
             {
-                resultlbl.Visible = false;
+                Button2.Visible = false;
             }
         }
         protected void showTransactionResult(PaymentResult payment)
         {
             resultlbl.Text = payment.TransactionResult.ToString();
             Thread.Sleep(5000);
-            Response.Redirect(ConfigurationManager.AppSettings["UnSecurePath"] + "Approved.aspx");
         }
         protected void confirm()
         {
@@ -45,6 +44,10 @@ namespace BeerStore
                 showTransactionResult(task.Result);
 
             }
+        }
+        protected void transfer_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(ConfigurationManager.AppSettings["SecurePath"] + "Approved.aspx");
         }
     }
 }
