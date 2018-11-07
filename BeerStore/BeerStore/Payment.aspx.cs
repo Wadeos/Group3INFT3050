@@ -13,7 +13,7 @@ namespace BeerStore
 {
     public partial class Payment : System.Web.UI.Page
     {
-
+        ProductsBL BL = new ProductsBL();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Request.IsSecureConnection)
@@ -27,6 +27,9 @@ namespace BeerStore
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            BL.createInvoice(Convert.ToInt32(Session["UserID"]), txtAddress1.Text, rblPaymentMethod.SelectedItem.Value.ToString(), 
+                Convert.ToInt64(txtCardNumber.Text), txtExpiry.Text, Convert.ToInt16(txtCVV.Text));
+
              Response.Redirect(ConfigurationManager.AppSettings["SecurePath"] + "Confirmation.aspx");
         }
     }

@@ -41,10 +41,10 @@ namespace BeerStore.BL
             ProductsDAL Dal = new ProductsDAL();
             return Dal.displayCart();
         }
-        public void addToCart(int InvoiceID, int ProductID, DataTable dt)
+        public void addToCart(int ProductID, DataTable dt)
         {
             ProductsDAL Dal = new ProductsDAL();
-            Dal.addToCart(InvoiceID, ProductID, dt);
+            Dal.addToCart(ProductID, dt);
         }
         public int getQuantity(int ProductID)
         {
@@ -70,6 +70,16 @@ namespace BeerStore.BL
         {
             ProductsDAL Dal = new ProductsDAL();
             Dal.removeCartID(ProductID);
+        }
+        public void createInvoiceID()
+        {
+            ProductsDAL Dal = new ProductsDAL();
+            Dal.createInvoiceID();
+        }
+        public void createInvoice(int userID, string address, string cardType, long cardNo, string ExpireDate, int CVV)
+        {
+            ProductsDAL Dal = new ProductsDAL();
+            Dal.createInvoice(userID, address, cardType, cardNo, ExpireDate, CVV);
         }
     }
 }

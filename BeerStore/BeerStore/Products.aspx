@@ -20,10 +20,10 @@
     <div>
         <h3> Please select a product </h3>
         <p class="text-danger"> Select Image to view more Information</p> 
+        <asp:Label ID="errorlbl" CssClass="h3" runat="server"></asp:Label>
         <asp:Button ID="btn_show" runat="server" CssClass="btn btn-danger" Text="Show All Products" OnClick="btn_showAll" />
     </div>
     <!-- Uses repeater to insert the amount of products inside database-->
-    <asp:Label ID="errorlbl" runat="server"></asp:Label>
     <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand1">
         <ItemTemplate>
             <div class="col-md-2 column box">

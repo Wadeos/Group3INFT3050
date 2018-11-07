@@ -18,6 +18,7 @@ namespace BeerStore
             
             if (!IsPostBack)
             {
+
                 DataTable dt = new DataTable();
                 int ProductID = Convert.ToInt16(Request.QueryString["id"]);
 
@@ -28,7 +29,8 @@ namespace BeerStore
                     {
                         try
                         {
-                            BL.addToCart(1, ProductID, dt);
+                            BL.createInvoiceID();
+                            BL.addToCart(ProductID, dt);
                             BL.displayCart();
                             Gridview1.DataSource = BL.displayCart();
                             Gridview1.DataBind();
@@ -38,14 +40,14 @@ namespace BeerStore
                         }
                         catch (Exception ex)
                         {
-                            Label1.Text = "An Errr has occured" + ex.Message;
+                            Label1.Text = "Could Not add to cart" + ex.Message;
                         }
                     }
                     else {
                         try
                         {
                             dt = (DataTable)Session["AddItems"];
-                            BL.addToCart(1, ProductID, dt);
+                            BL.addToCart(ProductID, dt);
                             BL.displayCart();
                             Gridview1.DataSource = BL.displayCart();
                             Gridview1.DataBind();
@@ -55,7 +57,7 @@ namespace BeerStore
                         }
                         catch (Exception ex)
                         {
-                            Label1.Text = "An Error has Occured " + ex.Message;
+                            Label1.Text = "Could not add item to cart" + ex.Message;
                         }
                     }
                 }
@@ -69,19 +71,14 @@ namespace BeerStore
                     }
                     catch (Exception ex)
                     {
-                        Label1.Text = "An Error has Occured " + ex.Message;
+                        Label1.Text = "Could not display cart" + ex.Message;
                     }
                 }
 
             }
 
         }
-        /*
-        protected void grdCategories_PreRender(object sender, EventArgs e)
-        {
-            if (GridViewShoppingCart.HeaderRow != null)
-                GridViewShoppingCart.HeaderRow.TableSection = TableRowSection.TableHeader;
-        } */
+
         protected void btnCheckout_Click1(object sender, EventArgs e)
         {
             string url = ConfigurationManager.AppSettings["SecurePath"]
@@ -91,8 +88,16 @@ namespace BeerStore
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
-            BL.removeCart();
-            Response.Redirect(ConfigurationManager.AppSettings["securePath"] + "ShoppingCart.aspx");
+            try
+            {
+                BL.removeCart();
+                Session.Contents.Remove("AddItems");
+                Response.Redirect(ConfigurationManager.AppSettings["securePath"] + "ShoppingCart.aspx");
+            }
+            catch (Exception ex)
+            {
+                Label1.Text = "Could not remove Items from cart" + ex.Message;
+            }
         }
 
         protected void btnBack_Click(object sender, EventArgs e)
@@ -106,14 +111,21 @@ namespace BeerStore
         {
             //finds row from index of the button
             //uses location of cell to find ID
-            if (e.CommandName.Equals("remove"))
+            try
             {
-                int index = Convert.ToInt32(e.CommandArgument);
-                GridViewRow selectedRow = Gridview1.Rows[index];
-                string id = selectedRow.Cells[1].Text;
-                BL.removeCartID(Convert.ToInt32(id));
+                if (e.CommandName.Equals("remove"))
+                {
+                    int index = Convert.ToInt32(e.CommandArgument);
+                    GridViewRow selectedRow = Gridview1.Rows[index];
+                    string id = selectedRow.Cells[1].Text;
+                    BL.removeCartID(Convert.ToInt32(id));
+                }
+                Response.Redirect(ConfigurationManager.AppSettings["securePath"] + "ShoppingCart.aspx");
             }
-            Response.Redirect(ConfigurationManager.AppSettings["securePath"] + "ShoppingCart.aspx");
+            catch (Exception ex)
+            {
+                Label1.Text = "Could not remove Item" + ex.Message;
+            }
         }
     }
 }

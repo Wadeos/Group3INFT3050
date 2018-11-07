@@ -68,7 +68,14 @@ namespace BeerStore
                 {
                     if (e.CommandName == "Add")
                     {
-                        Response.Redirect(ConfigurationManager.AppSettings["SecurePath"] + "ShoppingCart.aspx?id=" + e.CommandArgument.ToString());
+                        if(Session["UserID"] == null)
+                        {
+                            errorlbl.Text = "Please Sign-in to purchase products";
+                        }
+                        else
+                        {
+                            Response.Redirect(ConfigurationManager.AppSettings["SecurePath"] + "ShoppingCart.aspx?id=" + e.CommandArgument.ToString());
+                        }
                     }
                     else
                     {
