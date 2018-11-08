@@ -57,9 +57,8 @@ namespace BeerStore
         }
         protected void transfer_Click(object sender, EventArgs e)
         {
-            Response.Redirect(ConfigurationManager.AppSettings["SecurePath"] + "Approved.aspx");
             Session.Contents.Remove("AddItems");
-            BL.removeCart();
+            Response.Redirect(ConfigurationManager.AppSettings["SecurePath"] + "Approved.aspx");
         }
     }
 }

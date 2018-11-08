@@ -43,7 +43,13 @@ namespace BeerStore
 
         protected void adminPage_Click(object sender, EventArgs e)
         {
-                Server.Transfer("AdminLogin.aspx");
+            Response.Redirect("AdminLogin.aspx");
+        }
+
+        protected void redirectConfirm_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ConfirmPassword.aspx");
         }
     }
+    
 }

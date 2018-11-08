@@ -39,7 +39,7 @@
     <div class="form-group">
         <asp:Button ID="loginButton" runat="server" Text="Login" OnClick="loginButton_Click" CssClass="btn btn-primary"/>
     </div>
-    <asp:HyperLink ID="HyperLink1" runat="server">Forgot Password? Click here</asp:HyperLink>
+        <asp:Button ID="Button2" runat="server" CssClass="btn-link" Text="Forgot Password? Click here" OnClick="redirectConfirm_Click" CausesValidation="false" />
     </asp:Panel>
     <div>
         <asp:ValidationSummary ID="validsummary" runat="server"  ForeColor="Red" HeaderText="Please fix errors below:" />

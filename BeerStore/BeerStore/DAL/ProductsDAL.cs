@@ -153,7 +153,7 @@ namespace BeerStore.DAL
         public DataTable displayInvoice(int userID)
         {
             DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand("SELECT p.Brand, p.Name, s.ItemQuantity, s.SubTotal, i.ShippingAddress" +
+            SqlCommand cmd = new SqlCommand("SELECT p.Brand, p.Name, s.ItemQuantity, s.SubTotal, i.ShippingAddress, i.OrderDate" +
                 " FROM Invoice i, ShoppingCart s, Product p, UserAccount u WHERE s.InvoiceID = i.InvoiceID AND u.userID = " + userID + " AND p.ProductID = s.ProductID", con);
             SqlDataAdapter da = new SqlDataAdapter();
             da.SelectCommand = cmd;
@@ -260,8 +260,9 @@ namespace BeerStore.DAL
             }
             else
             {
-                SqlCommand cmd = new SqlCommand("SELECT p.Brand, p.Name, s.ItemQuantity, s.SubTotal, i.OrderDate FROM ShoppingCart s, Invoice i, Product p, UserAccount u " +
-                    "WHERE i.userID = u.userID AND i.userID = " + userID + "", con);
+                SqlCommand cmd = new SqlCommand("SELECT p.Brand, p.Name, s.ItemQuantity, s.SubTotal, i.OrderDate " +
+                    "FROM ShoppingCart s, Invoice i, Product p, UserAccount u " +
+                    "WHERE i.userID = u.userID AND p.productID = s.productID AND i.userID = " + userID + "", con);
                 SqlDataAdapter da = new SqlDataAdapter();
                 da.SelectCommand = cmd;
                 da.Fill(dt);

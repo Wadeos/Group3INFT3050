@@ -68,10 +68,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminConfirm.aspx" />
     <Content Include="AdminLogin.aspx" />
     <Content Include="AdminManageAccounts.aspx" />
     <Content Include="AdminManageItems.aspx" />
     <Content Include="AdminRegister.aspx" />
+    <Content Include="AdminViewEmail.aspx" />
+    <Content Include="ConfirmPassword.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -114,6 +117,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminConfirm.aspx.cs">
+      <DependentUpon>AdminConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminConfirm.aspx.designer.cs">
+      <DependentUpon>AdminConfirm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminLogin.aspx.cs">
       <DependentUpon>AdminLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -142,6 +152,13 @@
     <Compile Include="AdminRegister.aspx.designer.cs">
       <DependentUpon>AdminRegister.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminViewEmail.aspx.cs">
+      <DependentUpon>AdminViewEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminViewEmail.aspx.designer.cs">
+      <DependentUpon>AdminViewEmail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BL\INFT3050PaymentFactory.cs" />
     <Compile Include="BL\INFT3050PaymentSystem.cs" />
     <Compile Include="BL\IPaymentSystem.cs" />
@@ -163,6 +180,13 @@
     </Compile>
     <Compile Include="Client.Master.designer.cs">
       <DependentUpon>Client.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmPassword.aspx.cs">
+      <DependentUpon>ConfirmPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfirmPassword.aspx.designer.cs">
+      <DependentUpon>ConfirmPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAL\ProductsDAL.cs" />
     <Compile Include="DAL\UsersDAL.cs" />

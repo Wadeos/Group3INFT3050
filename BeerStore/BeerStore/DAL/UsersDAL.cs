@@ -75,5 +75,55 @@ namespace BeerStore.DAL
             con.Close();
             return dt;
         }
+        public void updatePassword(string email, string password)
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE UserAccount SET userPassword = @password WHERE Email = @email", con);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@password", password);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public void makeAdmin(string email)
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE UserAccount SET IsAdmin = 'Y' WHERE Email = @email", con);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public string getAdminEmail()
+        {
+            con.Open();
+            string email = "";
+            SqlCommand cmd = new SqlCommand("SELECT MAX(userID) FROM UserAccount", con);
+            int id = Convert.ToInt32(cmd.ExecuteScalar());
+            SqlCommand cmdString = new SqlCommand("SELECT Email FROM UserAccount WHERE userId="+id+"", con);
+            SqlDataReader reader = cmdString.ExecuteReader();
+            while (reader.Read())
+            {
+                email = reader[0].ToString();
+            }
+            con.Close();
+            return email;
+        }
+        public int getAdminStatus(string email)
+        {
+            int count = 0;
+            con.Open();
+            SqlCommand cmd = new SqlCommand("SELECT COUNT(IsAdmin) FROM UserAccount WHERE Email = @Email", con);
+            cmd.Parameters.AddWithValue("@Email", email);
+            if (cmd.ExecuteScalar() is DBNull)
+            {
+                count = 0;
+            }
+            else
+            {
+                count = 1;
+            }
+            con.Close();
+            return count;
+
+        }
     }
 }

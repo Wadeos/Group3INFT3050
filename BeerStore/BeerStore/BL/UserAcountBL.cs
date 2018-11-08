@@ -30,5 +30,25 @@ namespace BeerStore.BL
             UsersDAL DAL = new UsersDAL();
             return DAL.getUserID(email);
         }
+        public void updatePassword(string email, string password)
+        {
+            UsersDAL DAL = new UsersDAL();
+            DAL.updatePassword(email, password);
+        }
+        public void makeAdmin(string email)
+        {
+            UsersDAL DAL = new UsersDAL();
+            DAL.makeAdmin(email);
+        }
+        public string getAdminEmail()
+        {
+            UsersDAL DAL = new UsersDAL();
+            return DAL.getAdminEmail();
+        }
+        public int getAdminStatus(string email)
+        {
+            UsersDAL DAL = new UsersDAL();
+            return DAL.getAdminStatus(email);
+        }
     }
 }
