@@ -20,10 +20,10 @@ namespace BeerStore.BL
             UsersDAL DAL = new UsersDAL();
             return DAL.confirmLogin(email, password);
         }
-        public DataTable displayInvoice(int UserID)
+        public DataTable displayUserDetails(int userID)
         {
             UsersDAL DAL = new UsersDAL();
-            return DAL.DisplayInvoice(UserID);
+            return DAL.displayUserDetails(userID);
         }
         public int getUserID(string email)
         {

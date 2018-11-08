@@ -11,6 +11,7 @@ namespace BeerStore.BL
 
     public class ProductsBL
     {
+        //Passes data between UL and Data access layers
         public DataSet getData()
         {
             ProductsDAL Dal = new ProductsDAL();
@@ -80,6 +81,11 @@ namespace BeerStore.BL
         {
             ProductsDAL Dal = new ProductsDAL();
             Dal.createInvoice(userID, address, cardType, cardNo, ExpireDate, CVV);
+        }
+        public DataTable displayInvoice(int userID)
+        {
+            ProductsDAL Dal = new ProductsDAL();
+            return Dal.displayInvoice(userID);
         }
     }
 }

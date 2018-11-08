@@ -121,15 +121,14 @@ namespace BeerStore.DAL
             if (cmdCount.ExecuteScalar() is DBNull)
             {
                 id = 1;
-                SqlCommand cmd = new SqlCommand("INSERT INTO Invoice (InvoiceID) VALUES (" + id + ")", con);
-                cmd.ExecuteNonQuery();
             }
             else
             {
                 id = Convert.ToInt32(cmdCount.ExecuteScalar()) + 1;
-                SqlCommand cmd = new SqlCommand("INSERT INTO Invoice (InvoiceID) VALUES (" + id + ")", con);
-                cmd.ExecuteNonQuery();
             }
+
+            SqlCommand cmd = new SqlCommand("INSERT INTO Invoice (InvoiceID) VALUES (" + id + ")", con);
+            cmd.ExecuteNonQuery();
             con.Close();
         }
         public int getInvoiceID()
@@ -154,7 +153,8 @@ namespace BeerStore.DAL
         public DataTable displayInvoice(int userID)
         {
             DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Invoice i, ShoppingCart s WHERE s.InvoiceID = i.InvoiceID AND userID = "+userID+"", con);
+            SqlCommand cmd = new SqlCommand("SELECT p.Brand, p.Name, s.ItemQuantity, s.SubTotal, i.ShippingAddress" +
+                " FROM Invoice i, ShoppingCart s, Product p, UserAccount u WHERE s.InvoiceID = i.InvoiceID AND u.userID = " + userID + " AND p.ProductID = s.ProductID", con);
             SqlDataAdapter da = new SqlDataAdapter();
             da.SelectCommand = cmd;
             da.Fill(dt);

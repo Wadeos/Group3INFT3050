@@ -17,7 +17,7 @@ namespace BeerStore.DAL
         {
             con.Open();
             SqlCommand cmd = new SqlCommand("INSERT INTO UserAccount (userID, Email, userPassword, firstName, lastName, PhoneNumber, userAddress)" +
-                " Values ("+increaseUserID()+",@email, @userPassword, @firstName, @lastName, @phone, @userAddress)", con);
+                " Values (" + increaseUserID() + ",@email, @userPassword, @firstName, @lastName, @phone, @userAddress)", con);
             cmd.Parameters.AddWithValue("@email", email);
             cmd.Parameters.AddWithValue("@userPassword", userPassword);
             cmd.Parameters.AddWithValue("@firstName", firstName);
@@ -45,12 +45,12 @@ namespace BeerStore.DAL
             }
             int maxID = 0;
             SqlCommand cmd = new SqlCommand("SELECT MAX(userID) FROM UserAccount", con);
-            maxID = Convert.ToInt32(cmd.ExecuteScalar().ToString());
-            if (maxID == 0)
+            if (cmd.ExecuteScalar() is DBNull)
             {
                 maxID = 1;
             }
             else {
+                maxID = Convert.ToInt32(cmd.ExecuteScalar());
                 maxID = maxID + 1;
             }
             return maxID;
@@ -64,12 +64,13 @@ namespace BeerStore.DAL
             con.Close();
             return ID;
         }
-        public DataTable DisplayInvoice(int UserID)
+        public DataTable displayUserDetails(int userID)
         {
             con.Open();
             DataTable dt = new DataTable();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Invoice WHERE UserID = "+UserID+"", con);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand("SELECT u.FirstName, u.LastName, u.Email, i.ShippingAddress FROM UserAccount u, Invoice i WHERE u.userID = i.userID AND u.userID = "+userID+"", con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
             da.Fill(dt);
             con.Close();
             return dt;

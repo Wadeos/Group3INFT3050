@@ -11,11 +11,24 @@ namespace BeerStore
 {
     public partial class WebForm4 : System.Web.UI.Page
     {
-        UserAcountBL BL = new UserAcountBL();
+        ProductsBL BL = new ProductsBL();
+        UserAcountBL UserBL = new UserAcountBL();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            try
+            {
+                //Display invoice of the current user signed in
+                GridView1.DataSource = BL.displayInvoice(Convert.ToInt32(Session["UserID"]));
+                GridView1.DataBind();
+            }
+            catch (Exception ex)
+            {
+                errorlbl.Text = "Invoice Cannot be displayed Error : " + ex.Message;
+            }
+            //Display current user details
+            Repeater1.DataSource = UserBL.displayUserDetails(Convert.ToInt32(Session["UserID"]));
+            Repeater1.DataBind();
         }
 
         protected void btnHome_Click(object sender, EventArgs e)
@@ -24,17 +37,6 @@ namespace BeerStore
         }
         protected void displayInvoice_Click(object sender, EventArgs e)
         {
-            try
-            {
-                //Display invoice of the current user signed in
-                GridView1.DataSource = BL.displayInvoice(Convert.ToInt32(Session["UserID"]));
-                GridView1.DataBind();
-                GridView1.Visible = true;
-            }
-            catch (Exception ex)
-            {
-                errorlbl.Text = "Invoice Cannot be displayed Error : " + ex.Message;
-            }
         }
     }
 }
