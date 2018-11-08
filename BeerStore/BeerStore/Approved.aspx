@@ -7,10 +7,12 @@
             <h1>Payment Successful</h1>
             <p>Thank you for ordering from us.</p>
             <p>Your order will arrive in 1-2 Business Days.</p>
+            <p> An Email will automatically be sent to you with your order</p>
         </div>
     </div>
     <div>
         <asp:Label ID="Label1" runat="server" CssClass="h3" Text="Customer Details"></asp:Label>
+
         <asp:Repeater ID="Repeater1" runat="server">
             <ItemTemplate>
                 <div class="box">
@@ -33,6 +35,7 @@
                 </div>
             </ItemTemplate>
         </asp:Repeater>
+
         <asp:Label ID="Label2" runat="server" CssClass="h3" text="Customer Invoice"></asp:Label>
         <asp:Repeater ID="InvoiceRepeater" runat="server">
             <ItemTemplate>
@@ -58,8 +61,6 @@
         </asp:Repeater>    
         <asp:Label ID="Label7" runat="server" Text="Total Due:"></asp:Label>
         <asp:Label ID="LblSum" runat="server"></asp:Label>
-        <asp:Button ID="btnInvoice" runat="server" Text="Click To view Invoice" OnClick="displayInvoice_Click" />
-            <asp:GridView ID="GridView1" runat="server" Visible="false"></asp:GridView>
         <asp:Label ID="errorlbl" runat="server"></asp:Label>
     </div>
     <div class="form-group" align="center">

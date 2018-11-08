@@ -87,5 +87,10 @@ namespace BeerStore.BL
             ProductsDAL Dal = new ProductsDAL();
             return Dal.displayInvoice(userID);
         }
+        public DataTable viewPurchaseHistory(int userID)
+        {
+            ProductsDAL Dal = new ProductsDAL();
+            return Dal.viewPurchaseHistory(userID);
+        }
     }
 }

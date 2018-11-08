@@ -4,21 +4,21 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BeerStore.BL;
 
 namespace BeerStore
 {
     public partial class WebForm3 : System.Web.UI.Page
     {
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        ProductsBL BL = new ProductsBL();
+
+        protected void Page_Load(object sender, EventArgs e)
         {
 
+                //returns purchase history for current user
+                GridView1.DataSource = BL.viewPurchaseHistory(Convert.ToInt32(Session["UserID"]));
+                GridView1.DataBind();
         }
-        protected void grdCategories_PreRender(object sender, EventArgs e)
-        {
-            if (GridViewPurchaseHistory.HeaderRow != null)
-                GridViewPurchaseHistory.HeaderRow.TableSection = TableRowSection.TableHeader;
-        }
-
     }
 
 }

@@ -246,5 +246,28 @@ namespace BeerStore.DAL
             cmd.ExecuteNonQuery();
             con.Close();
         }
+        public DataTable viewPurchaseHistory(int userID)
+        {
+            //If Invoice has been created from current user, display history
+            //Otherwise If count is null return empty table
+            con.Open();
+            DataTable dt = new DataTable();
+            SqlCommand cmdCount = new SqlCommand("SELECT COUNT(i.userId) FROM UserAccount u, Invoice i WHERE u.userId ="+userID+"", con);
+            if (cmdCount.ExecuteScalar() is DBNull)
+            {
+                con.Close();
+                return dt;
+            }
+            else
+            {
+                SqlCommand cmd = new SqlCommand("SELECT p.Brand, p.Name, s.ItemQuantity, s.SubTotal, i.OrderDate FROM ShoppingCart s, Invoice i, Product p, UserAccount u " +
+                    "WHERE i.userID = u.userID AND i.userID = " + userID + "", con);
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+                con.Close();
+                return dt;
+            }
+        }
     }
 }

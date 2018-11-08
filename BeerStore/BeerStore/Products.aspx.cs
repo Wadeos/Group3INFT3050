@@ -29,7 +29,7 @@ namespace BeerStore
                 }
                 catch (Exception ex)
                 {
-                    errorlbl.Text = "Error : " + ex.Message;
+                    errorlbl.Text = "Cannot Display products  : " + ex.Message;
                 }
             }
         }

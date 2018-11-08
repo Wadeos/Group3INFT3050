@@ -7,12 +7,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Threading;
 using BeerStore.PaymentSystem;
+using BeerStore.BL;
 
 namespace BeerStore
 {
     public partial class Confirmation : System.Web.UI.Page
     {
         IPaymentSystem paymentSystem = INFT3050PaymentFactory.Create();
+        ProductsBL BL = new ProductsBL();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -56,6 +58,8 @@ namespace BeerStore
         protected void transfer_Click(object sender, EventArgs e)
         {
             Response.Redirect(ConfigurationManager.AppSettings["SecurePath"] + "Approved.aspx");
+            Session.Contents.Remove("AddItems");
+            BL.removeCart();
         }
     }
 }
