@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Approved Page" Language="C#" MasterPageFile="~/Client.Master" AutoEventWireup="true" CodeBehind="Approved.aspx.cs" Inherits="BeerStore.WebForm4" %>
+﻿<%@ Page Title="Approved Page" Language="C#" MasterPageFile="~/Client.Master" AutoEventWireup="true" CodeBehind="Approved.aspx.cs" Inherits="BeerStore.Approved" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -10,7 +10,6 @@
         </div>
     </div>
     <div>
-<<<<<<< HEAD
         <asp:Label ID="Label1" runat="server" CssClass="h3" Text="Customer Details"></asp:Label>
         <asp:Repeater ID="Repeater1" runat="server">
             <ItemTemplate>
@@ -59,10 +58,8 @@
         </asp:Repeater>    
         <asp:Label ID="Label7" runat="server" Text="Total Due:"></asp:Label>
         <asp:Label ID="LblSum" runat="server"></asp:Label>
-=======
         <asp:Button ID="btnInvoice" runat="server" Text="Click To view Invoice" OnClick="displayInvoice_Click" />
             <asp:GridView ID="GridView1" runat="server" Visible="false"></asp:GridView>
->>>>>>> f62f3456171f0da2530b62cf6e06c451aae3723d
         <asp:Label ID="errorlbl" runat="server"></asp:Label>
     </div>
     <div class="form-group" align="center">

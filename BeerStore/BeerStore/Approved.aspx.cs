@@ -9,15 +9,14 @@ using BeerStore.BL;
 
 namespace BeerStore
 {
-    public partial class WebForm4 : System.Web.UI.Page
+    public partial class Approved : System.Web.UI.Page
     {
         ProductsBL BL = new ProductsBL();
         UserAcountBL UserBL = new UserAcountBL();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-=======
+
             if (!Request.IsSecureConnection)
             {
                 string url =
@@ -33,7 +32,6 @@ namespace BeerStore
         }
         protected void displayInvoice_Click(object sender, EventArgs e)
         {
->>>>>>> f62f3456171f0da2530b62cf6e06c451aae3723d
             try
             {
                 //Display invoice of the current user signed in
@@ -48,13 +46,7 @@ namespace BeerStore
             Repeater1.DataSource = UserBL.displayUserDetails(Convert.ToInt32(Session["UserID"]));
             Repeater1.DataBind();
         }
+       
 
-        protected void btnHome_Click(object sender, EventArgs e)
-        {
-            Response.Redirect(ConfigurationManager.AppSettings["UnSecurePath"] + "Default.aspx");
-        }
-        protected void displayInvoice_Click(object sender, EventArgs e)
-        {
-        }
     }
 }
