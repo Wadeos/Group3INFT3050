@@ -16,6 +16,24 @@ namespace BeerStore
 
         protected void Page_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
+=======
+            if (!Request.IsSecureConnection)
+            {
+                string url =
+                    ConfigurationManager.AppSettings["SecurePath"] +
+                    "Approved.aspx";
+                Response.Redirect(url);
+            }
+        }
+
+        protected void btnHome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(ConfigurationManager.AppSettings["UnSecurePath"] + "Default.aspx");
+        }
+        protected void displayInvoice_Click(object sender, EventArgs e)
+        {
+>>>>>>> f62f3456171f0da2530b62cf6e06c451aae3723d
             try
             {
                 //Display invoice of the current user signed in

@@ -13,13 +13,21 @@ namespace BeerStore {
     public partial class WebForm4 {
         
         /// <summary>
+<<<<<<< HEAD
         /// Label1 control.
+=======
+        /// btnInvoice control.
+>>>>>>> f62f3456171f0da2530b62cf6e06c451aae3723d
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Label Label1;
+=======
+        protected global::System.Web.UI.WebControls.Button btnInvoice;
+>>>>>>> f62f3456171f0da2530b62cf6e06c451aae3723d
         
         /// <summary>
         /// Repeater1 control.

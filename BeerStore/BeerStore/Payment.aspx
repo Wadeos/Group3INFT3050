@@ -16,8 +16,8 @@
             <div class="form-inline">
                 <!--List of payment methods -->
                 <asp:RadioButtonList RepeatDirection="Horizontal" ID="rblPaymentMethod" runat="server">
-                    <asp:ListItem>&nbsp Visa&nbsp &nbsp </asp:ListItem>
-                    <asp:ListItem>&nbsp MasterCard</asp:ListItem>
+                    <asp:ListItem>Visa</asp:ListItem>
+                    <asp:ListItem>MasterCard</asp:ListItem>
                 </asp:RadioButtonList>
 
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorPaymentMethod" runat="server" 
