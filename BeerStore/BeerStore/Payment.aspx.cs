@@ -28,7 +28,7 @@ namespace BeerStore
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             BL.createInvoice(Convert.ToInt32(Session["UserID"]), txtAddress1.Text, rblPaymentMethod.SelectedItem.Value.ToString(), 
-                Convert.ToInt64(txtCardNumber.Text), txtExpiry.Text, Convert.ToInt16(txtCVV.Text));
+                Convert.ToInt64(txtCardNumber.Text), Convert.ToDateTime(txtExpiry.Text), Convert.ToInt16(txtCVV.Text));
 
              Response.Redirect(ConfigurationManager.AppSettings["SecurePath"] + "Confirmation.aspx");
         }

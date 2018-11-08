@@ -139,12 +139,12 @@ namespace BeerStore.DAL
             return ID;
         }
 
-        public void createInvoice(int userID, string address, string cardType, long cardNo, string ExpireDate, int CVV)
+        public void createInvoice(int userID, string address, string cardType, long cardNo, DateTime ExpireDate, int CVV)
         {
             con.Open();
-            string date = DateTime.Now.ToShortDateString();
-            SqlCommand cmd = new SqlCommand("UPDATE Invoice SET userID = "+userID+", OrderDate = "+ date +",ShippingAddress = @address, " +
-                "CreditCardType = @cardType, CardNumber = "+cardNo+", ExpirationDate = "+ExpireDate+", CVV = "+CVV+" WHERE InvoiceID = " +getInvoiceID()+ "", con);
+            DateTime date = DateTime.Now;
+            SqlCommand cmd = new SqlCommand("UPDATE Invoice SET userID = "+userID+", OrderDate = "+ DateTime.Now.ToString("dd/MM/yyyy") +",ShippingAddress = @address, " +
+                "CreditCardType = @cardType, CardNumber = "+cardNo+", ExpirationDate = "+ExpireDate.ToString("MM/yyyy")+", CVV = "+CVV+" WHERE InvoiceID = " +getInvoiceID()+ "", con);
             cmd.Parameters.AddWithValue("@address", address);
             cmd.Parameters.AddWithValue("@cardType", cardType);
             cmd.ExecuteNonQuery();

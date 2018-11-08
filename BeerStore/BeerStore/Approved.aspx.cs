@@ -15,7 +15,13 @@ namespace BeerStore
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Request.IsSecureConnection)
+            {
+                string url =
+                    ConfigurationManager.AppSettings["SecurePath"] +
+                    "Approved.aspx";
+                Response.Redirect(url);
+            }
         }
 
         protected void btnHome_Click(object sender, EventArgs e)

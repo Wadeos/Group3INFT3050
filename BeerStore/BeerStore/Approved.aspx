@@ -6,12 +6,11 @@
         <div class="jumbotron">
             <h1>Payment Successful</h1>
             <p>Thank you for ordering from us.</p>
-            <p>Your order will arrive in 1-2 Business Days</p>
-            <p>Reference: <b>123001</b></p>
+            <p>Your order will arrive in 1-2 Business Days.</p>
         </div>
     </div>
     <div>
-        <asp:Button ID="Button1" runat="server" Text="Click To view Invoice" OnClick="displayInvoice_Click" />
+        <asp:Button ID="btnInvoice" runat="server" Text="Click To view Invoice" OnClick="displayInvoice_Click" />
             <asp:GridView ID="GridView1" runat="server" Visible="false"></asp:GridView>
         <asp:Label ID="errorlbl" runat="server"></asp:Label>
     </div>

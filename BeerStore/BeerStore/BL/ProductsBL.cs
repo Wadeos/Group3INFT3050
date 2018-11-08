@@ -76,7 +76,7 @@ namespace BeerStore.BL
             ProductsDAL Dal = new ProductsDAL();
             Dal.createInvoiceID();
         }
-        public void createInvoice(int userID, string address, string cardType, long cardNo, string ExpireDate, int CVV)
+        public void createInvoice(int userID, string address, string cardType, long cardNo, DateTime ExpireDate, int CVV)
         {
             ProductsDAL Dal = new ProductsDAL();
             Dal.createInvoice(userID, address, cardType, cardNo, ExpireDate, CVV);
