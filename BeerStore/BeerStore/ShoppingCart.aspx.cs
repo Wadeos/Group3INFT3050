@@ -12,7 +12,7 @@ namespace BeerStore
 {
     public partial class ShoppingCart : System.Web.UI.Page
     {
-        ProductsBL BL = new ProductsBL();
+        UserAccountBL BL = new UserAccountBL();
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -21,7 +21,7 @@ namespace BeerStore
                 DataTable dt = new DataTable();
                 int ProductID = Convert.ToInt16(Request.QueryString["id"]);
 
-
+                
                 if (Request.QueryString["id"] != null)
                 {
                     if (Session["AddItems"] == null)
