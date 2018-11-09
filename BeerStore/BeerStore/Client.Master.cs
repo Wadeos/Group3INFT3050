@@ -20,14 +20,14 @@ namespace BeerStore
             string secured = ConfigurationManager.AppSettings["securePath"];
 
             //unsecures/secures all links from navagation menu
-            defaultLink.NavigateUrl = unsecured + "Default.aspx";
-            aboutLink.NavigateUrl = unsecured + "About.aspx";
-            contactLink.NavigateUrl = unsecured + "Contact.aspx";
-            productsLink.NavigateUrl = unsecured + "Products.aspx";
-            manageLink.NavigateUrl = secured + "AdminManageItems.aspx";
-            manageAccountLink.NavigateUrl = secured + "AdminManageAccounts.aspx";
-            HyperLink8.NavigateUrl = secured + "PurchaseHistory.aspx";
-           HyperLink4.NavigateUrl = secured + "ShoppingCart.aspx";
+            defaultLink.NavigateUrl = unsecured + "UL/Default.aspx";
+            aboutLink.NavigateUrl = unsecured + "UL/About.aspx";
+            contactLink.NavigateUrl = unsecured + "UL/Contact.aspx";
+            productsLink.NavigateUrl = unsecured + "UL/Products.aspx";
+            manageLink.NavigateUrl = secured + "UL/AdminManageItems.aspx";
+            manageAccountLink.NavigateUrl = secured + "UL/AdminManageAccounts.aspx";
+            HyperLink8.NavigateUrl = secured + "UL/PurchaseHistory.aspx";
+           HyperLink4.NavigateUrl = secured + "UL/ShoppingCart.aspx";
 
             DataTable dt;
             dt = (DataTable)Session["AddItems"];
@@ -88,7 +88,7 @@ namespace BeerStore
         {
             Session.Abandon();
             string url = ConfigurationManager.AppSettings["UnsecurePath"]
-                + "Default.aspx";
+                + "UL/Default.aspx";
             Response.Redirect(url);
         }
     }

@@ -19,8 +19,8 @@
        <form id="form1" runat="server">
         <div class="container headermargin">
            <h1 class="leftalign"> Beer Store</h1> 
-           <asp:HyperLink ID="loginLink" runat="server" class="rightalign btn" NavigateUrl="~/Login.aspx">Login   <span class="glyphicon glyphicon-user"></span></asp:HyperLink>
-           <asp:HyperLink ID="RegisterLink" runat="server" class="rightalign btn" NavigateUrl="~/Register.aspx">Register   <span class="glyphicon glyphicon-log-in"></span></asp:HyperLink>
+           <asp:HyperLink ID="loginLink" runat="server" class="rightalign btn" NavigateUrl="UL/Login.aspx">Login   <span class="glyphicon glyphicon-user"></span></asp:HyperLink>
+           <asp:HyperLink ID="RegisterLink" runat="server" class="rightalign btn" NavigateUrl="UL/Register.aspx">Register   <span class="glyphicon glyphicon-log-in"></span></asp:HyperLink>
             <div class="rightalign"><span class="col-md-2 margintop"> Welcome <asp:Label id="emailtxt" runat="server"></asp:Label><br />
                 <asp:Button ID="logoutbtn" runat="server" class="btn-link" Text="Logout" OnClick="logoutbtn_Click" /></span></div> 
         </div>

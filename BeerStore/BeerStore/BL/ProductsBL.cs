@@ -22,11 +22,6 @@ namespace BeerStore.BL
             ProductsDAL Dal = new ProductsDAL();
             return Dal.getProductDetails(ProductID);
         }
-        public List<Classes.Product> getProducts()
-        {
-            ProductsDAL Dal = new ProductsDAL();
-            return Dal.getProducts();
-        }
         public double getProductPrice(int ProductID)
         {
             ProductsDAL Dal = new ProductsDAL();

@@ -68,29 +68,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AdminConfirm.aspx" />
-    <Content Include="AdminLogin.aspx" />
-    <Content Include="AdminManageAccounts.aspx" />
-    <Content Include="AdminManageItems.aspx" />
-    <Content Include="AdminRegister.aspx" />
-    <Content Include="AdminViewEmail.aspx" />
-    <Content Include="ConfirmPassword.aspx" />
+    <Content Include="UL\About.aspx" />
+    <Content Include="UL\AdminConfirm.aspx" />
+    <Content Include="UL\AdminLogin.aspx" />
+    <Content Include="UL\AdminManageAccounts.aspx" />
+    <Content Include="UL\AdminManageItems.aspx" />
+    <Content Include="UL\AdminPassChange.aspx" />
+    <Content Include="UL\AdminRegister.aspx" />
+    <Content Include="UL\AdminViewEmail.aspx" />
+    <Content Include="UL\ConfirmPassword.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Default.aspx" />
+    <Content Include="UL\Default.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Images\Carona.png" />
     <Content Include="Images\dry.png" />
     <Content Include="Images\loading.gif" />
     <Content Include="Images\new.PNG" />
     <Content Include="Images\old.PNG" />
-    <Content Include="Login.aspx" />
-    <Content Include="Logout.aspx" />
-    <Content Include="ProductDetails.aspx" />
-    <Content Include="Products.aspx" />
-    <Content Include="Register.aspx" />
+    <Content Include="UL\Login.aspx" />
+    <Content Include="UL\ProductDetails.aspx" />
+    <Content Include="UL\Products.aspx" />
+    <Content Include="UL\Register.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -99,64 +100,78 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Contact.aspx" />
-    <Content Include="Payment.aspx" />
-    <Content Include="PurchaseHistory.aspx" />
-    <Content Include="ShoppingCart.aspx" />
-    <Content Include="Confirmation.aspx" />
-    <Content Include="Approved.aspx" />
-    <Content Include="ContactConfirm.aspx" />
+    <Content Include="UL\Contact.aspx" />
+    <Content Include="UL\Payment.aspx" />
+    <Content Include="UL\PurchaseHistory.aspx" />
+    <Content Include="UL\ShoppingCart.aspx" />
+    <Content Include="UL\Confirmation.aspx" />
+    <Content Include="UL\Approved.aspx" />
+    <Content Include="UL\ContactConfirm.aspx" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
-    <Content Include="Search.aspx" />
+    <Content Include="UL\Search.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminConfirm.aspx.cs">
+    <Compile Include="UL\About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UL\About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UL\AdminConfirm.aspx.cs">
       <DependentUpon>AdminConfirm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminConfirm.aspx.designer.cs">
+    <Compile Include="UL\AdminConfirm.aspx.designer.cs">
       <DependentUpon>AdminConfirm.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AdminLogin.aspx.cs">
+    <Compile Include="UL\AdminLogin.aspx.cs">
       <DependentUpon>AdminLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminLogin.aspx.designer.cs">
+    <Compile Include="UL\AdminLogin.aspx.designer.cs">
       <DependentUpon>AdminLogin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AdminManageAccounts.aspx.cs">
+    <Compile Include="UL\AdminManageAccounts.aspx.cs">
       <DependentUpon>AdminManageAccounts.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminManageAccounts.aspx.designer.cs">
+    <Compile Include="UL\AdminManageAccounts.aspx.designer.cs">
       <DependentUpon>AdminManageAccounts.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AdminManageItems.aspx.cs">
+    <Compile Include="UL\AdminManageItems.aspx.cs">
       <DependentUpon>AdminManageItems.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminManageItems.aspx.designer.cs">
+    <Compile Include="UL\AdminManageItems.aspx.designer.cs">
       <DependentUpon>AdminManageItems.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AdminRegister.aspx.cs">
+    <Compile Include="UL\AdminPassChange.aspx.cs">
+      <DependentUpon>AdminPassChange.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UL\AdminPassChange.aspx.designer.cs">
+      <DependentUpon>AdminPassChange.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UL\AdminRegister.aspx.cs">
       <DependentUpon>AdminRegister.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminRegister.aspx.designer.cs">
+    <Compile Include="UL\AdminRegister.aspx.designer.cs">
       <DependentUpon>AdminRegister.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AdminViewEmail.aspx.cs">
+    <Compile Include="UL\AdminViewEmail.aspx.cs">
       <DependentUpon>AdminViewEmail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminViewEmail.aspx.designer.cs">
+    <Compile Include="UL\AdminViewEmail.aspx.designer.cs">
       <DependentUpon>AdminViewEmail.aspx</DependentUpon>
     </Compile>
     <Compile Include="BL\INFT3050PaymentFactory.cs" />
@@ -181,112 +196,105 @@
     <Compile Include="Client.Master.designer.cs">
       <DependentUpon>Client.Master</DependentUpon>
     </Compile>
-    <Compile Include="ConfirmPassword.aspx.cs">
+    <Compile Include="UL\ConfirmPassword.aspx.cs">
       <DependentUpon>ConfirmPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ConfirmPassword.aspx.designer.cs">
+    <Compile Include="UL\ConfirmPassword.aspx.designer.cs">
       <DependentUpon>ConfirmPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAL\ProductsDAL.cs" />
     <Compile Include="DAL\UsersDAL.cs" />
-    <Compile Include="Default.aspx.cs">
+    <Compile Include="UL\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
+    <Compile Include="UL\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Login.aspx.cs">
+    <Compile Include="UL\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Login.aspx.designer.cs">
+    <Compile Include="UL\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Logout.aspx.cs">
-      <DependentUpon>Logout.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Logout.aspx.designer.cs">
-      <DependentUpon>Logout.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProductDetails.aspx.cs">
+    <Compile Include="UL\ProductDetails.aspx.cs">
       <DependentUpon>ProductDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ProductDetails.aspx.designer.cs">
+    <Compile Include="UL\ProductDetails.aspx.designer.cs">
       <DependentUpon>ProductDetails.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Products.aspx.cs">
+    <Compile Include="UL\Products.aspx.cs">
       <DependentUpon>Products.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Products.aspx.designer.cs">
+    <Compile Include="UL\Products.aspx.designer.cs">
       <DependentUpon>Products.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Register.aspx.cs">
+    <Compile Include="UL\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Register.aspx.designer.cs">
+    <Compile Include="UL\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Search.aspx.cs">
+    <Compile Include="UL\Search.aspx.cs">
       <DependentUpon>Search.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Search.aspx.designer.cs">
+    <Compile Include="UL\Search.aspx.designer.cs">
       <DependentUpon>Search.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Contact.aspx.cs">
+    <Compile Include="UL\Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
+    <Compile Include="UL\Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Payment.aspx.cs">
+    <Compile Include="UL\Payment.aspx.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Payment.aspx.designer.cs">
+    <Compile Include="UL\Payment.aspx.designer.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PurchaseHistory.aspx.cs">
+    <Compile Include="UL\PurchaseHistory.aspx.cs">
       <DependentUpon>PurchaseHistory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PurchaseHistory.aspx.designer.cs">
+    <Compile Include="UL\PurchaseHistory.aspx.designer.cs">
       <DependentUpon>PurchaseHistory.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ShoppingCart.aspx.cs">
+    <Compile Include="UL\ShoppingCart.aspx.cs">
       <DependentUpon>ShoppingCart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ShoppingCart.aspx.designer.cs">
+    <Compile Include="UL\ShoppingCart.aspx.designer.cs">
       <DependentUpon>ShoppingCart.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Confirmation.aspx.cs">
+    <Compile Include="UL\Confirmation.aspx.cs">
       <DependentUpon>Confirmation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Confirmation.aspx.designer.cs">
+    <Compile Include="UL\Confirmation.aspx.designer.cs">
       <DependentUpon>Confirmation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Approved.aspx.cs">
+    <Compile Include="UL\Approved.aspx.cs">
       <DependentUpon>Approved.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Approved.aspx.designer.cs">
+    <Compile Include="UL\Approved.aspx.designer.cs">
       <DependentUpon>Approved.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ContactConfirm.aspx.cs">
+    <Compile Include="UL\ContactConfirm.aspx.cs">
       <DependentUpon>ContactConfirm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ContactConfirm.aspx.designer.cs">
+    <Compile Include="UL\ContactConfirm.aspx.designer.cs">
       <DependentUpon>ContactConfirm.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
