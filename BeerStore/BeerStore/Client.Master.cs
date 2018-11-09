@@ -13,7 +13,7 @@ namespace BeerStore
 {
     public partial class Client : System.Web.UI.MasterPage
     {
-        UserAccountBL BL = new UserAccountBL();
+        ProductsBL BL = new ProductsBL();
         protected void Page_Load(object sender, EventArgs e)
         {
             string unsecured = ConfigurationManager.AppSettings["UnsecurePath"];

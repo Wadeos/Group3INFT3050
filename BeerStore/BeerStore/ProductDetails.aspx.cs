@@ -13,7 +13,7 @@ namespace BeerStore
 {
     public partial class ProductDetails : System.Web.UI.Page
     {
-        UserAccountBL BL = new UserAccountBL();
+        ProductsBL BL = new ProductsBL();
         protected void Page_Load(object sender, EventArgs e)
         {
               if(!IsPostBack)

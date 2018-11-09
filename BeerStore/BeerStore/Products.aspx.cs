@@ -14,7 +14,7 @@ namespace BeerStore
 {
     public partial class Product : System.Web.UI.Page
     {
-        UserAccountBL BL = new UserAccountBL();
+        ProductsBL BL = new ProductsBL();
 
         protected void Page_Load(object sender, EventArgs e)
         {

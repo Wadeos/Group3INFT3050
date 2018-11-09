@@ -10,7 +10,7 @@ using System.ComponentModel;
 namespace BeerStore.BL
 {
     [DataObject(true)]
-    public class UserAccountBL
+    public class ProductsBL
     {
         //Passes data between UL and Data access layers
         public DataSet getData()
