@@ -45,10 +45,10 @@ namespace BeerStore.BL
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void insertProduct(string Name, string Brand, string imagefile, decimal price, string shortDescription, string longDescription)
+        public void insertProduct(int productID, string Name, string Brand, string imagefile, decimal price, string shortDescription, string longDescription)
         {
             ProductsDAL Dal = new ProductsDAL();
-            Dal.productInsert(Name,Brand,imagefile,price,shortDescription,longDescription);
+            Dal.productInsert(productID, Name,Brand,imagefile,price,shortDescription,longDescription);
         }
 
         public double getProductPrice(int ProductID)

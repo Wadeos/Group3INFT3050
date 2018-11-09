@@ -69,7 +69,7 @@ namespace BeerStore.DAL
             con.Open();
             SqlCommand cmd = new SqlCommand("SELECT * FROM Product", con);
             SqlDataReader reader = cmd.ExecuteReader();
-
+            //reads in the data and reutrns values to list
             while (reader.Read())
             {
                 Classes.Product p = new Classes.Product();
@@ -146,10 +146,12 @@ namespace BeerStore.DAL
             con.Close();
         }
 
-        public void productInsert(string Name, string Brand, string imagefile, decimal price, string shortDescription, string longDescription)
+        public void productInsert(int productID, string Name, string Brand, string imagefile, decimal price, string shortDescription, string longDescription)
         {
+            //Insert into Manage accounts using parameters
             con.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO Product (Name, Brand, ImageFile, Price, LongDescription) VALUES ( @Name, @Brand, @ImageFile, @Price, @LongDescription)", con);
+            SqlCommand cmd = new SqlCommand("INSERT INTO Product (ProductID, Name, Brand, ImageFile, Price, LongDescription) " +
+                "VALUES ("+productID+", @Name, @Brand, @ImageFile, @Price, @LongDescription)", con);
             cmd.Parameters.AddWithValue("@Name", Name);
             cmd.Parameters.AddWithValue("@Brand", Brand);
             cmd.Parameters.AddWithValue("@ImageFile", imagefile);
@@ -161,6 +163,7 @@ namespace BeerStore.DAL
        
         public DataTable displayCart()
         {
+            //Display products details along with cart details
             DataTable dt = new DataTable();
             con.Open();
             SqlCommand cmd = new SqlCommand("SELECT p.productID, p.Brand, p.Name, p.Price, s.ItemQuantity, s.SubTotal FROM Product p, ShoppingCart s, Invoice i" +
@@ -177,21 +180,27 @@ namespace BeerStore.DAL
             con.Open();
             SqlCommand cmdExists = new SqlCommand("SELECT COUNT(s.productID) FROM ShoppingCart s, Product p, Invoice i WHERE i.InvoiceID = s.InvoiceID AND s.InvoiceID = "+getInvoiceID()+" AND p.productID = @productID AND p.productID = s.productID", con);
             cmdExists.Parameters.AddWithValue("@productID", ProductID);
+            //If the record exists update the quantity 
             int Exists = (int)cmdExists.ExecuteScalar();
             if (Exists > 0)
             {
                 int quantity = getQuantity(ProductID) + 1;
                 setQuantity(ProductID, quantity);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE ShoppingCart s, Invoice i SET s.ItemQuantity = " + quantity + ", s.InvoiceID = "+getInvoiceID()+", s.SubTotal = "
-                    + (getProductPrice(ProductID) * getQuantity(ProductID)) + " WHERE i.InvoiceID = s.InvoiceID AND s.InvoiceID = "+getInvoiceID()+" s.productID = " + ProductID + "", con);
+                //gets subtotal by timesing price by quantity
+                SqlCommand cmd = new SqlCommand("UPDATE ShoppingCart s, Invoice i " +
+                    "SET s.ItemQuantity = " + quantity + ", s.InvoiceID = "+getInvoiceID()+", s.SubTotal = "
+                    + (getProductPrice(ProductID) * getQuantity(ProductID)) + " " +
+                    "WHERE i.InvoiceID = s.InvoiceID AND s.InvoiceID = "+getInvoiceID()+" s.productID = " + ProductID + "", con);
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
+            //if product doesn't exist insert into cart
             else {
                 SqlCommand cmd = new SqlCommand("INSERT INTO ShoppingCart VALUES ("+getInvoiceID()+" ," + ProductID + "," + getProductPrice(ProductID) + ",1)", con);
                 cmd.ExecuteNonQuery();
+                //must execute cmd before cmdTotal is there are no nulls
                 SqlCommand cmdTotal = new SqlCommand("UPDATE ShoppingCart SET SubTotal =" + (getProductPrice(ProductID) * getQuantity(ProductID)) + "WHERE productID = " + ProductID + "", con);
                 con.Open();
                 cmdTotal.ExecuteNonQuery();
@@ -200,6 +209,7 @@ namespace BeerStore.DAL
         }
         public void createInvoiceID()
         {
+            //creates when an item is added to an empty cart
             con.Open();
             int id = 0;
             SqlCommand cmdCount = new SqlCommand("SELECT MAX(InvoiceID) FROM Invoice", con);
@@ -211,7 +221,7 @@ namespace BeerStore.DAL
             {
                 id = Convert.ToInt32(cmdCount.ExecuteScalar()) + 1;
             }
-
+            //Adds just ID which then is updated when payment is complete
             SqlCommand cmd = new SqlCommand("INSERT INTO Invoice (InvoiceID) VALUES (" + id + ")", con);
             cmd.ExecuteNonQuery();
             con.Close();
@@ -226,6 +236,7 @@ namespace BeerStore.DAL
 
         public void createInvoice(int userID, string address, string cardType, long cardNo, DateTime ExpireDate, int CVV)
         {
+            //Updates Invoice from current user sesssion, adding details of that user
             con.Open();
             DateTime date = DateTime.Now;
             SqlCommand cmd = new SqlCommand("UPDATE Invoice SET userID = "+userID+", OrderDate = "+ DateTime.Now.ToString("dd/MM/yyyy") +",ShippingAddress = @address, " +
@@ -328,9 +339,10 @@ namespace BeerStore.DAL
         }
         public void removeCart()
         {
-            //Remvoes all from cart
+            //Remvoes all from cart from the current invoice
             con.Open();
-            SqlCommand cmd = new SqlCommand("DELETE FROM ShoppingCart", con);
+            SqlCommand cmd = new SqlCommand("DELETE FROM ShoppingCart s, Invoice i " +
+                "WHERE i.InvoiceID = s.InvoiceID AND s.Invoice = "+getInvoiceID()+"", con);
             cmd.ExecuteNonQuery();
             con.Close();
         }

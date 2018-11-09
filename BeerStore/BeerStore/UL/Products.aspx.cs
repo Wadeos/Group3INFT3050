@@ -37,12 +37,13 @@ namespace BeerStore.UL
         protected void searchbutton_Click(object sender, EventArgs e)
         {
             try {
+                //Display data via search bar text
                 Repeater1.DataSource = BL.search(searchBar.Text);
                 Repeater1.DataBind();
             }
             catch (Exception ex)
             {
-                errorlbl.Text = "Error : " + ex.Message;
+                errorlbl.Text = "Error try to seach products : " + ex.Message;
             }
         }
 
@@ -68,6 +69,7 @@ namespace BeerStore.UL
                 {
                     if (e.CommandName == "Add")
                     {
+                        //if user is not logged in
                         if(Session["UserID"] == null)
                         {
                             errorlbl.Text = "Please Sign-in to purchase products";
@@ -79,6 +81,7 @@ namespace BeerStore.UL
                     }
                     else
                     {
+                        //goes to page depending on the product ID
                         Response.Redirect("ProductDetails.aspx?id=" + e.CommandArgument.ToString());
                     }
                 }

@@ -6,8 +6,5 @@
          <h1>Welcome to Beer Store</h1>
           <h3> Welcome to Beer Store. Select from a wide range of Australian beers, wines and spirits </h3>
     </div>
-    <div>
-        <asp:GridView ID="GridView1" runat="server"></asp:GridView>
-    </div>
 </asp:Content>
 

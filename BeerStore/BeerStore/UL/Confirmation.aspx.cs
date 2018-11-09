@@ -20,6 +20,8 @@ namespace BeerStore.UL
         {
             if (!IsPostBack)
             {
+                GridView1.DataSource = Session["AddItems"];
+                GridView1.DataBind();
                 Button2.Visible = false;
             }
         }

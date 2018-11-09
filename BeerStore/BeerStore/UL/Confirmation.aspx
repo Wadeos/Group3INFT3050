@@ -12,9 +12,11 @@
                     confirm();
                     Button2.Visible = true;
                     Button1.Visible = false;
+                    GridView1.Visible = false;
 
                 }
             </script>
+            <asp:GridView ID="GridView1" runat="server" CssClass="table table-bordered table-striped table-condensed"></asp:GridView>
             <asp:ScriptManager ID="ScriptManager1" runat="server" />
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
@@ -26,7 +28,7 @@
             <asp:UpdateProgress ID="UpdateProgress1" runat="server">
                 <ProgressTemplate>
                     <asp:Label ID="Label1" runat="server" Text="Processing Payment Details...."></asp:Label> <br />
-                    <asp:Image ID="Image1" runat="server" ImageUrl="Images/loading.gif" />
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/loading.gif" />
                 </ProgressTemplate>
              </asp:UpdateProgress>
             <asp:UpdatePanel ID="UpdatePanel2" runat="server">

@@ -29,6 +29,7 @@ namespace BeerStore.UL
                 if (check == 1 && status == 1)
                 {
                     Session["AdminEmail"] = emailtxt.Text;
+                    Session["UserID"] = BL.getUserID(emailtxt.Text);
                     Response.Redirect("Default.aspx");
                 }
                 else

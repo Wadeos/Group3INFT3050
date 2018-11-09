@@ -75,10 +75,10 @@ namespace BeerStore.BL
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void insertUserAccount(string Email, string userPassword, string FirstName, string LastName, int PhoneNumber, string userAddress)
+        public void insertUserAccount(int id, string Email, string userPassword, string FirstName, string LastName, int PhoneNumber, string userAddress)
         {
             UsersDAL Dal = new UsersDAL();
-            Dal.userAccountInsert(Email, userPassword, FirstName, LastName, PhoneNumber, userAddress);
+            Dal.userAccountInsert(id, Email, userPassword, FirstName, LastName, PhoneNumber, userAddress);
         }
     }
 }

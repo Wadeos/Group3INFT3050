@@ -5,20 +5,59 @@
     <div>
     <h1>Manage User Accounts</h1>
         <!-- Adds data from user Accounts data class which then can be edited with the command fields -->
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource1"
-        CssClass="table table-bordered table-striped table-condensed"
-        OnPreRender="GridView1_PreRender">
+        </div>
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand" DataSourceID="ObjectDataSource1">
         <Columns>
-            <asp:BoundField DataField="userId" HeaderText="userId" SortExpression="userId" > <ItemStyle CssClass="col-xs-2" /> </asp:BoundField>
-            <asp:BoundField DataField="email" HeaderText="email" SortExpression="email"> <ItemStyle CssClass="col-xs-6" /> </asp:BoundField>
-            <asp:BoundField DataField="firstName" HeaderText="firstName" SortExpression="firstName" > <ItemStyle CssClass="col-xs-4" /></asp:BoundField>
-            <asp:BoundField DataField="lastName" HeaderText="lastName" SortExpression="lastName" ><ItemStyle CssClass="col-xs-4" /> </asp:BoundField>
-            <asp:BoundField DataField="phoneNumber" HeaderText="phoneNumber" SortExpression="phoneNumber" ><ItemStyle CssClass="col-xs-6" /> </asp:BoundField>
-            <asp:BoundField DataField="address" HeaderText="address" SortExpression="address" > <ItemStyle CssClass="col-xs-8" /> </asp:BoundField>
-            <asp:CommandField ButtonType="Button" ShowEditButton="True" CausesValidation="False" > <ItemStyle CssClass="col-xs-2" /> </asp:CommandField>
-            <asp:CommandField ButtonType="Button" ShowDeleteButton="True" CausesValidation="False" > <ItemStyle CssClass="col-xs-2" /> </asp:CommandField>
+            <asp:CommandField ShowEditButton="True" />
+            <asp:ButtonField CommandName="Delete" Text="Delete" />
+            <asp:BoundField DataField="userId" HeaderText="userId" SortExpression="userId" />
+            <asp:BoundField DataField="email" HeaderText="email" SortExpression="email" />
+            <asp:BoundField DataField="userPassword" HeaderText="userPassword" SortExpression="userPassword" />
+            <asp:BoundField DataField="firstName" HeaderText="firstName" SortExpression="firstName" />
+            <asp:BoundField DataField="lastName" HeaderText="lastName" SortExpression="lastName" />
+            <asp:BoundField DataField="phoneNumber" HeaderText="phoneNumber" SortExpression="phoneNumber" />
+            <asp:BoundField DataField="userAddress" HeaderText="userAddress" SortExpression="userAddress" />
         </Columns>
     </asp:GridView>
-    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetUserAccounts" TypeName="BeerStore.Classes.UserAccountData"></asp:ObjectDataSource>
-        </div>
+    <asp:Label ID="errorlbl2" runat="server"></asp:Label>
+    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="getUserDetails" TypeName="BeerStore.BL.UserAcountBL" UpdateMethod="updateUserAccount">
+        <UpdateParameters>
+            <asp:Parameter Name="userId" Type="Int32" />
+            <asp:Parameter Name="Email" Type="String" />
+            <asp:Parameter Name="userPassword" Type="String" />
+            <asp:Parameter Name="FirstName" Type="String" />
+            <asp:Parameter Name="LastName" Type="String" />
+            <asp:Parameter Name="PhoneNumber" Type="Int32" />
+            <asp:Parameter Name="userAddress" Type="String" />
+        </UpdateParameters>
+    </asp:ObjectDataSource>
+
+    <br />
+    <br />
+    <br />
+    <asp:Label ID="Label8" runat="server" Text="Create New User Account"></asp:Label>
+    <br />
+     <asp:Label ID="Label1" runat="server" Text="UserID:  "></asp:Label>
+    <asp:TextBox ID="UserID" runat="server" ></asp:TextBox>
+    <br />
+    <asp:Label ID="Label9" runat="server" Text="Email:  "></asp:Label>
+    <asp:TextBox ID="Email" runat="server" ></asp:TextBox>
+    <br />
+    <asp:Label ID="Label10" runat="server" Text="Password:  "></asp:Label>
+    <asp:TextBox ID="Password" runat="server" ></asp:TextBox>
+    <br />
+    <asp:Label ID="Label11" runat="server" Text="First Name:  "></asp:Label>
+    <asp:TextBox ID="FirstName" runat="server" ></asp:TextBox>
+    <br />
+    <asp:Label ID="Label12" runat="server" Text="Last Name:  "></asp:Label>
+    <asp:TextBox ID="LastName" runat="server" ></asp:TextBox>
+    <br />
+    <asp:Label ID="Label13" runat="server" Text="Phone Number:  "></asp:Label>
+    <asp:TextBox ID="PhoneNumber" runat="server" ></asp:TextBox>
+    <br />
+    <asp:Label ID="Label14" runat="server" Text="Address:  "></asp:Label>
+    <asp:TextBox ID="Address" runat="server" ></asp:TextBox>
+    <br />
+    <asp:Label ID="errorlbl" runat="server"></asp:Label>
+    <asp:Button ID="InsertButton" runat="server" Text="Create" OnClick="InsertButton_Click" />
 </asp:Content>

@@ -209,10 +209,10 @@ namespace BeerStore.DAL
             con.Close();
         }
 
-        public void userAccountInsert(string Email, string userPassword, string FirstName, string LastName, int PhoneNumber, string userAddress)
+        public void userAccountInsert(int id, string Email, string userPassword, string FirstName, string LastName, int PhoneNumber, string userAddress)
         {
             con.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO UserAccount (Email, userPassword, FirstName, LastName, PhoneNumber, userAddress) VALUES ( @Email, @userPassword, @FirstName, @LastName, @PhoneNumber, @userAddress)", con);
+            SqlCommand cmd = new SqlCommand("INSERT INTO UserAccount (userID, Email, userPassword, FirstName, LastName, PhoneNumber, userAddress) VALUES ("+id+", @Email, @userPassword, @FirstName, @LastName, @PhoneNumber, @userAddress)", con);
             cmd.Parameters.AddWithValue("@Email", Email);
             cmd.Parameters.AddWithValue("@userPassword", userPassword);
             cmd.Parameters.AddWithValue("@FirstName", FirstName);
