@@ -4,11 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using BeerStore.DAL;
-using System.ComponentModel;
 
 namespace BeerStore.BL
 {
-    [DataObject(true)]
+
     public class UserAcountBL
     {
         public void registerAccount(string email, string userPassword, string firstName, string lastName, int phoneNumber, string userAddress)
@@ -21,43 +20,35 @@ namespace BeerStore.BL
             UsersDAL DAL = new UsersDAL();
             return DAL.confirmLogin(email, password);
         }
-        public DataTable displayInvoice(int UserID)
+        public DataTable displayUserDetails(int userID)
         {
             UsersDAL DAL = new UsersDAL();
-            return DAL.DisplayInvoice(UserID);
+            return DAL.displayUserDetails(userID);
         }
         public int getUserID(string email)
         {
             UsersDAL DAL = new UsersDAL();
             return DAL.getUserID(email);
         }
-
-        [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Classes.UserAccount> getUserDetails()
+        public void updatePassword(string email, string password)
         {
             UsersDAL DAL = new UsersDAL();
-            return DAL.getAllUsersDetails();
+            DAL.updatePassword(email, password);
         }
-
-        [DataObjectMethod(DataObjectMethodType.Update)]
-        public void updateUserAccount(int userId, string Email, string userPassword, string FirstName, string LastName, int PhoneNumber, string userAddress)
+        public void makeAdmin(string email)
         {
-            UsersDAL Dal = new UsersDAL();
-            Dal.userAccountUpdate(userId,Email,userPassword,FirstName,LastName,PhoneNumber,userAddress);
+            UsersDAL DAL = new UsersDAL();
+            DAL.makeAdmin(email);
         }
-
-        [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void deleteUserAccount(int userId)
+        public string getAdminEmail()
         {
-            UsersDAL Dal = new UsersDAL();
-            Dal.userAccountDelete(userId);
+            UsersDAL DAL = new UsersDAL();
+            return DAL.getAdminEmail();
         }
-
-        [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void insertUserAccount(string Email, string userPassword, string FirstName, string LastName, int PhoneNumber, string userAddress)
+        public int getAdminStatus(string email)
         {
-            UsersDAL Dal = new UsersDAL();
-            Dal.userAccountInsert(Email,userPassword,FirstName,LastName,PhoneNumber,userAddress);
+            UsersDAL DAL = new UsersDAL();
+            return DAL.getAdminStatus(email);
         }
     }
 }

@@ -16,8 +16,8 @@
             <div class="form-inline">
                 <!--List of payment methods -->
                 <asp:RadioButtonList RepeatDirection="Horizontal" ID="rblPaymentMethod" runat="server">
-                    <asp:ListItem>&nbsp Visa&nbsp &nbsp </asp:ListItem>
-                    <asp:ListItem>&nbsp MasterCard</asp:ListItem>
+                    <asp:ListItem>Visa</asp:ListItem>
+                    <asp:ListItem>MasterCard</asp:ListItem>
                 </asp:RadioButtonList>
 
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorPaymentMethod" runat="server" 
@@ -45,51 +45,14 @@
         </div>
         <div class="form-group">
             <asp:label id="lblExpiryDate" runat="server">Expiry Date (MM/YYYY)</asp:label>
-            <div class="form-inline">           
-                <!-- List of months -->
-                <asp:DropDownList ID="ddlMonth" runat="server">
-                    <asp:ListItem Selected="True" Value="None">Select Month</asp:ListItem>
-                    <asp:ListItem Value="1">01</asp:ListItem>
-                    <asp:ListItem Value="2">02</asp:ListItem>
-                    <asp:ListItem Value="3">03</asp:ListItem>
-                    <asp:ListItem Value="4">04</asp:ListItem>
-                    <asp:ListItem Value="5">05</asp:ListItem>
-                    <asp:ListItem Value="6">06</asp:ListItem>
-                    <asp:ListItem Value="7">07</asp:ListItem>
-                    <asp:ListItem Value="8">08</asp:ListItem>
-                    <asp:ListItem Value="9">09</asp:ListItem>
-                    <asp:ListItem Value="10">10</asp:ListItem>
-                    <asp:ListItem Value="11">11</asp:ListItem>
-                    <asp:ListItem Value="12">12</asp:ListItem>
-                </asp:DropDownList>
-                <!-- Requires to select a month -->
-                <asp:RequiredFieldValidator ID="rfvMonth" runat="server" 
-                     ErrorMessage="Please Select Month." ControlToValidate="ddlMonth" 
-                     InitialValue="None"
-                     ForeColor="Red" Display="Dynamic">
-                </asp:RequiredFieldValidator>
-                <!-- List of years -->
-                <asp:DropDownList ID="ddlYear" runat="server">
-                    <asp:ListItem Selected="True" Value="None">Select Year</asp:ListItem>
-                    <asp:ListItem Value="1">2018</asp:ListItem>
-                    <asp:ListItem Value="2">2019</asp:ListItem>
-                    <asp:ListItem Value="3">2020</asp:ListItem>
-                    <asp:ListItem Value="4">2021</asp:ListItem>
-                    <asp:ListItem Value="5">2022</asp:ListItem>
-                    <asp:ListItem Value="6">2023</asp:ListItem>
-                    <asp:ListItem Value="7">2024</asp:ListItem>
-                    <asp:ListItem Value="8">2025</asp:ListItem>
-                    <asp:ListItem Value="9">2026</asp:ListItem>
-                    <asp:ListItem Value="10">2027</asp:ListItem>
-                    <asp:ListItem Value="11">2028</asp:ListItem>
-                    <asp:ListItem Value="12">2029</asp:ListItem>
-                </asp:DropDownList>
-                <!-- Requires to select year -->
-                <asp:RequiredFieldValidator ID="rfvYear" runat="server" 
-                     ErrorMessage="Please Select Year." ControlToValidate="ddlYear" 
-                     InitialValue="None"
-                     ForeColor="Red" Display="Dynamic">
-                </asp:RequiredFieldValidator>
+            <div class="form-inline">     
+                <asp:TextBox ID="txtExpiry" runat="server"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1"
+                    runat="server" ControlToValidate="txtExpiry"
+                    CssClass="text-danger" ValidationExpression="^((0[1-9])|(1[0-2]))\/((2009)|(20[1-2][0-9]))$"
+                    ErrorMessage="Must be (MM/YYYY)."
+                    ForeColor="Red" Diplay="Dynamic">                   
+                </asp:RegularExpressionValidator>
             </div>
         </div>
         <div class="form-group">
@@ -251,7 +214,6 @@
             </div>
         </div>
     <div>
-        <asp:Image ID="Image1" runat="server" ImageUrl="Images/loading.gif"/>
         <asp:Label ID="Label1" runat="server"></asp:Label>
     </div>
         <div class="form-group">

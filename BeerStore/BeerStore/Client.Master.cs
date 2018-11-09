@@ -27,7 +27,7 @@ namespace BeerStore
             manageLink.NavigateUrl = secured + "AdminManageItems.aspx";
             manageAccountLink.NavigateUrl = secured + "AdminManageAccounts.aspx";
             HyperLink8.NavigateUrl = secured + "PurchaseHistory.aspx";
-            HyperLink4.NavigateUrl = secured + "ShoppingCart.aspx";
+           HyperLink4.NavigateUrl = secured + "ShoppingCart.aspx";
 
             DataTable dt;
             dt = (DataTable)Session["AddItems"];

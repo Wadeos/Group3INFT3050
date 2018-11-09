@@ -21,22 +21,15 @@ namespace BeerStore.DAL
 
         public DataSet getData()
         {
-            try
+
+            if (con.State != ConnectionState.Open)
             {
-
-                if (con.State != ConnectionState.Open)
-                {
-                    con.Open();
-                }
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Product", con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(ds);
-                con.Close();
+                con.Open();
             }
-            catch(SqlException e){
-
-                Console.WriteLine("Error : " + e.Message);
-            }
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Product", con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(ds);
+            con.Close();
             return ds;
         }
 
@@ -45,7 +38,7 @@ namespace BeerStore.DAL
 
             if (con.State != ConnectionState.Open)
             {
-               con.Open();
+                con.Open();
             }
             SqlCommand cmd = new SqlCommand("SELECT * FROM Product WHERE productID = " + ProductID + "", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -181,17 +174,17 @@ namespace BeerStore.DAL
         public DataTable displayCart()
         {
             DataTable dt = new DataTable();
-                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT p.productID, p.Brand, p.Name, p.Price, s.ItemQuantity, s.SubTotal FROM Product p, ShoppingCart s" +
-                            " WHERE p.productID = s.productID", con);
-                SqlDataAdapter da = new SqlDataAdapter();
-                da.SelectCommand = cmd;
-                da.Fill(dt);
-                con.Close();
+            con.Open();
+            SqlCommand cmd = new SqlCommand("SELECT p.productID, p.Brand, p.Name, p.Price, s.ItemQuantity, s.SubTotal FROM Product p, ShoppingCart s" +
+                        " WHERE p.productID = s.productID", con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+            da.Fill(dt);
+            con.Close();
             return dt;
         }
 
-        public void addToCart(int InvoiceID, int ProductID, DataTable dt)
+        public void addToCart(int ProductID, DataTable dt)
         {
             con.Open();
             SqlCommand cmdExists = new SqlCommand("SELECT COUNT(s.productID) FROM ShoppingCart s, Product p WHERE p.productID = @productID AND p.productID = s.productID", con);
@@ -202,20 +195,67 @@ namespace BeerStore.DAL
                 int quantity = getQuantity(ProductID) + 1;
                 setQuantity(ProductID, quantity);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE ShoppingCart SET ItemQuantity = " + quantity + ", SubTotal = " 
-                    + (getProductPrice(ProductID) * getQuantity(ProductID)) +" WHERE productID = " + ProductID + "", con);
+                SqlCommand cmd = new SqlCommand("UPDATE ShoppingCart SET ItemQuantity = " + quantity + ", SubTotal = "
+                    + (getProductPrice(ProductID) * getQuantity(ProductID)) + " WHERE productID = " + ProductID + "", con);
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
             else {
-                SqlCommand cmd = new SqlCommand("INSERT INTO ShoppingCart VALUES (" + InvoiceID + "," + ProductID + "," + getProductPrice(ProductID) + ",1)", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO ShoppingCart VALUES (1 ," + ProductID + "," + getProductPrice(ProductID) + ",1)", con);
                 cmd.ExecuteNonQuery();
-                SqlCommand cmdTotal = new SqlCommand("UPDATE ShoppingCart SET SubTotal =" + (getProductPrice(ProductID) * getQuantity(ProductID))+ "WHERE productID = "+ProductID+"", con);
+                SqlCommand cmdTotal = new SqlCommand("UPDATE ShoppingCart SET SubTotal =" + (getProductPrice(ProductID) * getQuantity(ProductID)) + "WHERE productID = " + ProductID + "", con);
                 con.Open();
                 cmdTotal.ExecuteNonQuery();
-                con.Close();   
+                con.Close();
             }
+        }
+        public void createInvoiceID()
+        {
+            con.Open();
+            int id = 0;
+            SqlCommand cmdCount = new SqlCommand("SELECT MAX(InvoiceID) FROM Invoice", con);
+            if (cmdCount.ExecuteScalar() is DBNull)
+            {
+                id = 1;
+            }
+            else
+            {
+                id = Convert.ToInt32(cmdCount.ExecuteScalar()) + 1;
+            }
+
+            SqlCommand cmd = new SqlCommand("INSERT INTO Invoice (InvoiceID) VALUES (" + id + ")", con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public int getInvoiceID()
+        {
+            SqlCommand cmd = new SqlCommand("SELECT MAX(InvoiceID) FROM Invoice", con);
+            int ID = Convert.ToInt32(cmd.ExecuteScalar());
+            return ID;
+        }
+
+        public void createInvoice(int userID, string address, string cardType, long cardNo, DateTime ExpireDate, int CVV)
+        {
+            con.Open();
+            DateTime date = DateTime.Now;
+            SqlCommand cmd = new SqlCommand("UPDATE Invoice SET userID = "+userID+", OrderDate = "+ DateTime.Now.ToString("dd/MM/yyyy") +",ShippingAddress = @address, " +
+                "CreditCardType = @cardType, CardNumber = "+cardNo+", ExpirationDate = "+ExpireDate.ToString("MM/yyyy")+", CVV = "+CVV+" WHERE InvoiceID = " +getInvoiceID()+ "", con);
+            cmd.Parameters.AddWithValue("@address", address);
+            cmd.Parameters.AddWithValue("@cardType", cardType);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
+        public DataTable displayInvoice(int userID)
+        {
+            DataTable dt = new DataTable();
+            SqlCommand cmd = new SqlCommand("SELECT p.Brand, p.Name, s.ItemQuantity, s.SubTotal, i.ShippingAddress, i.OrderDate" +
+                " FROM Invoice i, ShoppingCart s, Product p, UserAccount u WHERE s.InvoiceID = i.InvoiceID AND u.userID = " + userID + " AND p.ProductID = s.ProductID", con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            da.SelectCommand = cmd;
+            da.Fill(dt);
+            return dt;
         }
 
         public int getQuantity(int ProductID)
@@ -302,6 +342,30 @@ namespace BeerStore.DAL
             SqlCommand cmd = new SqlCommand("DELETE FROM ShoppingCart WHERE productID = "+ProductID+"", con);
             cmd.ExecuteNonQuery();
             con.Close();
+        }
+        public DataTable viewPurchaseHistory(int userID)
+        {
+            //If Invoice has been created from current user, display history
+            //Otherwise If count is null return empty table
+            con.Open();
+            DataTable dt = new DataTable();
+            SqlCommand cmdCount = new SqlCommand("SELECT COUNT(i.userId) FROM UserAccount u, Invoice i WHERE u.userId ="+userID+"", con);
+            if (cmdCount.ExecuteScalar() is DBNull)
+            {
+                con.Close();
+                return dt;
+            }
+            else
+            {
+                SqlCommand cmd = new SqlCommand("SELECT p.Brand, p.Name, s.ItemQuantity, s.SubTotal, i.OrderDate " +
+                    "FROM ShoppingCart s, Invoice i, Product p, UserAccount u " +
+                    "WHERE i.userID = u.userID AND p.productID = s.productID AND i.userID = " + userID + "", con);
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+                con.Close();
+                return dt;
+            }
         }
     }
 }

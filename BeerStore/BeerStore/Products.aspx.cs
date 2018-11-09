@@ -29,7 +29,7 @@ namespace BeerStore
                 }
                 catch (Exception ex)
                 {
-                    errorlbl.Text = "Error : " + ex.Message;
+                    errorlbl.Text = "Cannot Display products  : " + ex.Message;
                 }
             }
         }
@@ -68,7 +68,14 @@ namespace BeerStore
                 {
                     if (e.CommandName == "Add")
                     {
-                        Response.Redirect(ConfigurationManager.AppSettings["SecurePath"] + "ShoppingCart.aspx?id=" + e.CommandArgument.ToString());
+                        if(Session["UserID"] == null)
+                        {
+                            errorlbl.Text = "Please Sign-in to purchase products";
+                        }
+                        else
+                        {
+                            Response.Redirect(ConfigurationManager.AppSettings["SecurePath"] + "ShoppingCart.aspx?id=" + e.CommandArgument.ToString());
+                        }
                     }
                     else
                     {

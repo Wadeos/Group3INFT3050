@@ -10,6 +10,7 @@
         </div>
         <hr />
     </div>
+    <asp:Panel ID="SearchBox" runat="server" DefaultButton="loginButton">
     <div class="form-group">
         <asp:label id="lblemail" runat="server"> E-mail: </asp:label>
         <div class="form-inline">
@@ -38,6 +39,8 @@
     <div class="form-group">
         <asp:Button ID="loginButton" runat="server" Text="Login" OnClick="loginButton_Click" CssClass="btn btn-primary"/>
     </div>
+        <asp:Button ID="Button2" runat="server" CssClass="btn-link" Text="Forgot Password? Click here" OnClick="redirectConfirm_Click" CausesValidation="false" />
+    </asp:Panel>
     <div>
         <asp:ValidationSummary ID="validsummary" runat="server"  ForeColor="Red" HeaderText="Please fix errors below:" />
     </div>

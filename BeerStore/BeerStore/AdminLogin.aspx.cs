@@ -14,13 +14,14 @@ namespace BeerStore
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void loginButton_Click(object sender, EventArgs e)
         {
             int check = BL.confirmLogin(emailtxt.Text, passwordtxt.Text);
-            if (check == 1)
+            int status = BL.getAdminStatus(emailtxt.Text);
+            if (check == 1 && status == 1)
             {
                 Session["AdminEmail"] = emailtxt.Text;
                 Response.Redirect("Default.aspx");
