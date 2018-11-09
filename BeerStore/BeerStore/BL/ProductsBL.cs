@@ -5,10 +5,11 @@ using System.Web;
 using System.Data;
 using BeerStore.DAL;
 using System.Web.SessionState;
+using System.ComponentModel;
 
 namespace BeerStore.BL
 {
-
+    [DataObject(true)]
     public class ProductsBL
     {
         //Passes data between UL and Data access layers
@@ -22,6 +23,34 @@ namespace BeerStore.BL
             ProductsDAL Dal = new ProductsDAL();
             return Dal.getProductDetails(ProductID);
         }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public List<Classes.Product> getAllProducts()
+        {
+            ProductsDAL Dal = new ProductsDAL();
+            return Dal.getAllProductsDetails();
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Update)]
+        public void updateProduct(int productID, string Name, string Brand, string imagefile, decimal price, string shortDescription, string longDescription)
+        {
+            ProductsDAL Dal = new ProductsDAL();
+            Dal.productUpdate(productID, Name, Brand, imagefile, price, shortDescription, longDescription);
+        }
+        [DataObjectMethod(DataObjectMethodType.Delete)]
+        public void deleteProduct(int productID)
+        {
+            ProductsDAL Dal = new ProductsDAL();
+           Dal.productDelete(productID);
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Insert)]
+        public void insertProduct(string Name, string Brand, string imagefile, decimal price, string shortDescription, string longDescription)
+        {
+            ProductsDAL Dal = new ProductsDAL();
+            Dal.productInsert(Name,Brand,imagefile,price,shortDescription,longDescription);
+        }
+
         public double getProductPrice(int ProductID)
         {
             ProductsDAL Dal = new ProductsDAL();

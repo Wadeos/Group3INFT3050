@@ -20,6 +20,7 @@ namespace BeerStore.UL
             {
 
                 DataTable dt = new DataTable();
+                //gets ID from specific product picked using request query
                 int ProductID = Convert.ToInt16(Request.QueryString["id"]);
 
 
@@ -27,22 +28,21 @@ namespace BeerStore.UL
                 {
                     if (Session["AddItems"] == null)
                     {
-                        try
-                        {
+                            //Adds invoice to ID
                             BL.createInvoiceID();
+                            //Add to cart via productID and dt
                             BL.addToCart(ProductID, dt);
+
                             BL.displayCart();
+
                             Gridview1.DataSource = BL.displayCart();
                             Gridview1.DataBind();
+
+                            //creates session from products
                             Session["AddItems"] = BL.displayCart();
                             dt = (DataTable)Session["AddItems"];
                             Label2.Text = BL.getSum();
                             Session["Sum"] = Label2.Text;
-                        }
-                        catch (Exception ex)
-                        {
-                            Label1.Text = "Could Not add to cart" + ex.Message;
-                        }
                     }
                     else {
                         try
@@ -50,10 +50,13 @@ namespace BeerStore.UL
                             dt = (DataTable)Session["AddItems"];
                             BL.addToCart(ProductID, dt);
                             BL.displayCart();
+
                             Gridview1.DataSource = BL.displayCart();
                             Gridview1.DataBind();
+
                             Session["AddItems"] = dt;
                             dt = (DataTable)Session["AddItems"];
+
                             Label2.Text = BL.getSum();
                             Session["Sum"] = Label2.Text;
                         }
@@ -66,10 +69,18 @@ namespace BeerStore.UL
                 else {
                     try
                     {
+                        //Displays current cart when entering shopping cart
                         dt = (DataTable)Session["AddItems"];
                         Gridview1.DataSource = dt;
                         Gridview1.DataBind();
-                        Label2.Text = Session["Sum"].ToString();
+                        if (Session["Sum"] == null)
+                        {
+                            Label2.Text = 0.ToString();
+                        }
+                        else
+                        {
+                            Label2.Text = Session["Sum"].ToString();
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -92,6 +103,7 @@ namespace BeerStore.UL
         {
             try
             {
+                //remove cart and session from items
                 BL.removeCart();
                 Session.Contents.Remove("AddItems");
                 Response.Redirect(ConfigurationManager.AppSettings["securePath"] + "UL/ShoppingCart.aspx");

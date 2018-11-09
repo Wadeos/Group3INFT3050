@@ -22,7 +22,7 @@ namespace BeerStore
                 DataTable dt = new DataTable();
                 int ProductID = Convert.ToInt16(Request.QueryString["id"]);
 
-
+                
                 if (Request.QueryString["id"] != null)
                 {
                     if (Session["AddItems"] == null)

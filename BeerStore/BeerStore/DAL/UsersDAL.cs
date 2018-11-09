@@ -143,5 +143,84 @@ namespace BeerStore.DAL
             return count;
 
         }
+        List<Classes.UserAccount> List = new List<Classes.UserAccount>();
+        public List<UserAccount> getAllUsersDetails()
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM UserAccount", con);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                UserAccount user = new UserAccount();
+                user.userId = (int)reader["userId"];
+                user.email = (string)reader["Email"];
+                user.userPassword = (string)reader["UserPassword"];
+                user.firstName = (string)reader["FirstName"];
+                user.lastName = (string)reader["LastName"];
+                user.phoneNumber = (int)reader["PhoneNumber"];
+                user.userAddress = (string)reader["userAddress"];
+                List.Add(user);
+            }
+            con.Close();
+            return List;
+
+        }
+
+        public void userAccountUpdate(int userId, string Email, string userPassword, string FirstName, string LastName, int PhoneNumber, string userAddress)
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
+            {
+                string sql = "UPDATE UserAccount SET Email = @Email, "
+                    + "userPassword = @userPassword, "
+                    + "FirstName = @FirstName, "
+                    + "LastName = @LastName, "
+                    + "PhoneNumber = @PhoneNumber, "
+                    + "userAddress = @userAddress "
+                    + "WHERE userId = @userId";
+
+                SqlCommand cmd = new SqlCommand(sql, con);
+
+                SqlParameter paramID = new SqlParameter("@userId", userId);
+                cmd.Parameters.Add(paramID);
+                SqlParameter paramEmail = new SqlParameter("@Email", Email);
+                cmd.Parameters.Add(paramEmail);
+                SqlParameter paramPassword = new SqlParameter("@userPassword", userPassword);
+                cmd.Parameters.Add(paramPassword);
+                SqlParameter paramFirst = new SqlParameter("@FirstName", FirstName);
+                cmd.Parameters.Add(paramFirst);
+                SqlParameter paramLast = new SqlParameter("@LastName", LastName);
+                cmd.Parameters.Add(paramLast);
+                SqlParameter paramPhone = new SqlParameter("@PhoneNumber", PhoneNumber);
+                cmd.Parameters.Add(paramPhone);
+                SqlParameter paramAddress = new SqlParameter("@userAddress", userAddress);
+                cmd.Parameters.Add(paramAddress);
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void userAccountDelete(int userId)
+        {
+
+            con.Open();
+            SqlCommand cmd = new SqlCommand("DELETE FROM UserAccount WHERE userId = " + userId + "", con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
+        public void userAccountInsert(string Email, string userPassword, string FirstName, string LastName, int PhoneNumber, string userAddress)
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("INSERT INTO UserAccount (Email, userPassword, FirstName, LastName, PhoneNumber, userAddress) VALUES ( @Email, @userPassword, @FirstName, @LastName, @PhoneNumber, @userAddress)", con);
+            cmd.Parameters.AddWithValue("@Email", Email);
+            cmd.Parameters.AddWithValue("@userPassword", userPassword);
+            cmd.Parameters.AddWithValue("@FirstName", FirstName);
+            cmd.Parameters.AddWithValue("@LastName", LastName);
+            cmd.Parameters.AddWithValue("@PhoneNumber", PhoneNumber);
+            cmd.Parameters.AddWithValue("@userAddress", userAddress);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
     }
 }
