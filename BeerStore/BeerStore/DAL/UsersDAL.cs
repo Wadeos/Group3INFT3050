@@ -78,7 +78,9 @@ namespace BeerStore.DAL
             con.Open();
             DataTable dt = new DataTable();
 
-            SqlCommand cmd = new SqlCommand("SELECT u.FirstName, u.LastName, u.Email, i.ShippingAddress FROM UserAccount u, Invoice i WHERE u.userID = i.userID AND u.userID = "+userID+"", con);
+            SqlCommand cmd = new SqlCommand("SELECT u.FirstName, u.LastName, u.Email, i.ShippingAddress" +
+                " FROM UserAccount u, Invoice i " +
+                "WHERE i.InvoiceID = s.InvoiceID AND s.InvoiceID = u.userID = i.userID AND u.userID = "+userID+"", con);
             SqlDataAdapter da = new SqlDataAdapter();
 
             da.SelectCommand = cmd;
@@ -149,7 +151,7 @@ namespace BeerStore.DAL
             con.Open();
             SqlCommand cmd = new SqlCommand("SELECT * FROM UserAccount", con);
             SqlDataReader reader = cmd.ExecuteReader();
-
+            //return list of all users
             while (reader.Read())
             {
                 UserAccount user = new UserAccount();
@@ -169,6 +171,7 @@ namespace BeerStore.DAL
 
         public void userAccountUpdate(int userId, string Email, string userPassword, string FirstName, string LastName, int PhoneNumber, string userAddress)
         {
+            //uses parameters to update account table
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
                 string sql = "UPDATE UserAccount SET Email = @Email, "
