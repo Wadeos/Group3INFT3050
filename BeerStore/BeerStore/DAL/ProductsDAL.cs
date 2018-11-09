@@ -7,10 +7,11 @@ using System.Data;
 using System.Data.SqlClient;
 using BeerStore.Classes;
 using System.Web.SessionState;
-
+using System.ComponentModel;
+using System.Web.UI;
 namespace BeerStore.DAL
 {
-
+    [DataObject(true)]
     public class ProductsDAL
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
@@ -81,6 +82,102 @@ namespace BeerStore.DAL
             reader.Close();
             return p.price;
         }
+
+        public List<Classes.Product> getAllProductsDetails()
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Product", con);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Classes.Product p = new Classes.Product();
+                p.productID = (int)reader["ProductID"];
+                p.Name = (string)reader["Name"];
+                p.Brand = (string)reader["Brand"];
+                p.imagefile = (string)reader["ImageFile"];
+                p.price = Convert.ToDouble(reader["Price"]);
+                p.longDescription = (string)reader["LongDescription"];
+                List.Add(p);
+            }
+            con.Close();
+            return List;
+
+        }
+        [DataObjectMethod(DataObjectMethodType.Update)]
+        public void productUpdate(int productID, string Name, string Brand, string imagefile, decimal price, string shortDescription, string longDescription)
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
+            {
+                string sql = "UPDATE Product SET Name = @Name, "
+                    + "Brand = @Brand, "
+                    + "ImageFile = @imagefile, "
+                    + "Price = @price, "
+                    + "LongDescription = @longDescription "
+                    + "WHERE ProductID = @productID";
+                
+                SqlCommand cmd = new SqlCommand(sql, con);
+                try
+                {
+                    SqlParameter paramID = new SqlParameter("@productID", productID);
+                    cmd.Parameters.Add(paramID);
+                }
+                catch(Exception)
+                {
+                    
+                }
+                    SqlParameter paramName = new SqlParameter("@Name", Name);
+                    cmd.Parameters.Add(paramName);
+                    SqlParameter paramBrand = new SqlParameter("@Brand", Brand);
+                    cmd.Parameters.Add(paramBrand);
+                    SqlParameter paramImage = new SqlParameter("@imagefile", imagefile);
+                    cmd.Parameters.Add(paramImage);
+                    SqlParameter paramPrice = new SqlParameter("@price", price);
+                    cmd.Parameters.Add(paramPrice);
+                    SqlParameter paramLong = new SqlParameter("@longDescription", longDescription);
+                    cmd.Parameters.Add(paramLong);
+                
+
+                
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+        [DataObjectMethod(DataObjectMethodType.Delete)]
+        public void productDelete(int productID)
+        {
+            /*
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
+            {
+                string sql = "DELETE FROM Product WHERE ProductID = @productID";
+
+                SqlCommand cmd = new SqlCommand(sql, con);
+                SqlParameter paramID = new SqlParameter("@productID", productID);
+                
+                cmd.Parameters.Add(paramID);
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }*/
+
+            con.Open();
+            SqlCommand cmd = new SqlCommand("DELETE FROM Product WHERE ProductID = " + productID + "", con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
+        public void productInsert(string Name, string Brand, string imagefile, decimal price, string shortDescription, string longDescription)
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("INSERT INTO Product (Name, Brand, ImageFile, Price, LongDescription) VALUES ( @Name, @Brand, @ImageFile, @Price, @LongDescription)", con);
+            cmd.Parameters.AddWithValue("@Name", Name);
+            cmd.Parameters.AddWithValue("@Brand", Brand);
+            cmd.Parameters.AddWithValue("@ImageFile", imagefile);
+            cmd.Parameters.AddWithValue("@Price", price);
+            cmd.Parameters.AddWithValue("@LongDescription", longDescription);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+       
         public DataTable displayCart()
         {
             DataTable dt = new DataTable();
