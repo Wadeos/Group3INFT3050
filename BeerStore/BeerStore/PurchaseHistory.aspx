@@ -9,7 +9,7 @@
     </div>
     <br />
     <div>
-        <asp:GridView ID="GridView1" runat="server">
+        <asp:GridView ID="GridView1" runat="server" CssClass="table table-bordered table-striped table-condensed" AllowSorting="True">
         </asp:GridView>
     </div>
 </asp:Content>
